@@ -1,0 +1,12 @@
+lib
+esm
+cjs
+dist
+build
+public
+*.d.ts
+*.js
+*.cjs
+*.mjs
+coverage
+.cache
