@@ -8,7 +8,8 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended-type-checked',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'plugin:@pandacss/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -26,7 +27,6 @@ module.exports = {
     browser: true,
     node: true
   },
-  plugins: ['prettier'],
   rules: {
     '@typescript-eslint/no-unsafe-function-type': 'off',
     'prettier/prettier': [

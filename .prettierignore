@@ -1,0 +1,9 @@
+node_modules
+dist
+build
+coverage
+lib
+esm
+cjs
+pnpm-lock.yaml
+.cache

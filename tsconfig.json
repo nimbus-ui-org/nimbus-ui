@@ -20,5 +20,6 @@
       "@nimbus-ui/styled-system": ["./packages/styled-system/src"],
       "@nimbus-ui/styled-system/*": ["./packages/styled-system/src/*"]
     }
-  }
+  },
+  "exclude": ["postcss.config.cjs"]
 }
