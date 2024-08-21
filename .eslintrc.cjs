@@ -27,9 +27,6 @@ module.exports = {
     node: true
   },
   plugins: ['prettier'],
-  globals: {
-    process: true
-  },
   rules: {
     '@typescript-eslint/no-unsafe-function-type': 'off',
     'prettier/prettier': [
