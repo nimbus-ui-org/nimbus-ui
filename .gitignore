@@ -11,3 +11,10 @@ build
 cjs
 esm
 lib
+
+## Panda
+styled-system
+!/packages/styled-system
+/packages/styled-system/**/*
+!/packages/styled-system/package.json
+styled-system-studio

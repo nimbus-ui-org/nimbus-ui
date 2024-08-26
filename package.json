@@ -19,6 +19,7 @@
     "@pandacss/dev": "^0.45.1",
     "@pandacss/eslint-plugin": "^0.1.9",
     "@types/eslint": "^8.56.11",
+    "@types/node": "^22.5.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^8.2.0",
@@ -41,5 +42,5 @@
     "node": ">=20.x",
     "pnpm": ">=9.x"
   },
-  "packageManager": "pnpm@9.7.1"
+  "packageManager": "pnpm@9.8.0"
 }

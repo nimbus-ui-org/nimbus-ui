@@ -1,0 +1,45 @@
+{
+  "name": "@nimbus-ui/core",
+  "version": "1.0.0",
+  "description": "Modern, performant, and accessible React Components",
+  "author": "moja",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nimbus-ui-org/nimbus-ui.git",
+    "directory": "/packages/core"
+  },
+  "keywords": [
+    "components",
+    "design",
+    "design-system",
+    "frontend",
+    "library",
+    "react",
+    "ui",
+    "ui-kit"
+  ],
+  "files": [
+    "esm",
+    "cjs",
+    "lib",
+    "panda"
+  ],
+  "scripts": {
+    "prepare": "panda codegen",
+    "ship": "panda ship -o panda/panda.buildinfo.json",
+    "postbuild": "ship"
+  },
+  "dependencies": {
+    "react-aria-components": "^1.3.3"
+  },
+  "devDependencies": {
+    "@nimbus-ui/styled-system": "workspace:*",
+    "@pandacss/dev": "^0.45.1",
+    "react": "^18.3.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
