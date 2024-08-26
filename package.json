@@ -9,11 +9,14 @@
     "url": "https://github.com/nimbus-ui-org/nimbus-ui.git"
   },
   "scripts": {
+    "build": "turbo build",
     "lint": "eslint -c .eslintrc.cjs --ext .js,.ts,.jsx,.tsx . --max-warnings=0",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
+    "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky"
+    "prepare": "husky",
+    "panda:pkg": "pnpm --filter @nimbus-ui/core prepare"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.45.1",
@@ -36,11 +39,12 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tsup": "^8.2.4",
+    "turbo": "^2.0.14",
     "typescript": "^5.5.4"
   },
   "engines": {
     "node": ">=20.x",
     "pnpm": ">=9.x"
   },
-  "packageManager": "pnpm@9.8.0"
+  "packageManager": "pnpm@9.9.0"
 }

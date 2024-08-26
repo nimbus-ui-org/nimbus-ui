@@ -1,6 +1,7 @@
 {
   "name": "@nimbus-ui/styled-system",
   "version": "1.0.0",
+  "sideEffects": false,
   "exports": {
     "./css": {
       "types": "./css/index.d.ts",

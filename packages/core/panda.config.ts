@@ -12,6 +12,8 @@ export default defineConfig({
     extend: {}
   },
 
+  clean: true,
+
   jsxFramework: 'react',
 
   // The output directory for your css system

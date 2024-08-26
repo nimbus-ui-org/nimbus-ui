@@ -11,6 +11,7 @@ build
 cjs
 esm
 lib
+panda-info
 
 ## Panda
 styled-system
@@ -18,3 +19,6 @@ styled-system
 /packages/styled-system/**/*
 !/packages/styled-system/package.json
 styled-system-studio
+
+## Other
+.turbo

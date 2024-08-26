@@ -8,5 +8,6 @@ public
 *.js
 *.cjs
 *.mjs
+.turbo
 coverage
 .cache
