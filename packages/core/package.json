@@ -58,13 +58,15 @@
     "postbuild": "pnpm ship",
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
+  "dependencies": {
+    "react-aria-components": "1.3.3"
+  },
   "devDependencies": {
     "@nimbus-ui/styled-system": "workspace:*",
-    "react": "^18.3.1",
-    "react-aria-components": "1.3.3"
+    "react": "^18.3.1"
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-aria-components": "^1.3.3"
+    "react-dom": "^18.2.0"
   }
 }

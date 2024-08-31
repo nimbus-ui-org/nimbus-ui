@@ -1,5 +1,10 @@
 {
   "extends": "../tsconfig.json",
-  "include": ["src", "vite.config.ts", "panda.config.ts", "styled-system"],
-  "exclude": ["**/*.mjs"]
+  "compilerOptions": {
+    "allowJs": false,
+    "paths": {
+      "@nimbus-ui/styled-system/*": ["./styled-system/*"]
+    }
+  },
+  "include": ["src", "vite.config.ts", "panda.config.ts", "styled-system"]
 }

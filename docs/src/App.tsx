@@ -1,6 +1,6 @@
-import { css } from '@docs/styled-system/css'
-import { Stack } from '@docs/styled-system/jsx'
 import { Button } from '@nimbus-ui/core'
+import { css } from '@nimbus-ui/styled-system/css'
+import { Stack } from '@nimbus-ui/styled-system/jsx'
 
 function App() {
   return (

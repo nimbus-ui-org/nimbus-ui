@@ -1,5 +1,4 @@
-import { defineConfig } from 'tsup'
-import type { Options } from 'tsup'
+import { defineConfig, type Options } from 'tsup'
 
 const bundlerOptions: Options = {
   banner: { js: '"use client";' }, // add this on top of every UI component since they are customizable with props
