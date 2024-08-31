@@ -1,7 +1,22 @@
-import { Button as AriaButton } from 'react-aria-components'
-import type { ButtonProps } from 'react-aria-components'
-import { css } from '@nimbus-ui/styled-system/css'
+import { ButtonBase, type ButtonBasePropsWithRef } from '@components/ButtonBase'
+import { forwardRef } from 'react'
 
-export const Button = (props: ButtonProps) => {
-  return <AriaButton className={css({ fontSize: 'large' })} {...props}></AriaButton>
+interface Props {
+  color: 'white' | 'black'
 }
+
+type ButtonProps = ButtonBasePropsWithRef & Props
+
+// all components that rely on ButtonBaseProps need to have explicit type definitions.
+// check ButtonBase implementation for more details.
+export const Button: React.FC<ButtonProps> = forwardRef(
+  ({ children, color, ...props }: ButtonProps, ref) => {
+    return (
+      <ButtonBase ref={ref} {...props}>
+        {children as React.ReactNode}
+      </ButtonBase>
+    )
+  }
+)
+
+Button.displayName = 'NimbusUI_Button'

@@ -6,7 +6,6 @@
     "lib": ["DOM", "ESNext"],
     "target": "ESNext",
     "module": "ESNext",
-    "moduleDetection": "force",
     "allowJs": true,
 
     // bundling
@@ -20,13 +19,13 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "strict": true,
-    "skipLibCheck": true
-    // "paths": {
-    //   "@nimbus-ui/core": ["./packages/core/src"],
-    //   "@nimbus-ui/core/*": ["./packages/core/src/*"],
-    //   "@nimbus-ui/hooks": ["./packages/hooks/src"],
-    //   "@nimbus-ui/hooks/*": ["./packages/hooks/src/*"]
-    // }
+    "skipLibCheck": true,
+    "paths": {
+      "@docs/*": ["./docs/src/*"],
+      "@docs/styled-system/*": ["./docs/styled-system/*"],
+      "@nimbus/core/*": ["./packages/core/src/*"],
+      "@nimbus/hooks/*": ["./packages/hooks/src/*"]
+    }
   },
   "include": ["packages", "docs"]
 }

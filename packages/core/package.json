@@ -49,25 +49,22 @@
     "esm",
     "cjs",
     "lib",
-    "panda"
+    "panda-info"
   ],
   "scripts": {
     "build": "pnpm prepare && tsup",
     "prepare": "panda codegen",
-    "ship": "panda ship -o panda/panda.buildinfo.json",
+    "ship": "panda ship -o panda-info/panda.buildinfo.json",
     "postbuild": "pnpm ship",
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
-  "dependencies": {
-    "react-aria-components": "^1.3.3"
-  },
   "devDependencies": {
     "@nimbus-ui/styled-system": "workspace:*",
-    "@pandacss/dev": "^0.45.1",
-    "react": "^18.3.1"
+    "react": "^18.3.1",
+    "react-aria-components": "1.3.3"
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-aria-components": "^1.3.3"
   }
 }

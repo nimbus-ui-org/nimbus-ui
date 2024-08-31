@@ -1,4 +1,9 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src", "panda.config.ts", "tsup.config.ts"]
+  "compilerOptions": {
+    "paths": {
+      "@*": ["./src/*"]
+    }
+  },
+  "include": ["src", "tsup.config.ts", "panda.config.ts"]
 }

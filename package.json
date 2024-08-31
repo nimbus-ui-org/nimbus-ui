@@ -1,6 +1,7 @@
 {
   "name": "nimbus-ui",
   "version": "1.0.0",
+  "private": true,
   "description": "Nimbus UI Monorepo",
   "author": "moja",
   "license": "MIT",
@@ -9,7 +10,8 @@
     "url": "https://github.com/nimbus-ui-org/nimbus-ui.git"
   },
   "scripts": {
-    "build": "turbo build",
+    "dev": "turbo dev",
+    "build": "turbo build --filter=!docs",
     "lint": "eslint -c .eslintrc.cjs --ext .js,.ts,.jsx,.tsx . --max-warnings=0",
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@pandacss/dev": "^0.45.1",
     "@pandacss/eslint-plugin": "^0.1.9",
+    "@react-types/shared": "^3.24.1",
     "@types/eslint": "^8.56.11",
     "@types/node": "^22.5.0",
     "@types/react": "^18.3.3",

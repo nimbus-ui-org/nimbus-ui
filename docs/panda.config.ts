@@ -5,24 +5,19 @@ export default defineConfig({
   preflight: true,
 
   // Where to look for your css declarations
-  include: ['./src/**/*.{js,jsx,ts,tsx}'],
+  include: ['./src/**/*.{js,jsx,ts,tsx}', './node_modules/@nimbus-ui/core/panda-info/panda.buildinfo.json'],
+
+  // Files to exclude
+  exclude: [],
 
   // Useful for theme customization
   theme: {
-    extend: {
-      tokens: {
-        fontSizes: {
-          eCup: { value: '5rem' }
-        }
-      }
-    }
+    extend: {}
   },
-
-  clean: true,
-
   jsxFramework: 'react',
 
+  // Map package imports to local styled-sytem imports
   importMap: '@nimbus-ui/styled-system',
   // The output directory for your css system
-  outdir: '../styled-system'
+  outdir: 'styled-system'
 })

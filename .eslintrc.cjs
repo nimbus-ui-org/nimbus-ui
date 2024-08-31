@@ -12,7 +12,7 @@ module.exports = {
   parserOptions: {
     sourceType: 'module',
     ecmaFeatures: 'latest',
-    project: '**/tsconfig.json',
+    project: true,
     tsconfigRootDir: __dirname
   },
   settings: {
@@ -27,13 +27,14 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/no-unsafe-function-type': 'off',
+    '@pandacss/file-not-included': 'off',
     'prettier/prettier': [
       1,
       {
         semi: false,
         trailingComma: 'none',
         singleQuote: true,
-        printWidth: 120,
+        printWidth: 90,
         endOfLine: 'auto'
       }
     ]
