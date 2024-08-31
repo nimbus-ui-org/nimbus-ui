@@ -5,7 +5,10 @@ export default defineConfig({
   preflight: true,
 
   // Where to look for your css declarations
-  include: ['./src/**/*.{js,jsx,ts,tsx}', './node_modules/@nimbus-ui/core/panda-info/panda.buildinfo.json'],
+  include: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './node_modules/@nimbus-ui/core/panda-info/panda.buildinfo.json'
+  ],
 
   // Files to exclude
   exclude: [],
