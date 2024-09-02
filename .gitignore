@@ -20,6 +20,9 @@ styled-system
 !/packages/styled-system/package.json
 styled-system-studio
 
+## Storybook
+storybook-static
+
 ## Other
 .turbo
 *.tgz
