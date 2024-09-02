@@ -6,7 +6,8 @@ module.exports = {
     'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:prettier/recommended',
-    'plugin:@pandacss/recommended'
+    'plugin:@pandacss/recommended',
+    'plugin:storybook/recommended'
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
