@@ -23,14 +23,13 @@
     "panda:pkg": "pnpm --filter @nimbus-ui/core prepare"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "1.8.0",
     "@pandacss/dev": "^0.45.1",
     "@pandacss/eslint-plugin": "^0.1.9",
     "@react-types/shared": "^3.24.1",
+    "@storybook/addon-a11y": "^8.2.9",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-interactions": "^8.2.9",
     "@storybook/addon-links": "^8.2.9",
-    "@storybook/addon-onboarding": "^8.2.9",
     "@storybook/blocks": "^8.2.9",
     "@storybook/react": "^8.2.9",
     "@storybook/react-vite": "^8.2.9",
@@ -54,9 +53,12 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "storybook": "^8.2.9",
+    "storybook-dark-mode": "^4.0.2",
     "tsup": "^8.2.4",
     "turbo": "^2.1.1",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "vite": "^4.4.5",
+    "vite-tsconfig-paths": "^5.0.1"
   },
   "engines": {
     "node": ">=20.x",

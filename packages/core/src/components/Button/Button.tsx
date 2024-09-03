@@ -1,5 +1,6 @@
 import { ButtonBase, type ButtonBasePropsWithRef } from '@components/ButtonBase'
 import { forwardRef } from 'react'
+import { css } from '@nimbus-ui/styled-system/css'
 
 interface Props {
   color?: 'white' | 'black'
@@ -12,7 +13,7 @@ type ButtonProps = ButtonBasePropsWithRef & Props
 export const Button: React.FC<ButtonProps> = forwardRef(
   ({ children, ...props }: ButtonProps, ref) => {
     return (
-      <ButtonBase ref={ref} {...props}>
+      <ButtonBase className={css({ fontSize: 'eCup' })} ref={ref} {...props}>
         {children as React.ReactNode}
       </ButtonBase>
     )

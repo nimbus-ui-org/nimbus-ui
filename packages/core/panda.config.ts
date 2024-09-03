@@ -5,7 +5,7 @@ export default defineConfig({
   preflight: true,
 
   // Where to look for your css declarations
-  include: ['./src/**/*.{js,jsx,ts,tsx}'],
+  include: ['./src/**/*.{js,jsx,ts,tsx}', './packages/core/src/**/*.{js,jsx,ts,tsx}'],
 
   // Useful for theme customization
   theme: {
@@ -18,9 +18,17 @@ export default defineConfig({
     }
   },
 
+  // no random css properties
+  strictPropertyValues: true,
+
+  // strict tokens
+  strictTokens: true,
+
   clean: true,
 
   jsxFramework: 'react',
+
+  dependencies: ['./packages/core/panda.config.ts'],
 
   importMap: '@nimbus-ui/styled-system',
   // The output directory for your css system

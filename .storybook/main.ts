@@ -1,5 +1,7 @@
 import type { StorybookConfig } from '@storybook/react-vite'
 
+import { mergeConfig } from 'vite'
+import tsconfigPaths from 'vite-tsconfig-paths'
 import { join, dirname } from 'path'
 
 /**
@@ -9,18 +11,25 @@ import { join, dirname } from 'path'
 function getAbsolutePath(value: string): any {
   return dirname(require.resolve(join(value, 'package.json')))
 }
+
 const config: StorybookConfig = {
-  stories: ['../stories/**/*.mdx', '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ['../packages/core/src/components/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    getAbsolutePath('@storybook/addon-onboarding'),
+    getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@chromatic-com/storybook'),
-    getAbsolutePath('@storybook/addon-interactions')
+    getAbsolutePath('@storybook/addon-interactions'),
+    getAbsolutePath('storybook-dark-mode')
   ],
   framework: {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {}
+  },
+  // add tsconfig path aliases
+  viteFinal: async (config) => {
+    return mergeConfig(config, {
+      plugins: [tsconfigPaths()]
+    })
   }
 }
 export default config
