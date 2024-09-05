@@ -1,6 +1,8 @@
 import { defineConfig } from '@pandacss/dev'
+import nimbusPreset from '@preset'
 
 export default defineConfig({
+  presets: ['@pandacss/preset-base', '@pandacss/preset-panda', nimbusPreset],
   // Whether to use css reset
   preflight: true,
 

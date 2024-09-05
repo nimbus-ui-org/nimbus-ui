@@ -29,6 +29,8 @@ module.exports = {
   rules: {
     '@typescript-eslint/no-unsafe-function-type': 'off',
     '@pandacss/file-not-included': 'off',
+    '@pandacss/no-config-function-in-source': 'off',
+    '@pandacss/no-hardcoded-color': 'off',
     'prettier/prettier': [
       1,
       {

@@ -13,7 +13,17 @@ type ButtonProps = ButtonBasePropsWithRef & Props
 export const Button: React.FC<ButtonProps> = forwardRef(
   ({ children, ...props }: ButtonProps, ref) => {
     return (
-      <ButtonBase className={css({ fontSize: 'eCup' })} ref={ref} {...props}>
+      <ButtonBase
+        className={css({
+          fontSize: 'eCup',
+          color: 'yellow.500',
+          bg: 'primary.hover',
+          borderRadius: 'default',
+          cursor: 'var(--cursor-type)'
+        })}
+        ref={ref}
+        {...props}
+      >
         {children as React.ReactNode}
       </ButtonBase>
     )
