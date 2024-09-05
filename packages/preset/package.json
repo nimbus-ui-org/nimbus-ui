@@ -1,0 +1,48 @@
+{
+  "name": "@nimbus-ui/preset",
+  "version": "1.0.0",
+  "description": "Nimbus UI panda preset",
+  "author": "moja",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nimbus-ui-org/nimbus-ui.git",
+    "directory": "/packages/preset"
+  },
+  "keywords": [
+    "panda",
+    "pandacss",
+    "preset",
+    "theme",
+    "library",
+    "ui"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/index.d.ts",
+        "default": "./cjs/index.js"
+      }
+    }
+  },
+  "main": "./cjs/index.js",
+  "module": "./esm/index.mjs",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "esm",
+    "cjs",
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsup && pnpm build:declarations",
+    "build:declarations": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
+    "clean": "rm -rf .turbo && rm -rf node_modules",
+    "pack:local": "pnpm pack"
+  }
+}

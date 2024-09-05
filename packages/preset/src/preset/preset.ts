@@ -1,21 +1,13 @@
 import { definePreset, type Preset } from '@pandacss/dev'
-import { getGlobalVars } from './global-vars'
+import type { NimbusPresetConfig } from './preset.types'
+import { getGlobalVars } from '@global-vars'
 
-export interface NimbusTheme {
-  /**
-   * The cursor style of interactive elements that don't have cursor styles by default (ex: `Button`)
-   * - `default` – default cursor style
-   * - `pointer` – adds `pointer` style to these elements
-   */
-  cursor?: 'default' | 'pointer'
-}
-
-const defaultTheme: NimbusTheme = {
+const defaultConfig: NimbusPresetConfig = {
   cursor: 'pointer'
 }
 
 /** Creates a preset  */
-const createNimbusPreset = (theme: NimbusTheme = defaultTheme): Preset => {
+export const createNimbusPreset = (theme: NimbusPresetConfig = defaultConfig): Preset => {
   const globalVars = getGlobalVars(theme)
 
   return definePreset({

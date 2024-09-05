@@ -5,6 +5,9 @@
       "outputs": ["esm/**", "cjs/**", "lib/**", "panda/**", "storybook-static/**"],
       "dependsOn": ["^build"]
     },
+    "pack:local": {
+      "outputs": ["**/*.tgz"]
+    },
     "dev": {
       "cache": false,
       "persistent": true

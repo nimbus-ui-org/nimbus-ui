@@ -20,7 +20,8 @@
     "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky",
-    "panda:pkg": "pnpm --filter @nimbus-ui/core prepare"
+    "panda:pkg": "pnpm --filter @nimbus-ui/core prepare",
+    "pack:local": "turbo pack:local"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.45.1",
@@ -54,6 +55,7 @@
     "react-dom": "^18.3.1",
     "storybook": "^8.2.9",
     "storybook-dark-mode": "^4.0.2",
+    "tsc-alias": "^1.8.10",
     "tsup": "^8.2.4",
     "turbo": "^2.1.1",
     "typescript": "^5.5.4",

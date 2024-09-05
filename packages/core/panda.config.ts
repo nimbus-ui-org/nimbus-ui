@@ -1,5 +1,5 @@
 import { defineConfig } from '@pandacss/dev'
-import nimbusPreset from '@preset'
+import nimbusPreset from '@nimbus-ui/preset'
 
 export default defineConfig({
   presets: ['@pandacss/preset-base', '@pandacss/preset-panda', nimbusPreset],
