@@ -27,5 +27,5 @@
       "@nimbus/hooks/*": ["./packages/hooks/src/*"]
     }
   },
-  "include": ["packages", "docs"]
+  "include": ["packages", "docs", "@types"]
 }

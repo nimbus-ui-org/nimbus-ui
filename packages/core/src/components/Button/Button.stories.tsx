@@ -14,7 +14,7 @@ const meta = {
     )
   ],
   tags: ['autodocs'],
-  args: { onPress: fn() }
+  args: { onPress: fn(() => console.log('pressed')) }
 } satisfies Meta<typeof Button>
 
 export default meta
