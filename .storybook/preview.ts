@@ -6,6 +6,11 @@ import logoLight from './logo-light.svg'
 // @ts-expect-error
 import logoDark from './logo-dark.svg'
 
+const commonThemeProps = {
+  brandTitle: 'Nimbus UI',
+  brandUrl: 'https://storybook.js.org'
+}
+
 const preview: Preview = {
   parameters: {
     controls: {
@@ -15,8 +20,13 @@ const preview: Preview = {
       }
     },
     darkMode: {
-      light: { ...themes.normal, brandImage: logoLight },
-      dark: { ...themes.dark, brandImage: logoDark }
+      current: 'dark',
+      stylePreview: true,
+      darkClass: 'dark',
+      lightClass: 'light',
+      classTarget: 'html',
+      light: { ...themes.normal, ...commonThemeProps, brandImage: logoLight },
+      dark: { ...themes.dark, ...commonThemeProps, brandImage: logoDark }
     }
   }
 }

@@ -30,6 +30,15 @@ const config: StorybookConfig = {
     return mergeConfig(config, {
       plugins: [tsconfigPaths()]
     })
-  }
+  },
+  // There's a bug where the logo size is inconsistent between light and dark mode (https://github.com/storybookjs/storybook/issues/28192).
+  // This fixes it for now.
+  managerHead: () => `
+    <style>
+      .css-1rb1jn6 {
+        max-width: 100% !important;
+      }
+    </style>
+  `
 }
 export default config
