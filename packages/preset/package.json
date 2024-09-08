@@ -44,6 +44,7 @@
     "build": "tsup && pnpm build:declarations",
     "build:declarations": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "clean": "rm -rf .turbo && rm -rf node_modules",
-    "pack:local": "pnpm pack"
+    "pack:local": "pnpm pack",
+    "pack:clean": "rm *.tgz"
   }
 }

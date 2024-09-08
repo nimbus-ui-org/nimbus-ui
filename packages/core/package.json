@@ -60,7 +60,8 @@
     "ship": "panda ship -o panda-info/panda.buildinfo.json",
     "postbuild": "pnpm ship",
     "clean": "rm -rf .turbo && rm -rf node_modules",
-    "pack:local": "pnpm pack"
+    "pack:local": "pnpm pack",
+    "pack:clean": "rm *.tgz"
   },
   "dependencies": {
     "@nimbus-ui/preset": "workspace:*",

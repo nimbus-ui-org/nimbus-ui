@@ -22,6 +22,9 @@
     },
     "clean": {
       "cache": false
+    },
+    "pack:clean": {
+      "cache": false
     }
   }
 }

@@ -42,6 +42,7 @@
     "styles.css"
   ],
   "scripts": {
-    "pack:local": "pnpm pack"
+    "pack:local": "pnpm pack",
+    "pack:clean": "rm *.tgz"
   }
 }

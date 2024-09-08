@@ -11,8 +11,8 @@
   },
   "scripts": {
     "storybook": "turbo dev dev:storybook",
-    "dev:storybook": "storybook dev -p 6006",
     "dev:docs": "turbo dev dev:docs",
+    "dev:storybook": "storybook dev -p 6006",
     "dev": "turbo dev",
     "build": "turbo build --filter=!docs",
     "build:storybook": "storybook build",
@@ -23,7 +23,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky",
     "panda:pkg": "pnpm --filter @nimbus-ui/core prepare",
-    "pack:local": "turbo pack:local"
+    "pack:local": "turbo pack:local",
+    "pack:clean": "turbo pack:clean"
   },
   "devDependencies": {
     "@pandacss/dev": "^0.45.1",
