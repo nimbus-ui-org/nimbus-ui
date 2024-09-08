@@ -55,11 +55,11 @@
   ],
   "scripts": {
     "build": "pnpm prepare && tsup && pnpm build:declarations",
+    "build:declarations": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "prepare": "panda codegen",
     "ship": "panda ship -o panda-info/panda.buildinfo.json",
     "postbuild": "pnpm ship",
     "clean": "rm -rf .turbo && rm -rf node_modules",
-    "build:declarations": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
     "pack:local": "pnpm pack"
   },
   "dependencies": {

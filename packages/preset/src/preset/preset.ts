@@ -30,6 +30,14 @@ export const createNimbusPreset = (theme: NimbusPresetConfig = defaultConfig): P
         }
       }
     },
+    globalCss: {
+      extend: {
+        body: {
+          bg: { base: 'white', _dark: 'gray.900' },
+          color: { base: 'gray.900', _dark: 'white' }
+        }
+      }
+    },
     globalVars
   })
 }

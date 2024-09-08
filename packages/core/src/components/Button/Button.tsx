@@ -17,7 +17,7 @@ export const Button: React.FC<ButtonProps> = forwardRef(
         className={css({
           fontSize: 'eCup',
           color: 'yellow.500',
-          bg: 'primary.hover',
+          bg: { base: 'blue.500', _dark: 'primary.hover' },
           borderRadius: 'default',
           cursor: 'var(--cursor-type)'
         })}

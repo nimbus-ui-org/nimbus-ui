@@ -7,7 +7,11 @@ export default defineConfig({
   preflight: true,
 
   // Where to look for your css declarations
-  include: ['./src/**/*.{js,jsx,ts,tsx}', './packages/core/src/**/*.{js,jsx,ts,tsx}'],
+  include: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './packages/core/src/**/*.{js,jsx,ts,tsx}',
+    './packages/preset/src/**/*.{js,jsx,ts,tsx}'
+  ],
 
   // Useful for theme customization
   theme: {

@@ -10,8 +10,10 @@
     "url": "https://github.com/nimbus-ui-org/nimbus-ui.git"
   },
   "scripts": {
-    "dev": "storybook dev -p 6006",
-    "dev:docs": "turbo dev --filter=docs",
+    "storybook": "turbo dev dev:storybook",
+    "dev:storybook": "storybook dev -p 6006",
+    "dev:docs": "turbo dev dev:docs",
+    "dev": "turbo dev",
     "build": "turbo build --filter=!docs",
     "build:storybook": "storybook build",
     "lint": "eslint -c .eslintrc.cjs --ext .js,.ts,.jsx,.tsx . --max-warnings=0",

@@ -7,7 +7,7 @@ function App() {
     <>
       <h1 className={css({ fontSize: '2xl' })}>shipping/with-build-info</h1>
       <Stack>
-        <Button>Button component from ui lib</Button>
+        <Button>Button componen from ui lib</Button>
       </Stack>
     </>
   )
