@@ -15,11 +15,12 @@ export const Button: React.FC<ButtonProps> = forwardRef(
     return (
       <ButtonBase
         className={css({
-          fontSize: 'eCup',
-          color: 'yellow.500',
-          bg: { base: 'blue.500', _dark: 'primary.hover' },
+          textStyle: '8xl',
+          color: 'black',
+          bg: { base: 'colorPalette.500', _dark: 'primary.hover' },
           borderRadius: 'default',
-          cursor: 'var(--cursor-type)'
+          cursor: 'var(--cursor-type)',
+          colorPalette: 'blue'
         })}
         ref={ref}
         {...props}

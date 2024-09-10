@@ -25,6 +25,9 @@ const config: StorybookConfig = {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {}
   },
+  typescript: {
+    reactDocgen: false
+  },
   // add tsconfig path aliases
   viteFinal: async (config) => {
     return mergeConfig(config, {

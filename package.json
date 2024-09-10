@@ -29,6 +29,7 @@
   "devDependencies": {
     "@pandacss/dev": "^0.45.1",
     "@pandacss/eslint-plugin": "^0.1.9",
+    "@pandacss/preset-panda": "^0.45.2",
     "@react-types/shared": "^3.24.1",
     "@storybook/addon-a11y": "^8.2.9",
     "@storybook/addon-essentials": "^8.2.9",

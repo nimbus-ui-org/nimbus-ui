@@ -14,6 +14,9 @@ importers:
       '@pandacss/eslint-plugin':
         specifier: ^0.1.9
         version: 0.1.9(eslint@8.57.0)(typescript@5.5.4)
+      '@pandacss/preset-panda':
+        specifier: ^0.45.2
+        version: 0.45.2
       '@react-types/shared':
         specifier: ^3.24.1
         version: 3.24.1(react@18.3.1)
@@ -1429,6 +1432,9 @@ packages:
   '@pandacss/preset-panda@0.45.1':
     resolution: {integrity: sha512-ft+8QZqS/ivEvQ4HzHEY30r9gP8DtO42sM07Bo3i7p9qSN4K+Fu5GT1X8roE40TOieB/u4pafI2ZLXwX2lQNoQ==}
 
+  '@pandacss/preset-panda@0.45.2':
+    resolution: {integrity: sha512-PC8aCZrixaGASYwii2GmjssOOTd9KqEgwkGXkDJSEiBhxK5QgaWAK1DU+TwM/J7HJiaER/Q/QCMwvh39Nf80UA==}
+
   '@pandacss/shared@0.40.1':
     resolution: {integrity: sha512-FBI2AaaYQZoA7TU/qa9z4FVGU3eQDC/cXobTOzmvewpVb+kFSjPo9hralYAViq+5EFRAJOFM7NMqQH0Enitjnw==}
 
@@ -1446,6 +1452,9 @@ packages:
 
   '@pandacss/types@0.45.1':
     resolution: {integrity: sha512-ZK9WwK3ha9qT4KPL2PseO5yPSLHRIv9SEvIRgDQfqPR7NdRZHAe4iZ6WVtSx6XGj3yx7dWDuopK3S41D5jZsHA==}
+
+  '@pandacss/types@0.45.2':
+    resolution: {integrity: sha512-RfXGVjVNz19Om2+LU5wI/SS+iURDvKPKkfzK4CFLYX8bgRlftUWqs1DUyXjc9KXY/VCyvss+tS30TC5kwhilaA==}
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -6876,6 +6885,10 @@ snapshots:
     dependencies:
       '@pandacss/types': 0.45.1
 
+  '@pandacss/preset-panda@0.45.2':
+    dependencies:
+      '@pandacss/types': 0.45.2
+
   '@pandacss/shared@0.40.1': {}
 
   '@pandacss/shared@0.45.1': {}
@@ -6897,6 +6910,8 @@ snapshots:
   '@pandacss/types@0.40.1': {}
 
   '@pandacss/types@0.45.1': {}
+
+  '@pandacss/types@0.45.2': {}
 
   '@pkgjs/parseargs@0.11.0':
     optional: true

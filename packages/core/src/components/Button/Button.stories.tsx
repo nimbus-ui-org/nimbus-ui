@@ -13,14 +13,12 @@ const meta = {
       </Box>
     )
   ],
-  tags: ['autodocs'],
   args: { onPress: fn(() => console.log('pressed')) }
 } satisfies Meta<typeof Button>
 
 export default meta
 type Story = StoryObj<Omit<typeof meta, 'decorators'>>
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Primary: Story = {
   args: {
     color: 'black',

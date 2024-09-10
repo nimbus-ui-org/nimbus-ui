@@ -1,14 +1,16 @@
 import { definePreset, type Preset } from '@pandacss/dev'
 import type { NimbusPresetConfig } from './preset.types'
-import { getGlobalVars } from '@global-vars'
+import { getGlobalCss } from '@global-css/global-css'
 
 const defaultConfig: NimbusPresetConfig = {
   cursor: 'pointer'
 }
 
 /** Creates a preset  */
-export const createNimbusPreset = (theme: NimbusPresetConfig = defaultConfig): Preset => {
-  const globalVars = getGlobalVars(theme)
+export const createNimbusPreset = (
+  config: NimbusPresetConfig = defaultConfig
+): Preset => {
+  const globalCss = getGlobalCss(config)
 
   return definePreset({
     name: '@nimbus-ui/preset',
@@ -30,15 +32,7 @@ export const createNimbusPreset = (theme: NimbusPresetConfig = defaultConfig): P
         }
       }
     },
-    globalCss: {
-      extend: {
-        body: {
-          bg: { base: 'white', _dark: 'gray.900' },
-          color: { base: 'gray.900', _dark: 'white' }
-        }
-      }
-    },
-    globalVars
+    globalCss
   })
 }
 
