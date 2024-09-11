@@ -4,14 +4,15 @@ import { getGlobalCss } from '@global-css/global-css'
 import pandaPreset from '@pandacss/preset-panda'
 import { getTokens } from '@tokens'
 import { getSemanticTokens } from '@semantic-tokens'
+import { textStyles } from '@text-styles'
 
 /** Creates a Nimbus preset. */
 export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
   const globalCss = getGlobalCss(config)
   const tokens = getTokens(config)
   const semanticTokens = getSemanticTokens(config)
-
-  // const { themePalettes, otherThemesPalettes } = getThemePalettes(config)
+  // const recipes = getRecipes(config)
+  // const slotRecipes = getSlotRecipes(config)
 
   // extend panda theme
   const { breakpoints, containerSizes, keyframes } = pandaPreset.theme
@@ -24,14 +25,18 @@ export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
         semanticTokens,
         breakpoints,
         containerSizes,
-        keyframes
-        // textStyles,
+        keyframes,
+        textStyles
         // recipes,
         // slotRecipes,
       }
     },
-    globalCss
+    globalCss: {
+      extend: globalCss
+    }
   })
+
+  // const { themePalettes, otherThemesPalettes } = getThemePalettes(config)
 
   return definePreset({
     name: '@nimbus-ui/preset',

@@ -19,7 +19,8 @@ export const Button: React.FC<ButtonProps> = forwardRef(
           bg: { base: 'primary.hover', _dark: 'primary.hover' },
           borderRadius: 'default',
           cursor: 'var(--cursor-type)',
-          colorPalette: 'primary'
+          colorPalette: 'primary',
+          textStyle: 'h1'
         })}
         ref={ref}
         {...props}
