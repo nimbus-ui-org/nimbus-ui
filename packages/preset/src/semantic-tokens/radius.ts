@@ -2,11 +2,11 @@ import { defineSemanticTokens } from '@pandacss/dev'
 import type { NimbusPresetConfig } from '@preset'
 
 export const getRadius = (config: NimbusPresetConfig) => {
-  const radius = config.radius
+  const radius = config.radius ?? 'md'
 
   return defineSemanticTokens.radii({
     default: {
-      value: radius ?? `{radii.${radius}`
+      value: `{radii.${radius}}`
     }
   })
 }
