@@ -1,10 +1,28 @@
 import type { Preview } from '@storybook/react'
 import './layers.css'
 import { themes } from '@storybook/theming'
+import type { ThemeConfig } from 'storybook-addon-data-theme-switcher'
 // @ts-expect-error
 import logoLight from './logo-light.svg'
 // @ts-expect-error
 import logoDark from './logo-dark.svg'
+
+export const globalTypes = {
+  dataThemes: {
+    defaultValue: {
+      list: [
+        { name: 'Blue', dataTheme: 'blue', color: '#3b82f6' },
+        { name: 'Pink', dataTheme: 'pink', color: '#ec4899' }
+      ],
+      dataAttribute: 'data-panda-theme',
+      clearable: true,
+      toolbar: {
+        title: 'Change data-theme attribute',
+        icon: 'paintbrush'
+      }
+    } satisfies ThemeConfig
+  }
+}
 
 const commonThemeProps = {
   brandTitle: 'Nimbus UI',
