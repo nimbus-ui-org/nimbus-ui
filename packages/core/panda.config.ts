@@ -1,8 +1,11 @@
 import { defineConfig } from '@pandacss/dev'
-import nimbusPreset from '@nimbus-ui/preset'
+import { createNimbusPreset } from '@nimbus-ui/preset'
 
 export default defineConfig({
-  presets: ['@pandacss/preset-base', nimbusPreset],
+  presets: [
+    '@pandacss/preset-base',
+    createNimbusPreset({ respectMotionPreference: true })
+  ],
   // Whether to use css reset
   preflight: true,
 
@@ -15,13 +18,7 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {
-      tokens: {
-        fontSizes: {
-          eCup: { value: '5rem' }
-        }
-      }
-    }
+    extend: {}
   },
 
   // no random css properties

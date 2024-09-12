@@ -22,7 +22,7 @@ export type NimbusColors =
   | (string & NonNullable<unknown>)
 
 export type NimbusThemeColors = {
-  [key in NimbusColors]: NimbusColorTuple
+  [key in NimbusColors]?: NimbusColorTuple
 }
 
 export type NimbusRadius =
@@ -113,6 +113,13 @@ export interface NimbusPresetConfig {
    * Defaults to `md`.
    */
   radius?: NimbusRadius
+
+  /**
+   * Whether or not to respect motion preference from system settings.
+   * If set to `true`, transitions will be disabled when system has reduced motion enabled.
+   * Defaults to `false`.
+   */
+  respectMotionPreference?: boolean
 
   /**
    * The cursor style of interactive elements that don't have cursor styles natively (ex: `Button`).

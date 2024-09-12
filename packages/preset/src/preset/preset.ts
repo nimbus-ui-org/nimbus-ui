@@ -1,16 +1,18 @@
 import { definePreset, type Preset } from '@pandacss/dev'
 import type { NimbusPresetConfig } from './preset.types'
-import { getGlobalCss } from '@global-css/global-css'
 import pandaPreset from '@pandacss/preset-panda'
 import { getTokens } from '@tokens'
 import { getSemanticTokens } from '@semantic-tokens'
 import { textStyles } from '@text-styles'
+import { getGlobalCss } from '@global-css'
+import { getUtilities } from '@utilities'
 
 /** Creates a Nimbus preset. */
 export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
   const globalCss = getGlobalCss(config)
   const tokens = getTokens(config)
   const semanticTokens = getSemanticTokens(config)
+  const utilities = getUtilities(config)
   // const recipes = getRecipes(config)
   // const slotRecipes = getSlotRecipes(config)
 
@@ -33,10 +35,11 @@ export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
     },
     globalCss: {
       extend: globalCss
+    },
+    utilities: {
+      extend: utilities
     }
   })
-
-  // const { themePalettes, otherThemesPalettes } = getThemePalettes(config)
 
   return definePreset({
     name: '@nimbus-ui/preset',
