@@ -6,6 +6,8 @@ import { getSemanticTokens } from '@semantic-tokens'
 import { textStyles } from '@text-styles'
 import { getGlobalCss } from '@global-css'
 import { getUtilities } from '@utilities'
+import { getThemePalettes } from '@palettes'
+import { conditions } from '@conditions'
 
 /** Creates a Nimbus preset. */
 export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
@@ -38,25 +40,19 @@ export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
     },
     utilities: {
       extend: utilities
+    },
+    conditions: {
+      extend: conditions
     }
   })
+
+  const { theme } = getThemePalettes(config)
 
   return definePreset({
     name: '@nimbus-ui/preset',
     presets: [basePreset],
     theme: {
-      extend: {
-        semanticTokens: {
-          colors: {
-            primary: {
-              DEFAULT: { value: '{colors.purple.500}' },
-              hover: {
-                value: '{colors.rose.500}'
-              }
-            }
-          }
-        }
-      }
+      extend: theme
     }
     // themes: {
     //   extend: otherThemePalettes

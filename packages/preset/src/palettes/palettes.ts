@@ -1,41 +1,36 @@
-import type { Tokens } from '@pandacss/dev'
-import type { NimbusPresetConfig, NimbusThemeColors } from '@preset'
+import type { Preset, Tokens } from '@pandacss/dev'
+import type { FlattenedPalettes, NimbusPalettes, NimbusPresetConfig } from '@preset'
+import { getPalettesTokens } from './tokens'
+import { getAvailableColors } from './colors'
+import { getPalettesSemanticTokens } from './semantic-tokens'
 
-const shades = [
-  '50',
-  '100',
-  '200',
-  '300',
-  '400',
-  '500',
-  '600',
-  '700',
-  '800',
-  '900',
-  '950'
-]
+const getTokensAndSemanticTokensFromPalettes = (
+  palettes: NimbusPalettes = {},
+  availableColors: Tokens['colors']
+) => {
+  const { primary, base, error, other } = palettes
 
-/* converts array of colors to object of shades and color values */
-const convertConfigColorsToTokenColors = (
-  colors: NimbusThemeColors = {}
-): Tokens['colors'] => {
-  return Object.keys(colors).reduce((prevColors, color) => {
-    return {
-      ...prevColors,
-      [color]: colors[color]?.reduce((prevColorValues, colorValue, i) => {
-        return {
-          ...prevColorValues,
-          [shades[i]]: { value: colorValue }
-        }
-      }, {})
-    }
-  }, {})
+  const flattenedPalettes: FlattenedPalettes = {
+    primary: primary ?? 'blue',
+    base: base ?? 'neutral',
+    error: error ?? 'red',
+    ...other
+  }
+
+  const tokens = getPalettesTokens(flattenedPalettes, availableColors)
+  const semanticTokens = getPalettesSemanticTokens(flattenedPalettes)
+
+  return { tokens, semanticTokens }
 }
 
-export const getThemePalettes = (config: NimbusPresetConfig) => {
-  const { colors } = config
+export const getThemePalettes = (
+  config: NimbusPresetConfig
+): { theme: Preset['theme'] } => {
+  const { colors, palettes } = config
 
-  const customColors = convertConfigColorsToTokenColors(colors)
+  const availableColors = getAvailableColors(colors)
 
-  console.log(customColors)
+  const themePalettes = getTokensAndSemanticTokensFromPalettes(palettes, availableColors)
+
+  return { theme: themePalettes }
 }

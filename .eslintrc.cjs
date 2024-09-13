@@ -31,6 +31,7 @@ module.exports = {
     '@pandacss/file-not-included': 'off',
     '@pandacss/no-config-function-in-source': 'off',
     '@pandacss/no-hardcoded-color': 'off',
+    '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
     'prettier/prettier': [
       1,
       {

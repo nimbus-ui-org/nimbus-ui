@@ -65,6 +65,10 @@ export interface NimbusPalettes {
   other?: { [colorName: string]: NimbusColors }
 }
 
+export interface FlattenedPalettes {
+  [colorName: string]: NimbusColors
+}
+
 export interface NimbusPresetConfig {
   /**
    * An Object where each key is a color name, and the value is an array of 11 color strings.
