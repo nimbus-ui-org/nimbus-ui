@@ -37,7 +37,7 @@ export default defineConfig({
         ]
       },
       palettes: {
-        base: 'titanium',
+        primary: 'neutral',
         other: { warning: 'yellow' }
       }
     })

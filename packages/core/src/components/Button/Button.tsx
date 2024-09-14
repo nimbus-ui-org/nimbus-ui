@@ -15,17 +15,19 @@ export const Button: React.FC<ButtonProps> = forwardRef(
     return (
       <ButtonBase
         className={css({
-          color: 'colorPalette.ghost.text',
+          color: 'colorPalette.solid.text',
           colorPalette: 'primary',
-          bg: 'colorPalette.ghost',
+          bg: 'colorPalette.solid',
           borderRadius: 'default',
           textStyle: 'h3',
           transition: 'colors',
+          py: '2',
+          px: '3',
           _hovered: {
-            bg: 'colorPalette.ghost.hover'
+            bg: 'colorPalette.solid.hover'
           },
           _pressed: {
-            bg: 'colorPalette.ghost.active'
+            bg: 'colorPalette.solid.active'
           },
           outline: 'none',
           reducedMotion: 'preference',

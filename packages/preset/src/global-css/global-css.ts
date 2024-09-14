@@ -11,8 +11,8 @@ export const getGlobalCss = (config: NimbusPresetConfig) => {
     body: {
       WebkitFontSmoothing: 'antialiased',
       MozOsxFontSmoothing: 'grayscale',
-      bg: { base: 'white', _dark: 'gray.900' },
-      color: { base: 'gray.900', _dark: 'white' }
+      bg: { base: 'white', _dark: 'base.950' },
+      color: { base: 'base.950', _dark: 'white' }
     }
   })
 }

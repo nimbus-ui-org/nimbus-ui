@@ -46,5 +46,10 @@
     "clean": "rm -rf .turbo && rm -rf node_modules",
     "pack:local": "pnpm pack",
     "pack:clean": "rm *.tgz"
+  },
+  "dependencies": {
+    "@radix-ui/colors": "^3.0.0",
+    "bezier-easing": "^2.1.0",
+    "colorjs.io": "^0.5.2"
   }
 }

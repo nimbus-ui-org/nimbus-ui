@@ -13,13 +13,13 @@ const convertPaletteToSemanticTokens = (palette: string) => {
     },
     solid: {
       DEFAULT: {
-        value: { _light: `{colors.${palette}.500}`, _dark: `{colors.${palette}.300}` }
+        value: { _light: `{colors.${palette}.600}`, _dark: `{colors.${palette}.300}` }
       },
       hover: {
-        value: { _light: `{colors.${palette}.600}`, _dark: `{colors.${palette}.400}` }
+        value: { _light: `{colors.${palette}.700}`, _dark: `{colors.${palette}.400}` }
       },
       active: {
-        value: { _light: `{colors.${palette}.700}`, _dark: `{colors.${palette}.500}` }
+        value: { _light: `{colors.${palette}.800}`, _dark: `{colors.${palette}.500}` }
       },
       text: {
         value: { _light: `{colors.white}`, _dark: `{colors.base.950}` }
@@ -28,8 +28,8 @@ const convertPaletteToSemanticTokens = (palette: string) => {
     ghost: {
       DEFAULT: {
         value: {
-          _light: alpha(`{colors.${palette}.500}`, 0.25),
-          _dark: alpha(`{colors.${palette}.300}`, 0.25)
+          _light: alpha(`{colors.${palette}.500}`, 0.2),
+          _dark: alpha(`{colors.${palette}.300}`, 0.2)
         }
       },
       hover: {
