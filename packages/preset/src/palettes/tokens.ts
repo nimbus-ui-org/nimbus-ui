@@ -1,22 +1,143 @@
 import { defineTokens, type Tokens } from '@pandacss/dev'
 import type { FlattenedPalettes } from '@preset'
+import { generateColors, type ArrayOf12 } from '@utils'
 
-export const getPalettesTokens = (
-  flattenedPalettes: FlattenedPalettes,
-  availableColors: Tokens['colors'] = {}
-): Tokens => {
+interface GeneratedColors {
+  light: {
+    scale: ArrayOf12<string>
+    alphaScale: ArrayOf12<string>
+    contrast: string
+  }
+  dark: {
+    scale: ArrayOf12<string>
+    alphaScale: ArrayOf12<string>
+    contrast: string
+  }
+}
+
+const getCoreColors = (flattenedPalettes: FlattenedPalettes) => {
+  const coreLightColors = generateColors({
+    appearance: 'light',
+    accent: flattenedPalettes.primary,
+    gray: flattenedPalettes.base,
+    background: '#FFF'
+  })
+  const coreDarkColors = generateColors({
+    appearance: 'dark',
+    accent: flattenedPalettes.primary,
+    gray: flattenedPalettes.base,
+    background: '#020202'
+  })
+
+  const primaryColors: GeneratedColors = {
+    light: {
+      scale: coreLightColors.accentScale,
+      alphaScale: coreLightColors.accentScaleAlpha,
+      contrast: coreLightColors.accentContrast
+    },
+    dark: {
+      scale: coreDarkColors.accentScale,
+      alphaScale: coreDarkColors.accentScaleAlpha,
+      contrast: coreDarkColors.accentContrast
+    }
+  }
+
+  const baseColors: GeneratedColors = {
+    light: {
+      scale: coreLightColors.grayScale,
+      alphaScale: coreLightColors.grayScaleAlpha,
+      contrast: '#FFF'
+    },
+    dark: {
+      scale: coreDarkColors.accentScale,
+      alphaScale: coreDarkColors.accentScaleAlpha,
+      contrast: '#FFF'
+    }
+  }
+
+  return { primaryColors, baseColors }
+}
+
+const convertColorsToTokens = (colors: GeneratedColors) => {
+  const tokens: Tokens['colors'] = {}
+
+  // scale values (1 --> 12)
+  Array.from({ length: 12 }, (_, i) => {
+    tokens[i + 1] = {
+      light: {
+        value: colors.light.scale[i]
+      },
+      dark: {
+        value: colors.dark.scale[i]
+      }
+    }
+  })
+
+  // alpha scale value (a1 --> a12)
+  Array.from({ length: 12 }, (_, i) => {
+    tokens[`a${i + 1}`] = {
+      light: {
+        value: colors.light.alphaScale[i]
+      },
+      dark: {
+        value: colors.dark.alphaScale[i]
+      }
+    }
+  })
+
+  tokens.contrastText = {
+    light: {
+      value: colors.light.contrast
+    },
+    dark: {
+      value: colors.dark.contrast
+    }
+  }
+
+  return tokens
+}
+
+export const getPalettesTokens = (flattenedPalettes: FlattenedPalettes): Tokens => {
+  const { primaryColors, baseColors } = getCoreColors(flattenedPalettes)
+
+  const palettes = defineTokens.colors({
+    primary: convertColorsToTokens(primaryColors),
+    base: convertColorsToTokens(baseColors)
+  })
   return {
     colors: Object.keys(flattenedPalettes).reduce((prevPalettes, palette) => {
-      const colorName = flattenedPalettes[palette]
+      const colorValue = flattenedPalettes[palette]
 
-      if (!availableColors[colorName]) {
-        throw new Error(`"${colorName}" is not an existing color name.`)
+      const lightColors = generateColors({
+        appearance: 'light',
+        accent: colorValue,
+        gray: flattenedPalettes.base,
+        background: '#FFF'
+      })
+      const darkColors = generateColors({
+        appearance: 'dark',
+        accent: colorValue,
+        gray: flattenedPalettes.base,
+        background: '#020202'
+      })
+
+      const colors: GeneratedColors = {
+        light: {
+          scale: lightColors.accentScale,
+          alphaScale: lightColors.accentScaleAlpha,
+          contrast: lightColors.accentContrast
+        },
+        dark: {
+          scale: darkColors.accentScale,
+          alphaScale: darkColors.accentScaleAlpha,
+          contrast: darkColors.accentContrast
+        }
       }
 
       return defineTokens.colors({
         ...prevPalettes,
-        [palette]: availableColors[colorName]
+        [palette]: convertColorsToTokens(colors)
       })
-    }, {})
+    }, palettes)
   }
 }

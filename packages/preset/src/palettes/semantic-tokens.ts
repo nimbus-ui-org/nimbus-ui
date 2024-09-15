@@ -1,53 +1,76 @@
 import { defineSemanticTokens, type SemanticTokens } from '@pandacss/dev'
 import type { FlattenedPalettes } from '@preset'
 
-const alpha = (color: string, ratio: number) => {
-  const percent = (1 - ratio) * 100
-  return `color-mix(in srgb, ${color}, transparent ${percent}%)`
-}
+type ColorShade =
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8'
+  | '9'
+  | '10'
+  | '11'
+  | '12'
+  | 'a1'
+  | 'a2'
+  | 'a3'
+  | 'a4'
+  | 'a5'
+  | 'a6'
+  | 'a7'
+  | 'a8'
+  | 'a9'
+  | 'a10'
+  | 'a11'
+  | 'a12'
+  | 'contrastText'
+
+const getColor = (palette: string, shade: ColorShade) => ({
+  _light: `{colors.${palette}.${shade}.light}`,
+  _dark: `{colors.${palette}.${shade}.dark}`
+})
 
 const convertPaletteToSemanticTokens = (palette: string) => {
   return defineSemanticTokens.colors({
-    DEFAULT: {
-      value: { _light: `{colors.${palette}.500}`, _dark: `{colors.${palette}.300}` }
-    },
+    DEFAULT: { value: getColor(palette, '9') },
     solid: {
-      DEFAULT: {
-        value: { _light: `{colors.${palette}.600}`, _dark: `{colors.${palette}.300}` }
-      },
-      hover: {
-        value: { _light: `{colors.${palette}.700}`, _dark: `{colors.${palette}.400}` }
-      },
-      active: {
-        value: { _light: `{colors.${palette}.800}`, _dark: `{colors.${palette}.500}` }
-      },
-      text: {
-        value: { _light: `{colors.white}`, _dark: `{colors.base.950}` }
-      }
+      DEFAULT: { value: getColor(palette, '9') },
+      hover: { value: getColor(palette, '10') },
+      active: { value: getColor(palette, '9') },
+      text: { value: getColor(palette, 'contrastText') }
     },
     ghost: {
-      DEFAULT: {
-        value: {
-          _light: alpha(`{colors.${palette}.500}`, 0.2),
-          _dark: alpha(`{colors.${palette}.300}`, 0.2)
+      DEFAULT: { value: getColor(palette, 'a3') },
+      hover: { value: getColor(palette, 'a4') },
+      active: { value: getColor(palette, 'a5') },
+      text: { value: getColor(palette, 'a11') }
+    },
+    border: {
+      DEFAULT: { value: getColor(palette, 'a6') },
+      hover: { value: getColor(palette, 'a7') },
+      active: { value: getColor(palette, 'a8') }
+    },
+    text: {
+      '1': { value: getColor(palette, 'a12') },
+      '2': { value: getColor(palette, 'a11') }
+    },
+
+    // base palette specific semantic tokens
+    ...(palette === 'base' && {
+      bg: {
+        '1': {
+          value: getColor(palette, '1'),
+          description: 'High contrast background'
+        },
+        '2': {
+          value: getColor(palette, '2'),
+          description: 'Low contrast background'
         }
-      },
-      hover: {
-        value: {
-          _light: alpha(`{colors.${palette}.500}`, 0.3),
-          _dark: alpha(`{colors.${palette}.300}`, 0.3)
-        }
-      },
-      active: {
-        value: {
-          _light: alpha(`{colors.${palette}.500}`, 0.4),
-          _dark: alpha(`{colors.${palette}.300}`, 0.4)
-        }
-      },
-      text: {
-        value: { _light: `{colors.${palette}.500}`, _dark: `{colors.${palette}.300}` }
       }
-    }
+    })
   })
 }
 

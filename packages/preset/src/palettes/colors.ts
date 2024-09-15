@@ -1,50 +1,34 @@
-import type { Tokens } from '@pandacss/dev'
-import type { NimbusThemeColors } from '@preset'
-import pandaPreset from '@pandacss/preset-panda'
-
-const shades = [
-  '50',
-  '100',
-  '200',
-  '300',
-  '400',
-  '500',
-  '600',
-  '700',
-  '800',
-  '900',
-  '950'
-]
-
-/* converts array of colors to object of shades and values */
-const convertColorsArrayToObjectShades = (colors: NimbusThemeColors, color: string) => {
-  return colors[color]?.reduce((prevColorValues, colorValue, i) => {
-    return {
-      ...prevColorValues,
-      [shades[i]]: { value: colorValue }
-    }
-  }, {})
+enum Primary {
+  Dark = '#000000',
+  Blue = '#3B82F6',
+  Sky = '#2D9ED2',
+  Pink = '#C748A5',
+  Purple = '#A855F7',
+  Violet = '#8b5cf6',
+  Indigo = '#6366F1',
+  Teal = '#10988D',
+  Emerald = '#059669',
+  Lime = '#65A30D',
+  Yellow = '#FDE047',
+  Amber = '#FBBF24',
+  Orange = '#C24E0F'
 }
 
-/* converts config colors to token colors */
-const convertConfigColorsToTokenColors = (
-  colors: NimbusThemeColors = {}
-): Tokens['colors'] => {
-  return Object.keys(colors).reduce((prevColors, color) => {
-    return {
-      ...prevColors,
-      [color]: convertColorsArrayToObjectShades(colors, color)
-    }
-  }, {})
+enum Base {
+  Gray = '#9CA3AF',
+  Neutral = '#737373',
+  Stone = '#78716c',
+  Slate = '#64748b',
+  Mauve = '#8E8C99',
+  Sage = '#63706B',
+  Olive = '#898E87',
+  Sand = '#8D8D86'
 }
 
-export const getAvailableColors = (colors?: NimbusThemeColors) => {
-  const customColors = convertConfigColorsToTokenColors(colors)
-  const { white, black, transparent, current, ...pandaColors } =
-    pandaPreset.theme.tokens.colors
-
-  return {
-    ...pandaColors,
-    ...customColors
-  }
+enum Error {
+  Red = '#dc2626',
+  Rose = '#f43f5e',
+  Pink = '#be185d'
 }
+
+export const NimbusColors = { Primary, Base, Error }

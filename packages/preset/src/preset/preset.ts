@@ -8,7 +8,6 @@ import { getGlobalCss } from '@global-css'
 import { getUtilities } from '@utilities'
 import { getThemePalettes } from '@palettes'
 import { conditions } from '@conditions'
-import { generateRadixColors } from '@utils'
 
 /** Creates a Nimbus preset. */
 export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
@@ -21,22 +20,6 @@ export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
 
   // extend panda theme
   const { breakpoints, containerSizes, keyframes } = pandaPreset.theme
-
-  const generatedLightColors = generateRadixColors({
-    appearance: 'light',
-    accent: '#3D63DD',
-    gray: '#3D63DD',
-    background: '#ffffff'
-  })
-
-  const generatedDarkColors = generateRadixColors({
-    appearance: 'dark',
-    accent: '#3D63DD',
-    gray: '#3D63DD',
-    background: '#020202'
-  })
-
-  console.log(generatedLightColors)
 
   const basePreset = definePreset({
     name: '@nimbus-ui/preset-base',

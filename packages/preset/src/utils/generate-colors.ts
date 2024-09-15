@@ -7,7 +7,7 @@ import * as RadixColors from '@radix-ui/colors'
 import Color from 'colorjs.io'
 import BezierEasing from 'bezier-easing'
 
-type ArrayOf12<T> = [T, T, T, T, T, T, T, T, T, T, T, T]
+export type ArrayOf12<T> = [T, T, T, T, T, T, T, T, T, T, T, T]
 const arrayOf12 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] as const
 
 // prettier-ignore
@@ -50,7 +50,7 @@ const darkGrayColors = Object.fromEntries(
   ])
 ) as Record<(typeof grayScaleNames)[number], ArrayOf12<Color>>
 
-export const generateRadixColors = ({
+export const generateColors = ({
   appearance,
   ...args
 }: {

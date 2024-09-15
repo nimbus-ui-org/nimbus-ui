@@ -11,15 +11,15 @@ export const getFonts = (config: NimbusPresetConfig) => {
   return defineTokens.fonts({
     default: {
       value: fontFamilies?.default ?? (sans.value as string[]),
-      description: 'Default font family used by your theme.'
+      description: 'Default font family used by your theme'
     },
     heading: {
       value: fontFamilies?.heading ?? (sans.value as string[]),
-      description: 'Font family used in Headings.'
+      description: 'Font family used in Headings'
     },
     mono: {
       value: fontFamilies?.mono ?? (mono.value as string[]),
-      description: 'Font family used in elements that have monospace font.'
+      description: 'Font family used in elements that have monospace font'
     }
   })
 }

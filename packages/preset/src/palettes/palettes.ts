@@ -1,23 +1,20 @@
-import type { Preset, Tokens } from '@pandacss/dev'
+import type { Preset } from '@pandacss/dev'
 import type { FlattenedPalettes, NimbusPalettes, NimbusPresetConfig } from '@preset'
 import { getPalettesTokens } from './tokens'
-import { getAvailableColors } from './colors'
+import { NimbusColors } from './colors'
 import { getPalettesSemanticTokens } from './semantic-tokens'
 
-const getTokensAndSemanticTokensFromPalettes = (
-  palettes: NimbusPalettes = {},
-  availableColors: Tokens['colors']
-) => {
+const getTokensAndSemanticTokensFromPalettes = (palettes: NimbusPalettes = {}) => {
   const { primary, base, error, other } = palettes
 
   const flattenedPalettes: FlattenedPalettes = {
-    primary: primary ?? 'blue',
-    base: base ?? 'neutral',
-    error: error ?? 'red',
+    primary: primary ?? NimbusColors.Primary.Blue,
+    base: base ?? NimbusColors.Base.Gray,
+    error: error ?? NimbusColors.Error.Red,
     ...other
   }
 
-  const tokens = getPalettesTokens(flattenedPalettes, availableColors)
+  const tokens = getPalettesTokens(flattenedPalettes)
   const semanticTokens = getPalettesSemanticTokens(flattenedPalettes)
 
   return { tokens, semanticTokens }
@@ -26,11 +23,9 @@ const getTokensAndSemanticTokensFromPalettes = (
 export const getThemePalettes = (
   config: NimbusPresetConfig
 ): { theme: Preset['theme'] } => {
-  const { colors, palettes } = config
+  const { palettes } = config
 
-  const availableColors = getAvailableColors(colors)
-
-  const themePalettes = getTokensAndSemanticTokensFromPalettes(palettes, availableColors)
+  const themePalettes = getTokensAndSemanticTokensFromPalettes(palettes)
 
   return { theme: themePalettes }
 }

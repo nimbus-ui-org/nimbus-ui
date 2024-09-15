@@ -6,7 +6,8 @@ export const getRadius = (config: NimbusPresetConfig) => {
 
   return defineSemanticTokens.radii({
     default: {
-      value: `{radii.${radius}}`
+      value: `{radii.${radius}}`,
+      description: 'Default theme radius'
     }
   })
 }

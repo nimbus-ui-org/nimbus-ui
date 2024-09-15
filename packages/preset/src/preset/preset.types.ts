@@ -1,87 +1,69 @@
 import pandaPreset from '@pandacss/preset-panda'
 
-export type NimbusColorTuple = readonly [
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string
-]
-
-export type NimbusColors =
-  | Exclude<
-      keyof typeof pandaPreset.theme.tokens.colors,
-      'current' | 'black' | 'white' | 'transparent'
-    >
-  | (string & NonNullable<unknown>)
-
-export type NimbusThemeColors = {
-  [key in NimbusColors]?: NimbusColorTuple
-}
-
-export type NimbusRadius =
+type NimbusRadius =
   | keyof typeof pandaPreset.theme.tokens.radii
   | (string & NonNullable<unknown>)
 
 export interface NimbusPalettes {
   /**
-   * Your brand color palette.
-   * Defaults to `blue`.
+   * Your brand color palette - `Hex | RGB | HSL`.
+   *
+   * Defaults to `NimbusColors.Primary.Blue`.
    */
-  primary?: NimbusColors
+  primary?: string
 
   /**
-   * Base color palette. Used for backgrounds, typographies and contrast.
-   * Defaults to `gray`.
+   * Base color palette. Used for backgrounds, typographies and contrast - `Hex | RGB | HSL`.
+   *
+   * Defaults to `NimbusColors.Base.Gray`.
+   *
+   * **Note:** You can use also use any bright color value.
+   * Nimbus will convert it to a **Base** palette based on the value provided.
    */
-  base?: NimbusColors
+  base?: string
 
   /**
-   * Error color palette.
-   * Defaults to `red`.
+   * Error color palette - `Hex | RGB | HSL`.
+   *
+   * Defaults to `NimbusColors.Error.Red`.
    */
-  error?: NimbusColors
+  error?: string
 
   /**
    * Other palettes you wish to include.
-   * This is an object where each key represents a name you desire for the color palette and the value is the color name.
+   * This is an object where each key represents a name you desire for the color palette and the value is the color.
    *
    * Example:
    *
    * ```ts
    * other: {
-   *  warning: 'yellow',
-   *  success: 'green',
-   *  purple: 'purple'
+   *  warning: NimbusColors.Primary.Amber,
+   *  success: '#16a34a',
    * }
    * ```
    */
-  other?: { [colorName: string]: NimbusColors }
+  other?: { [colorName: string]: string }
 }
 
 export interface FlattenedPalettes {
-  [colorName: string]: NimbusColors
+  primary: string
+  base: string
+  error: string
+  [colorName: string]: string
 }
 
 export interface NimbusPresetConfig {
   /**
-   * An Object where each key is a color name, and the value is an array of 11 color strings.
-   * Color strings are either in **Hex**, **RGB**, or **HSL** format.
-   *
-   * **Note:** colors defined here are meant to be used in your palettes.
-   * If none of your palettes use a color defined here they are automatically ignored.
-   */
-  colors?: NimbusThemeColors
-
-  /**
    * Theme specific color palettes.
-   * Values can only refer to predefined color names, or color names defined in `colors` property.
+   * Values are either in **Hex**, **RGB**, or **HSL** format.
+   *
+   * You can use predefined Nimbus Colors, for example:
+   *
+   * ```ts
+   * palettes: {
+   *  primary: NimbusColors.Primary.Dark,
+   * }
+   * ```
    */
   palettes?: NimbusPalettes
 
