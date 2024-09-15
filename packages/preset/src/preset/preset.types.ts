@@ -45,13 +45,6 @@ export interface NimbusPalettes {
   other?: { [colorName: string]: string }
 }
 
-export interface FlattenedPalettes {
-  primary: string
-  base: string
-  error: string
-  [colorName: string]: string
-}
-
 export interface NimbusPresetConfig {
   /**
    * Theme specific color palettes.
@@ -71,7 +64,7 @@ export interface NimbusPresetConfig {
    * Alternative themes.
    * An object where each key represents the name of the theme, and the value is a `NimbusPalettes` object.
    */
-  otherThemes?: { [themeName: string]: NimbusPalettes }
+  otherThemes?: OtherThemes
 
   /**
    * Font families. System fonts are used by default.
@@ -114,4 +107,15 @@ export interface NimbusPresetConfig {
    * - `pointer` – adds `pointer` cursor style
    */
   cursor?: 'default' | 'pointer'
+}
+
+export interface FlattenedPalettes {
+  primary: string
+  base: string
+  error: string
+  [colorName: string]: string
+}
+
+export interface OtherThemes {
+  [themeName: string]: NimbusPalettes
 }

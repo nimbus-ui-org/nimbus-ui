@@ -11,8 +11,9 @@ export const globalTypes = {
   dataThemes: {
     defaultValue: {
       list: [
-        { name: 'Blue', dataTheme: 'blue', color: '#3b82f6' },
-        { name: 'Pink', dataTheme: 'pink', color: '#ec4899' }
+        { name: 'Blue / Gray', dataTheme: 'blue', color: '#3B82F6' },
+        { name: 'Pink / Blue', dataTheme: 'pink', color: '#F38375' },
+        { name: 'Dark / Gray', dataTheme: 'dark', color: '#000' }
       ],
       dataAttribute: 'data-panda-theme',
       clearable: true,

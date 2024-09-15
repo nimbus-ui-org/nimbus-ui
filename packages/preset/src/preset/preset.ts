@@ -46,17 +46,15 @@ export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
     }
   })
 
-  const { theme } = getThemePalettes(config)
+  const { theme, themes } = getThemePalettes(config)
 
   return definePreset({
     name: '@nimbus-ui/preset',
     presets: [basePreset],
     theme: {
       extend: theme
-    }
-    // themes: {
-    //   extend: otherThemePalettes
-    // }
+    },
+    themes: themes
   })
 }
 

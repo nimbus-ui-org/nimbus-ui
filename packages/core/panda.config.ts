@@ -8,8 +8,18 @@ export default defineConfig({
       respectMotionPreference: true,
       palettes: {
         primary: NimbusColors.Primary.Blue,
-        base: NimbusColors.Base.Slate
+        base: NimbusColors.Base.Gray
         // other: { warning: 'yellow' }
+      },
+      otherThemes: {
+        pink: {
+          primary: '#F38375',
+          base: '#2E5CA9'
+        },
+        dark: {
+          primary: NimbusColors.Primary.Dark,
+          base: NimbusColors.Base.Gray
+        }
       }
     })
   ],
@@ -27,6 +37,8 @@ export default defineConfig({
   theme: {
     extend: {}
   },
+
+  staticCss: { themes: ['pink', 'dark'] },
 
   // no random css properties
   strictPropertyValues: true,
