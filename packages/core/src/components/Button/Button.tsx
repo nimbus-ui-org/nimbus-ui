@@ -15,9 +15,9 @@ export const Button: React.FC<ButtonProps> = forwardRef(
     return (
       <ButtonBase
         className={css({
-          color: 'colorPalette.ghost.text',
+          color: 'colorPalette.outline.text',
           colorPalette: 'primary',
-          bg: 'transparent',
+          bg: 'colorPalette.outline',
           borderRadius: 'default',
           border: 'xs',
           fontSize: 'lg',
@@ -27,11 +27,11 @@ export const Button: React.FC<ButtonProps> = forwardRef(
           py: '2',
           px: '3',
           _hovered: {
-            bg: 'colorPalette.ghost.hover',
+            bg: 'colorPalette.outline.hover',
             borderColor: 'colorPalette.border.hover'
           },
           _pressed: {
-            bg: 'colorPalette.ghost.active',
+            bg: 'colorPalette.outline.active',
             borderColor: 'colorPalette.border.active'
           },
           outline: 'none',

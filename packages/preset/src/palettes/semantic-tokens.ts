@@ -48,6 +48,12 @@ const convertPaletteToSemanticTokens = (palette: string) => {
       active: { value: getColor(palette, 'a5') },
       text: { value: getColor(palette, 'a11') }
     },
+    outline: {
+      DEFAULT: { value: '{colors.transparent}' },
+      hover: { value: getColor(palette, 'a3') },
+      active: { value: getColor(palette, 'a4') },
+      text: { value: getColor(palette, 'a11') }
+    },
     border: {
       DEFAULT: { value: getColor(palette, 'a6') },
       hover: { value: getColor(palette, 'a7') },
