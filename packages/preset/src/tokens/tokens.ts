@@ -2,6 +2,8 @@ import { defineTokens, type Tokens } from '@pandacss/dev'
 import type { NimbusPresetConfig } from '@preset'
 import { getFonts } from './fonts'
 import pandaPreset from '@pandacss/preset-panda'
+import { borderWidths } from './border-widths'
+import { borders } from './borders'
 
 export const getTokens = (config: NimbusPresetConfig): Tokens => {
   const fonts = getFonts(config)
@@ -20,6 +22,8 @@ export const getTokens = (config: NimbusPresetConfig): Tokens => {
       black,
       current,
       transparent
-    }
+    },
+    borderWidths,
+    borders
   })
 }

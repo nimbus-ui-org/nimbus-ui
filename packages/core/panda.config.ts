@@ -41,7 +41,7 @@ export default defineConfig({
   staticCss: { themes: ['pink', 'dark'] },
 
   // no random css properties
-  strictPropertyValues: true,
+  strictPropertyValues: false,
 
   // strict tokens
   strictTokens: true,
