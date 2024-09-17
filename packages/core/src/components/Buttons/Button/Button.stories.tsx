@@ -44,7 +44,9 @@ export const Primary: Story = {
       },
       outline: 'none',
       reducedMotion: 'preference',
-      cursorType: 'preference'
+      cursorType: 'preference',
+      mx: '3.5',
+      my: '4'
     }),
     fontSize: '2xl',
     abbas: 'black',
