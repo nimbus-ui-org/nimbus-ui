@@ -1,5 +1,6 @@
 import { defineConfig } from '@pandacss/dev'
 import { createNimbusPreset, NimbusColors } from '@nimbus-ui/preset'
+import { patterns } from '@storybook'
 
 export default defineConfig({
   presets: [
@@ -36,6 +37,11 @@ export default defineConfig({
   // Useful for theme customization
   theme: {
     extend: {}
+  },
+
+  // Storybook specific patterns
+  patterns: {
+    extend: patterns
   },
 
   staticCss: { themes: ['pink', 'dark'], recipes: '*' },

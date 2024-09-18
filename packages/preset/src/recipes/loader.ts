@@ -117,5 +117,5 @@ export const loader = defineRecipe({
       }
     }
   },
-  defaultVariants: { variant: 'bars', size: 'md' }
+  defaultVariants: { variant: 'spinner', size: 'md' }
 })

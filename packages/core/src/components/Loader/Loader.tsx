@@ -13,7 +13,7 @@ export const Loader = forwardRef(
         <span />
         <span />
         <span />
-        {variant === 'spinner' && (
+        {(variant ?? 'spinner') === 'spinner' && (
           <>
             <span />
             <span />
