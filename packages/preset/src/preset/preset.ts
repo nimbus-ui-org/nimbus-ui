@@ -8,6 +8,8 @@ import { getGlobalCss } from '@global-css'
 import { getUtilities } from '@utilities'
 import { getThemePalettes } from '@palettes'
 import { conditions } from '@conditions'
+import { recipes } from '@recipes'
+import { keyframes } from '@keyframes'
 
 /** Creates a Nimbus preset. */
 export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
@@ -19,7 +21,7 @@ export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
   // const slotRecipes = getSlotRecipes(config)
 
   // extend panda theme
-  const { breakpoints, containerSizes, keyframes } = pandaPreset.theme
+  const { breakpoints, containerSizes } = pandaPreset.theme
 
   const basePreset = definePreset({
     name: '@nimbus-ui/preset-base',
@@ -30,8 +32,8 @@ export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
         breakpoints,
         containerSizes,
         keyframes,
-        textStyles
-        // recipes,
+        textStyles,
+        recipes
         // slotRecipes,
       }
     },

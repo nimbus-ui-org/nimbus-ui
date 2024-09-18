@@ -38,7 +38,7 @@ export default defineConfig({
     extend: {}
   },
 
-  staticCss: { themes: ['pink', 'dark'] },
+  staticCss: { themes: ['pink', 'dark'], recipes: '*' },
 
   // no random css properties
   strictPropertyValues: false,
