@@ -6,18 +6,14 @@ import type {
 import { forwardRef, type ElementType } from 'react'
 import { styled } from '@nimbus-ui/styled-system/jsx'
 import type { ComponentProps } from '@nimbus-ui/styled-system/types'
+import type { AriaProps } from '@utils'
 
-export type UnstyledButtonBaseProps = Omit<
-  AriaLinkProps & AriaButtonProps,
-  'className'
-> & {
-  className?: string
-}
+type UnstyledButtonBaseProps = AriaProps<AriaLinkProps & AriaButtonProps>
 
-export const UnstyledButtonBase = forwardRef(
+const UnstyledButtonBase = forwardRef(
   (
     { children, ...props }: UnstyledButtonBaseProps,
-    ref: React.LegacyRef<HTMLButtonElement | HTMLAnchorElement>
+    ref: React.Ref<HTMLButtonElement | HTMLAnchorElement>
   ) => {
     // if href is provided render a Link instead
     const Component: ElementType = props.href ? AriaLink : AriaButton

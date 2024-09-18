@@ -1,30 +1,28 @@
 import { forwardRef } from 'react'
-import { UnstyledButtonBase, type UnstyledButtonBaseProps } from '../ButtonBase'
-import type { ComponentProps } from '@nimbus-ui/styled-system/types'
-import { styled } from '@nimbus-ui/styled-system/jsx'
+import { ButtonBase, type ButtonBaseProps } from '../ButtonBase'
 
 interface Props {
   abbas?: 'white' | 'black'
 }
 
-type UnstyledButtonProps = UnstyledButtonBaseProps & Props
+export type ButtonProps = ButtonBaseProps & Props
 
 // const button = cva
 
-const UnstyledButton = forwardRef(
+export const Button = forwardRef(
   (
-    { children, ...props }: UnstyledButtonProps,
-    ref: React.LegacyRef<HTMLButtonElement | HTMLAnchorElement>
+    { children, ...props }: ButtonProps,
+    ref: React.Ref<HTMLAnchorElement | HTMLButtonElement>
   ) => {
     return (
-      <UnstyledButtonBase ref={ref} {...props}>
+      <ButtonBase ref={ref} {...props}>
         {children as React.ReactNode}
-      </UnstyledButtonBase>
+      </ButtonBase>
     )
   }
 )
 
-UnstyledButton.displayName = 'NimbusUI_Button'
+Button.displayName = 'NimbusUI_Button'
 
-export const Button = styled(UnstyledButton)
-export type ButtonProps = ComponentProps<typeof Button>
+// export const Button = styled(UnstyledButton)
+// export type ButtonProps = ComponentProps<typeof Button>
