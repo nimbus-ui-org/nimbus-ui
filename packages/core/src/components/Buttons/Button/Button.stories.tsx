@@ -49,7 +49,6 @@ export const Primary: Story = {
       my: '4'
     }),
     fontSize: '2xl',
-    abbas: 'black',
     children: 'Button'
   }
 }

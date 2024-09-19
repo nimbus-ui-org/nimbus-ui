@@ -10,6 +10,7 @@ import { getThemePalettes } from '@palettes'
 import { conditions } from '@conditions'
 import { recipes } from '@recipes'
 import { keyframes } from '@keyframes'
+import { slotRecipes } from '@slot-recipes'
 
 /** Creates a Nimbus preset. */
 export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
@@ -33,8 +34,8 @@ export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
         containerSizes,
         keyframes,
         textStyles,
-        recipes
-        // slotRecipes,
+        recipes,
+        slotRecipes
       }
     },
     globalCss: {

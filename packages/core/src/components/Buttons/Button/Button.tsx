@@ -1,8 +1,15 @@
 import { forwardRef } from 'react'
 import { ButtonBase, type ButtonBaseProps } from '../ButtonBase'
+import type { LoaderProps } from '@components/Loader'
+import type { ButtonRecipe } from '@nimbus-ui/styled-system/recipes'
+import type { SlotsClasses } from '@utils'
 
 interface Props {
-  abbas?: 'white' | 'black'
+  classNames?: SlotsClasses<ButtonRecipe>
+  startSection?: React.ReactNode
+  endSection?: React.ReactNode
+  isLoading?: boolean
+  loaderProps?: LoaderProps
 }
 
 export type ButtonProps = ButtonBaseProps & Props
@@ -23,6 +30,3 @@ export const Button = forwardRef(
 )
 
 Button.displayName = 'NimbusUI_Button'
-
-// export const Button = styled(UnstyledButton)
-// export type ButtonProps = ComponentProps<typeof Button>
