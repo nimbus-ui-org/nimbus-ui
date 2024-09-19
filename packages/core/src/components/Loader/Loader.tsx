@@ -3,13 +3,13 @@ import { loader } from '@nimbus-ui/styled-system/recipes'
 import type { ComponentProps } from '@nimbus-ui/styled-system/types'
 import React, { forwardRef } from 'react'
 
-const StyledSpan = styled('span', loader)
-export type StyledSpanProps = ComponentProps<typeof StyledSpan>
+const StyledLoader = styled('span', loader)
+export type LoaderProps = ComponentProps<typeof StyledLoader>
 
 export const Loader = forwardRef(
-  ({ variant, ...props }: StyledSpanProps, ref: React.Ref<HTMLSpanElement>) => {
+  ({ variant, ...props }: LoaderProps, ref: React.Ref<HTMLSpanElement>) => {
     return (
-      <StyledSpan variant={variant} {...props} ref={ref}>
+      <StyledLoader variant={variant} {...props} ref={ref}>
         <span />
         <span />
         <span />
@@ -22,7 +22,7 @@ export const Loader = forwardRef(
             <span />
           </>
         )}
-      </StyledSpan>
+      </StyledLoader>
     )
   }
 )

@@ -2,53 +2,18 @@ import { defineRecipe } from '@pandacss/dev'
 
 export const loader = defineRecipe({
   className: 'nimbus-loader',
-  jsx: ['Loader'],
+  jsx: ['Loader', 'Button'],
   base: {
     display: 'flex',
     position: 'relative',
     justifyContent: 'space-between',
-    colorPalette: 'primary',
-    color: 'colorPalette',
+    color: 'primary',
     '& span': {
       bg: 'current'
     }
   },
   variants: {
     variant: {
-      bars: {
-        '& span': {
-          flex: '0 0 20%',
-          borderRadius: 'xs',
-          animation: 'loading.bars'
-        },
-        '& span:nth-child(1)': {
-          animationDelay: '-1s'
-        },
-        '& span:nth-child(2)': {
-          animationDelay: '-0.8s'
-        },
-        '& span:nth-child(3)': {
-          animationDelay: '-0.6s'
-        }
-      },
-      dots: {
-        alignItems: 'center',
-        '& span': {
-          flex: '0 0 25%',
-          height: '25%',
-          borderRadius: '50%',
-          animation: 'loading.dots'
-        },
-        '& span:nth-child(1)': {
-          animationDelay: '-1s'
-        },
-        '& span:nth-child(2)': {
-          animationDelay: '-0.8s'
-        },
-        '& span:nth-child(3)': {
-          animationDelay: '-0.6s'
-        }
-      },
       spinner: {
         '& span': {
           position: 'absolute',
@@ -91,6 +56,40 @@ export const loader = defineRecipe({
         '& span:nth-child(8)': {
           transform: 'rotate(315deg)',
           animationDelay: 'calc(-1/8 * 0.8s)'
+        }
+      },
+      dots: {
+        alignItems: 'center',
+        '& span': {
+          flex: '0 0 25%',
+          height: '25%',
+          borderRadius: '50%',
+          animation: 'loading.dots'
+        },
+        '& span:nth-child(1)': {
+          animationDelay: '-1s'
+        },
+        '& span:nth-child(2)': {
+          animationDelay: '-0.8s'
+        },
+        '& span:nth-child(3)': {
+          animationDelay: '-0.6s'
+        }
+      },
+      bars: {
+        '& span': {
+          flex: '0 0 20%',
+          borderRadius: 'xs',
+          animation: 'loading.bars'
+        },
+        '& span:nth-child(1)': {
+          animationDelay: '-1s'
+        },
+        '& span:nth-child(2)': {
+          animationDelay: '-0.8s'
+        },
+        '& span:nth-child(3)': {
+          animationDelay: '-0.6s'
         }
       }
     },

@@ -47,13 +47,13 @@ export const Colors = () => {
       {loader.variantMap.variant.map((variant) => (
         <Fragment key={variant}>
           <GridItem>
-            <Loader variant={variant} colorPalette="primary" />
+            <Loader variant={variant} color="primary" />
           </GridItem>
           <GridItem>
-            <Loader variant={variant} colorPalette="base" />
+            <Loader variant={variant} color="base" />
           </GridItem>
           <GridItem>
-            <Loader variant={variant} colorPalette="error" />
+            <Loader variant={variant} color="error" />
           </GridItem>
         </Fragment>
       ))}
