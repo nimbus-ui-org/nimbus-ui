@@ -28,51 +28,55 @@ type ColorShade =
   | 'a12'
   | 'contrastText'
 
-const getColor = (palette: string, shade: ColorShade) => ({
-  _light: `{colors.${palette}.${shade}.light}`,
-  _dark: `{colors.${palette}.${shade}.dark}`
-})
-
 const convertPaletteToSemanticTokens = (palette: string) => {
+  const getColor = (shade: ColorShade) => ({
+    _light: `{colors.${palette}.${shade}.light}`,
+    _dark: `{colors.${palette}.${shade}.dark}`
+  })
+
   return defineSemanticTokens.colors({
-    DEFAULT: { value: getColor(palette, '9') },
+    DEFAULT: { value: getColor('9') },
     solid: {
-      DEFAULT: { value: getColor(palette, '9') },
-      hover: { value: getColor(palette, '10') },
-      active: { value: getColor(palette, '9') },
-      text: { value: getColor(palette, 'contrastText') }
+      DEFAULT: { value: getColor('9') },
+      hover: { value: getColor('10') },
+      active: { value: getColor('9') },
+      text: { value: getColor('contrastText') }
     },
     ghost: {
-      DEFAULT: { value: getColor(palette, 'a3') },
-      hover: { value: getColor(palette, 'a4') },
-      active: { value: getColor(palette, 'a5') },
-      text: { value: getColor(palette, 'a11') }
+      DEFAULT: { value: getColor('a3') },
+      hover: { value: getColor('a4') },
+      active: { value: getColor('a5') },
+      text: { value: getColor('a11') }
     },
     outline: {
       DEFAULT: { value: '{colors.transparent}' },
-      hover: { value: getColor(palette, 'a3') },
-      active: { value: getColor(palette, 'a4') },
-      text: { value: getColor(palette, 'a11') }
+      hover: { value: getColor('a3') },
+      active: { value: getColor('a4') },
+      text: { value: getColor('a11') }
+    },
+    disabled: {
+      Default: { value: getColor('a3') },
+      text: { value: getColor('a8') }
     },
     border: {
-      DEFAULT: { value: getColor(palette, 'a6') },
-      hover: { value: getColor(palette, 'a7') },
-      active: { value: getColor(palette, 'a8') }
+      DEFAULT: { value: getColor('a6') },
+      hover: { value: getColor('a7') },
+      active: { value: getColor('a8') }
     },
     text: {
-      '1': { value: getColor(palette, 'a12') },
-      '2': { value: getColor(palette, 'a11') }
+      '1': { value: getColor('a12') },
+      '2': { value: getColor('a11') }
     },
 
     // base palette specific semantic tokens
     ...(palette === 'base' && {
       bg: {
         '1': {
-          value: getColor(palette, '1'),
+          value: getColor('1'),
           description: 'High contrast background'
         },
         '2': {
-          value: getColor(palette, '2'),
+          value: getColor('2'),
           description: 'Low contrast background'
         }
       }
