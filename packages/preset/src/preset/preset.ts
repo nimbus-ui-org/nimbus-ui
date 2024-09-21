@@ -18,8 +18,6 @@ export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
   const tokens = getTokens(config)
   const semanticTokens = getSemanticTokens(config)
   const utilities = getUtilities(config)
-  // const recipes = getRecipes(config)
-  // const slotRecipes = getSlotRecipes(config)
 
   // extend panda theme
   const { breakpoints, containerSizes } = pandaPreset.theme
@@ -30,12 +28,12 @@ export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
       extend: {
         tokens,
         semanticTokens,
-        breakpoints,
-        containerSizes,
         keyframes,
         textStyles,
         recipes,
-        slotRecipes
+        slotRecipes,
+        breakpoints,
+        containerSizes
       }
     },
     globalCss: {

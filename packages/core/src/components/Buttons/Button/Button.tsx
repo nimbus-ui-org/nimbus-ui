@@ -6,14 +6,14 @@ import {
   type ButtonRecipe,
   type ButtonVariantProps
 } from '@nimbus-ui/styled-system/recipes'
-import type { SlotsClasses } from '@utils'
-import { cx } from '@nimbus-ui/styled-system/css'
+import { useStyles, type SlotsClasses } from '@utils'
 
 interface Props {
   /**
    * An object to extend the styles of the component and its inner elements.
    *
    * **Note:** If the native `className` prop is used, the styles are passed to the `root` element.
+   * Do not use `className` and `classNames` together for specificity issues.
    */
   classNames?: SlotsClasses<ButtonRecipe>
 
@@ -54,33 +54,27 @@ export const Button = forwardRef(
     }: ButtonProps,
     ref: React.Ref<HTMLAnchorElement | HTMLButtonElement>
   ) => {
-    const [variants, rest] = button.splitVariantProps(props)
-
-    const classes = button(variants)
+    const { styles, rest } = useStyles<typeof props, ButtonVariantProps, ButtonRecipe>({
+      recipe: button,
+      props,
+      className,
+      classNames
+    })
 
     return (
-      <ButtonBase
-        className={cx(classes.root, classNames?.root, className)}
-        data-loading={isLoading}
-        ref={ref}
-        {...rest}
-      >
+      <ButtonBase className={styles.root} data-loading={isLoading} ref={ref} {...rest}>
         {startSection && (
-          <span className={cx(classes.section, classNames?.section)} data-section="start">
+          <span className={styles.section} data-section="start">
             {startSection}
           </span>
         )}
 
-        {isLoading && (
-          <Loader className={cx(classes.loader, classNames?.loader)} {...loaderProps} />
-        )}
+        {isLoading && <Loader className={styles.loader} {...loaderProps} />}
 
-        <span className={cx(classes.label, classNames?.label)}>
-          {children as React.ReactNode}
-        </span>
+        <span className={styles.label}>{children as React.ReactNode}</span>
 
         {endSection && (
-          <span className={cx(classes.section, classNames?.section)} data-section="end">
+          <span className={styles.section} data-section="end">
             {endSection}
           </span>
         )}

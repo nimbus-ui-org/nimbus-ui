@@ -28,6 +28,7 @@ module.exports = {
   },
   rules: {
     '@pandacss/file-not-included': 'off',
+    '@pandacss/no-hardcoded-color': 'off',
     'prettier/prettier': [
       1,
       {

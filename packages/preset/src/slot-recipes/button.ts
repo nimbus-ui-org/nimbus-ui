@@ -5,7 +5,8 @@ export const button = defineSlotRecipe({
   slots: ['root', 'section', 'loader', 'label'],
   jsx: ['Button'],
   base: {
-    root: { fontSize: 'lg' }
+    root: { fontSize: 'lg' },
+    loader: { color: 'inherit' }
   },
   variants: {
     variant: {
