@@ -8,6 +8,8 @@ export const loader = defineRecipe({
     position: 'relative',
     justifyContent: 'space-between',
     color: 'primary',
+    height: '9',
+    aspectRatio: 'square',
     '& span': {
       bg: 'current'
     }
@@ -18,7 +20,7 @@ export const loader = defineRecipe({
         '& span': {
           position: 'absolute',
           height: '30%',
-          width: '10%',
+          width: '15%',
           insetBlockStart: 0,
           insetInlineStart: 'calc(50% - 5%)',
           transformOrigin: '50% calc(100% + (2 / 3) * 100%)',
@@ -95,26 +97,21 @@ export const loader = defineRecipe({
     },
     size: {
       xs: {
-        width: '4',
         height: '4'
       },
       sm: {
-        width: '5',
         height: '5'
       },
       md: {
-        width: '9',
         height: '9'
       },
       lg: {
-        width: '12',
         height: '12'
       },
       xl: {
-        width: '14',
         height: '14'
       }
     }
   },
-  defaultVariants: { variant: 'spinner', size: 'md' }
+  defaultVariants: { variant: 'spinner' }
 })
