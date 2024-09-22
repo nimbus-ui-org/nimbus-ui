@@ -33,6 +33,12 @@ interface Props {
   isLoading?: boolean
 
   /**
+   * Element rendered instead of the `Loader` component when `isLoading` is `true`.
+   * If this prop is used, `loaderProps` will be ignored.
+   */
+  customLoader?: React.ReactNode
+
+  /**
    * `Loader` element props.
    */
   loaderProps?: LoaderProps
@@ -50,6 +56,7 @@ export const Button = forwardRef(
       endSection,
       isLoading,
       isDisabled,
+      customLoader,
       loaderProps = {},
       ...props
     }: ButtonProps,
@@ -77,7 +84,14 @@ export const Button = forwardRef(
           </span>
         )}
 
-        {isLoading && <Loader data-loading className={styles.loader} {...loaderProps} />}
+        {isLoading &&
+          (customLoader ? (
+            <span data-loading className={styles.loader}>
+              {customLoader}
+            </span>
+          ) : (
+            <Loader data-loading className={styles.loader} {...loaderProps} />
+          ))}
 
         <span className={styles.label}>{children as React.ReactNode}</span>
 
