@@ -14,11 +14,11 @@ export const button = defineSlotRecipe({
       lineHeight: 'none',
       fontWeight: 'semibold',
       borderRadius: 'default',
+      colorPalette: 'primary',
+      transition: 'colors',
       outline: 'none',
       cursorType: 'preference',
       reducedMotion: 'preference',
-      colorPalette: 'primary',
-      transition: 'colors',
 
       // hide children when loading
       _loading: {
@@ -60,12 +60,12 @@ export const button = defineSlotRecipe({
       visibility: 'visible'
     },
     loader: {
+      alignContent: 'center',
       position: 'absolute',
       insetBlockStart: '50%',
       insetInlineStart: '50%',
       transform: 'translate(-50%, -50%)',
-      color: 'inherit',
-      height: '55%'
+      color: 'inherit'
     }
   },
   variants: {

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { fn } from '@storybook/test'
 import { Button } from './Button'
 import { Box } from '@nimbus-ui/styled-system/jsx'
+import { FaEnvelope } from 'react-icons/fa'
 
 const meta = {
   title: 'Buttons/Button',
@@ -24,9 +25,11 @@ export const Primary: Story = {
     children: 'Button kjfdlskfj lskdfj',
     variant: 'solid',
     size: 'md',
+    startSection: <FaEnvelope />,
     isLoading: false,
     isDisabled: false,
-    loaderProps: { variant: 'dots' },
+    customLoader: 'Loading...',
+    loaderProps: { variant: 'spinner' },
     'aria-label': 'Nimbus Button'
   }
 }
