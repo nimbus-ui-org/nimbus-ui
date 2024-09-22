@@ -17,15 +17,14 @@ export const button = defineSlotRecipe({
       outline: 'none',
       cursorType: 'preference',
       reducedMotion: 'preference',
-      bg: 'primary.solid',
-      color: 'primary.solid.text',
+      colorPalette: 'primary',
+      transition: 'colors',
 
       // hide children when loading
       _loading: {
         '& > span': {
           visibility: 'hidden'
-        },
-        cursor: 'not-allowed'
+        }
       },
 
       // reveal loader
@@ -35,13 +34,13 @@ export const button = defineSlotRecipe({
         }
       },
 
-      _dataAppearanceDisabled: {
-        bg: 'base.disabled',
-        color: 'base.disabled.text'
+      _dataDisabled: {
+        cursor: 'not-allowed'
       },
       _dataFocusRing: {
         outline: 'sm',
-        outlineColor: 'black'
+        outlineOffset: '0.5',
+        outlineColor: 'colorPalette.border.active'
       }
     },
     section: {
@@ -49,10 +48,10 @@ export const button = defineSlotRecipe({
       alignItems: 'center',
       visibility: 'visible',
       _sectionStart: {
-        marginInlineEnd: '2'
+        marginInlineEnd: '2.5'
       },
       _sectionEnd: {
-        marginInlineStart: '2'
+        marginInlineStart: '2.5'
       }
     },
     label: {
@@ -72,15 +71,121 @@ export const button = defineSlotRecipe({
   variants: {
     variant: {
       solid: {
-        root: {}
+        root: {
+          bg: 'colorPalette.solid',
+          color: 'colorPalette.solid.text',
+          _dataHovered: {
+            bg: 'colorPalette.solid.hover'
+          },
+          _dataPressed: {
+            bg: 'colorPalette.solid.active'
+          },
+          _dataAppearanceDisabled: {
+            bg: 'base.disabled',
+            color: 'base.disabled.text'
+          }
+        }
+      },
+      outline: {
+        root: {
+          bg: 'colorPalette.outline',
+          color: 'colorPalette.outline.text',
+          border: 'xs',
+          borderColor: 'colorPalette.border',
+          _dataHovered: {
+            bg: 'colorPalette.outline.hover',
+            borderColor: 'colorPalette.border.hover'
+          },
+          _dataPressed: {
+            bg: 'colorPalette.outline.active',
+            borderColor: 'colorPalette.border.active'
+          },
+          _dataAppearanceDisabled: {
+            color: 'base.disabled.text',
+            borderColor: 'base.disabled.border'
+          }
+        }
+      },
+      ghost: {
+        root: {
+          bg: 'colorPalette.ghost',
+          color: 'colorPalette.ghost.text',
+          _dataHovered: {
+            bg: 'colorPalette.ghost.hover'
+          },
+          _dataPressed: {
+            bg: 'colorPalette.ghost.active'
+          },
+          _dataAppearanceDisabled: {
+            bg: 'base.disabled',
+            color: 'base.disabled.text'
+          }
+        }
+      },
+      link: {
+        root: {
+          color: 'colorPalette.text.2',
+          _dataHovered: {
+            textDecoration: 'underline'
+          },
+          _dataPressed: {
+            color: 'colorPalette.text.1'
+          },
+          _dataAppearanceDisabled: {
+            color: 'base.disabled.text'
+          }
+        }
       }
     },
     size: {
+      xs: {
+        root: {
+          fontSize: 'xs',
+          height: '6',
+          px: '2'
+        },
+        loader: {
+          height: '4'
+        }
+      },
+      sm: {
+        root: {
+          fontSize: 'sm',
+          height: '8',
+          px: '3'
+        },
+        loader: {
+          height: '5'
+        }
+      },
       md: {
         root: {
           fontSize: 'md',
           height: '10',
           px: '4'
+        },
+        loader: {
+          height: '6'
+        }
+      },
+      lg: {
+        root: {
+          fontSize: 'lg',
+          height: '12',
+          px: '6'
+        },
+        loader: {
+          height: '8'
+        }
+      },
+      xl: {
+        root: {
+          fontSize: 'xl',
+          height: '14',
+          px: '8'
+        },
+        loader: {
+          height: '8'
         }
       }
     }
