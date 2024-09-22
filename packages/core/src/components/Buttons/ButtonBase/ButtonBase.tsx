@@ -19,7 +19,7 @@ const UnstyledButtonBase = forwardRef(
     const Component: ElementType = props.href ? AriaLink : AriaButton
 
     return (
-      <Component ref={ref} {...props}>
+      <Component role={!props.href && 'button'} ref={ref} {...props}>
         {children}
       </Component>
     )
