@@ -49,20 +49,26 @@ export const Primary: Story = {
     //   my: '4'
     // }),
     // fontSize: '2xl',
-    children: 'Button'
+    children: 'Button kjfdlskfj lskdfj',
+    startSection: <>Hello</>,
+    isLoading: true,
+    isDisabled: true,
+    loaderProps: { variant: 'dots' }
   }
 }
 
 export const Test = () => {
   return (
-    <Button
-      // classNames={{ root: css({ color: 'base' }) }}
-      className={css({ color: 'error' })}
-      variant="solid"
-      loaderProps={{ variant: 'dots' }}
-      isLoading
-    >
-      Testing
-    </Button>
+    <div className="group">
+      <Button
+        // classNames={{ root: css({ color: 'base' }) }}
+        className={css({ color: 'error', outline: 'md', px: '1' })}
+        variant="solid"
+        loaderProps={{ variant: 'dots' }}
+        isLoading
+      >
+        Testing
+      </Button>
+    </div>
   )
 }

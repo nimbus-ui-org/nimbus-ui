@@ -13,7 +13,7 @@ const meta = {
       </Box>
     )
   ],
-  args: { onPress: fn(() => {}) }
+  args: { onPress: fn(() => console.log('pressed')) }
 } satisfies Meta<typeof ButtonBase>
 
 export default meta

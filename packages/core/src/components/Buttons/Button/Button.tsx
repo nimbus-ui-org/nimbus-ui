@@ -49,7 +49,8 @@ export const Button = forwardRef(
       startSection,
       endSection,
       isLoading,
-      loaderProps,
+      isDisabled,
+      loaderProps = {},
       ...props
     }: ButtonProps,
     ref: React.Ref<HTMLAnchorElement | HTMLButtonElement>
@@ -62,14 +63,21 @@ export const Button = forwardRef(
     })
 
     return (
-      <ButtonBase className={styles.root} data-loading={isLoading} ref={ref} {...rest}>
+      <ButtonBase
+        className={styles.root}
+        data-loading={isLoading || undefined}
+        data-appearance-disabled={isDisabled || undefined}
+        isDisabled={isLoading || isDisabled || undefined}
+        ref={ref}
+        {...rest}
+      >
         {startSection && (
           <span className={styles.section} data-section="start">
             {startSection}
           </span>
         )}
 
-        {isLoading && <Loader className={styles.loader} {...loaderProps} />}
+        {isLoading && <Loader data-loading className={styles.loader} {...loaderProps} />}
 
         <span className={styles.label}>{children as React.ReactNode}</span>
 

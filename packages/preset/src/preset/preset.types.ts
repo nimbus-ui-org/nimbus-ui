@@ -87,8 +87,8 @@ export interface NimbusPresetConfig {
   }
 
   /**
-   * Default border radius value.
-   * Can accept predefined border radius values or any css value.
+   * Default border radius.
+   * Can accept `radii` token values.
    * Defaults to `md`.
    */
   radius?: NimbusRadius

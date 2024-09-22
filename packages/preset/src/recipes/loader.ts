@@ -22,7 +22,7 @@ export const loader = defineRecipe({
           height: '30%',
           width: '15%',
           insetBlockStart: 0,
-          insetInlineStart: 'calc(50% - 5%)',
+          insetInlineStart: 'calc(50% - 7.5%)',
           transformOrigin: '50% calc(100% + (2 / 3) * 100%)',
           borderRadius: 'xs',
           animation: 'loading.spinner'
