@@ -33,14 +33,14 @@
       }
     },
     "./*": {
-      "source": "./src/components/*/index.ts",
+      "source": "./src/components/**/*/index.ts",
       "import": {
-        "types": "./lib/components/*/index.d.ts",
-        "default": "./esm/components/*/index.mjs"
+        "types": "./lib/components/**/*/index.d.ts",
+        "default": "./esm/components/**/*/index.mjs"
       },
       "require": {
-        "types": "./lib/components/*/index.d.ts",
-        "default": "./cjs/components/*/index.js"
+        "types": "./lib/components/**/*/index.d.ts",
+        "default": "./cjs/components/**/*/index.js"
       }
     }
   },
