@@ -5,5 +5,11 @@
       "@*": ["./src/*"]
     }
   },
-  "include": ["src", "tsup.config.ts", "panda.config.ts", "storybook-panda"]
+  "include": [
+    "src",
+    "tsup.config.ts",
+    "panda.config.ts",
+    "panda-storybook.config.ts",
+    "panda-storybook"
+  ]
 }

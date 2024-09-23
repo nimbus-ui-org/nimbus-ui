@@ -1,6 +1,7 @@
 import { defineConfig, type Options } from 'tsup'
 
-const bundlerOptions: Options = {
+const commonOptions: Options = {
+  entry: ['src/index.ts'],
   sourcemap: true, // generate .map files
   clean: true,
   /* minify set to true removes pure annotations so use these options instead */
@@ -11,15 +12,13 @@ const bundlerOptions: Options = {
 
 export default defineConfig([
   {
-    entry: ['src/index.ts'],
     format: ['esm'], // Build ESmodules
     outDir: 'esm',
-    ...bundlerOptions
+    ...commonOptions
   },
   {
-    entry: ['src/index.ts'],
     format: ['cjs'], // Build for commonJS
     outDir: 'cjs',
-    ...bundlerOptions
+    ...commonOptions
   }
 ])

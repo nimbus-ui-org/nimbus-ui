@@ -23,7 +23,8 @@
     "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
     "test": "vitest",
     "prepare": "husky",
-    "panda:pkg": "pnpm --filter @nimbus-ui/core prepare",
+    "panda:pkg": "pnpm --filter @nimbus-ui/core prepare:pkg",
+    "panda:storybook": "pnpm --filter @nimbus-ui/core prepare",
     "pack:local": "turbo pack:local",
     "pack:clean": "turbo pack:clean"
   },

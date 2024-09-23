@@ -54,9 +54,10 @@
     "panda-info"
   ],
   "scripts": {
-    "build": "pnpm prepare && tsup && pnpm build:declarations",
+    "build": "pnpm prepare:pkg && tsup && pnpm build:declarations",
     "build:declarations": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
-    "prepare": "panda codegen",
+    "prepare": "panda codegen --config panda-storybook.config.ts",
+    "prepare:pkg": "panda codegen",
     "ship": "panda ship -o panda-info/panda.buildinfo.json",
     "postbuild": "pnpm ship",
     "clean": "rm -rf .turbo && rm -rf node_modules",
