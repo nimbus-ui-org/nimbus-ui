@@ -21,7 +21,7 @@
     "prettier:check": "prettier --check .",
     "prettier:write": "prettier --write .",
     "clean": "turbo clean && rm -rf node_modules && rm -rf .turbo",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "prepare": "husky",
     "panda:pkg": "pnpm --filter @nimbus-ui/core prepare",
     "pack:local": "turbo pack:local",
@@ -69,7 +69,8 @@
     "turbo": "^2.1.2",
     "typescript": "^5.6.2",
     "vite": "^5.4.7",
-    "vite-tsconfig-paths": "^5.0.1"
+    "vite-tsconfig-paths": "^5.0.1",
+    "vitest": "^2.1.1"
   },
   "engines": {
     "node": ">=20.x",
