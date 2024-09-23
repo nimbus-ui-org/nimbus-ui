@@ -9,6 +9,7 @@ const SBGrid = definePattern({
     rowGap: { type: 'property', value: 'gap' },
     columns: { type: 'number' }
   },
+  defaultValues: { gap: '20' },
   transform(props, { map }) {
     const { columnGap, rowGap, gap, columns, ...rest } = props as {
       gap: number

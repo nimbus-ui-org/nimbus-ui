@@ -3,7 +3,6 @@ import type { NimbusPresetConfig } from '@preset'
 import { getFonts } from './fonts'
 import pandaPreset from '@pandacss/preset-panda'
 import { borderWidths } from './border-widths'
-import { borders } from './borders'
 import { animations } from './animations'
 
 export const getTokens = (config: NimbusPresetConfig): Tokens => {
@@ -29,7 +28,6 @@ export const getTokens = (config: NimbusPresetConfig): Tokens => {
       ...pandaAnimations,
       ...animations
     },
-    borderWidths,
-    borders
+    borderWidths
   })
 }

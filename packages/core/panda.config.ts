@@ -1,6 +1,6 @@
 import { defineConfig } from '@pandacss/dev'
 import { createNimbusPreset, NimbusColors } from '@nimbus-ui/preset'
-import { patterns } from '@storybook'
+import { patterns } from './storybook-panda'
 
 export default defineConfig({
   presets: [
@@ -15,11 +15,13 @@ export default defineConfig({
       otherThemes: {
         pink: {
           primary: '#F38375',
-          base: '#2E5CA9'
+          base: '#2E5CA9',
+          error: NimbusColors.Error.Pink
         },
         dark: {
           primary: NimbusColors.Primary.Dark,
-          base: NimbusColors.Base.Gray
+          base: NimbusColors.Base.Gray,
+          error: NimbusColors.Error.Rose
         }
       }
     })

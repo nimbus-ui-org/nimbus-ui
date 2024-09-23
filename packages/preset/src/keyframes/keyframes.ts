@@ -8,8 +8,9 @@ export const keyframes = defineKeyframes({
     '100%': { opacity: 0.25 }
   },
   'loading-bars': {
-    '0%': { opacity: 1 },
-    '50%': { opacity: 0.15 },
+    '0%': { opacity: 1, transform: 'scale(1)' },
+    '15%': { opacity: 0.15, transform: 'scale(0.7)' },
+    '40%': { transform: 'scale(1)' },
     '100%': { opacity: 1 }
   },
   'loading-dots': {

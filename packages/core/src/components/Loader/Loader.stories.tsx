@@ -1,5 +1,5 @@
 import type { Meta } from '@storybook/react'
-import { Box, Flex, GridItem, SBGrid } from '@nimbus-ui/styled-system/jsx'
+import { Box, Flex, SBGrid } from '@nimbus-ui/styled-system/jsx'
 import { Loader } from './Loader'
 import { loader } from '@nimbus-ui/styled-system/recipes'
 import { Fragment } from 'react'
@@ -32,9 +32,7 @@ export const Sizes = () => {
     <SBGrid columns={5} gap="20">
       {loader.variantMap.variant.map((variant) =>
         loader.variantMap.size.map((size) => (
-          <GridItem key={`${variant}_${size}`}>
-            <Loader variant={variant} size={size} />
-          </GridItem>
+          <Loader key={`${variant}_${size}`} variant={variant} size={size} />
         ))
       )}
     </SBGrid>
@@ -43,18 +41,12 @@ export const Sizes = () => {
 
 export const Colors = () => {
   return (
-    <SBGrid columns={3} gap="20">
+    <SBGrid columns={3}>
       {loader.variantMap.variant.map((variant) => (
         <Fragment key={variant}>
-          <GridItem>
-            <Loader variant={variant} color="primary" />
-          </GridItem>
-          <GridItem>
-            <Loader variant={variant} color="base" />
-          </GridItem>
-          <GridItem>
-            <Loader variant={variant} color="error" />
-          </GridItem>
+          <Loader variant={variant} color="primary" />
+          <Loader variant={variant} color="base" />
+          <Loader variant={variant} color="error" />
         </Fragment>
       ))}
     </SBGrid>

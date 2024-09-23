@@ -6,7 +6,6 @@ export const loader = defineRecipe({
   base: {
     display: 'flex',
     position: 'relative',
-    justifyContent: 'space-between',
     color: 'primary',
     height: '9',
     aspectRatio: 'square',
@@ -62,9 +61,10 @@ export const loader = defineRecipe({
       },
       dots: {
         alignItems: 'center',
+        justifyContent: 'space-between',
         '& span': {
-          flex: '0 0 25%',
           height: '25%',
+          aspectRatio: '1',
           borderRadius: '50%',
           animation: 'loading.dots'
         },
@@ -79,8 +79,9 @@ export const loader = defineRecipe({
         }
       },
       bars: {
+        gap: '20%',
         '& span': {
-          flex: '0 0 20%',
+          flex: '1',
           borderRadius: 'xs',
           animation: 'loading.bars'
         },

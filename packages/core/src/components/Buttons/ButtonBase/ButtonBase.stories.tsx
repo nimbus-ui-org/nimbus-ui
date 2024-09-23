@@ -19,7 +19,7 @@ const meta = {
 export default meta
 type Story = StoryObj<Omit<typeof meta, 'decorators'>>
 
-export const UnstyledButton: Story = {
+export const Basic: Story = {
   args: {
     children: 'Unstyled Button'
   }
