@@ -2,6 +2,8 @@ import { defineConfig } from '@pandacss/dev'
 import { createNimbusPreset, NimbusColors } from '@nimbus-ui/preset'
 import { patterns } from './panda-storybook'
 
+// only for storybook
+
 export default defineConfig({
   presets: [
     '@pandacss/preset-base',
@@ -9,8 +11,8 @@ export default defineConfig({
       respectMotionPreference: true,
       palettes: {
         primary: NimbusColors.Primary.Blue,
-        base: NimbusColors.Base.Gray
-        // other: { warning: 'yellow' }
+        base: NimbusColors.Base.Gray,
+        other: { warning: NimbusColors.Primary.Yellow }
       },
       otherThemes: {
         pink: {

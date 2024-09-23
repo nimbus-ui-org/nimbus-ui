@@ -1,6 +1,8 @@
 import { defineConfig } from '@pandacss/dev'
 import nimbusPreset from '@nimbus-ui/preset'
 
+// This is the panda config used to build the styled system package
+
 export default defineConfig({
   presets: ['@pandacss/preset-base', nimbusPreset],
 

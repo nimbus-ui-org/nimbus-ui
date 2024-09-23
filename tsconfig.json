@@ -28,5 +28,5 @@
       "@nimbus/hooks/*": ["./packages/hooks/src/*"]
     }
   },
-  "include": ["packages", "docs", "@types", "vitest.config.ts"]
+  "include": ["packages", "docs", "@types", "vitest.config.ts", "vitest.setup.ts"]
 }
