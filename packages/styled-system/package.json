@@ -36,6 +36,7 @@
     "css",
     "jsx",
     "patterns",
+    "recipes",
     "tokens",
     "types",
     "helpers.mjs",
