@@ -20,7 +20,7 @@
     "noFallthroughCasesInSwitch": true,
     "strict": true,
     "skipLibCheck": true,
-    "types": ["vitest/globals"],
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
     "paths": {
       "@docs/*": ["./docs/src/*"],
       "@docs/styled-system/*": ["./docs/styled-system/*"],

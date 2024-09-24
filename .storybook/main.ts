@@ -30,12 +30,14 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: false
   },
+
   // add tsconfig path aliases
   viteFinal: async (config) => {
     return mergeConfig(config, {
       plugins: [tsconfigPaths()]
     })
   },
+
   // There's a bug where the logo size is inconsistent between light and dark mode (https://github.com/storybookjs/storybook/issues/28192).
   // This fixes it for now.
   managerHead: () => `
