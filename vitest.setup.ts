@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom/vitest'
-import 'vitest-axe/extend-expect'
-import * as matchers from 'vitest-axe/matchers'
+import { toHaveNoViolations } from 'jest-axe'
 import { expect } from 'vitest'
 
-expect.extend(matchers)
+expect.extend(toHaveNoViolations)

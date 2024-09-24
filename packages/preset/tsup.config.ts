@@ -1,7 +1,7 @@
 import { defineConfig, type Options } from 'tsup'
 
 const commonOptions: Options = {
-  entry: ['src/index.ts'],
+  entry: ['src/index.ts', '!src/**/__tests__'],
   sourcemap: true, // generate .map files
   clean: true,
   /* minify set to true removes pure annotations so use these options instead */

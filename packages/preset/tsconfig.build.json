@@ -3,6 +3,7 @@
   // Tsup is used for transpiling TS source files
   "extends": "./tsconfig.json",
   "include": ["src"],
+  "exclude": ["src/**/__tests__"],
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "./lib",
