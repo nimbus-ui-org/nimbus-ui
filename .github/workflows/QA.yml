@@ -1,0 +1,32 @@
+name: QA
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./.github/composite-actions/install
+
+      - name: Build packages
+        run: pnpm build
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Run ESLint
+        run: pnpm lint
+
+      - name: Run prettier
+        run: pnpm prettier:check
