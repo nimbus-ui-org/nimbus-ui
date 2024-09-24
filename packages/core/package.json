@@ -65,10 +65,10 @@
     "pack:clean": "rm *.tgz"
   },
   "dependencies": {
-    "@nimbus-ui/preset": "workspace:*",
     "react-aria-components": "1.3.3"
   },
   "devDependencies": {
+    "@nimbus-ui/preset": "workspace:*",
     "@nimbus-ui/styled-system": "workspace:*",
     "react": "^18.3.1"
   },
