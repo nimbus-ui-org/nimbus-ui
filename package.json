@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@pandacss/dev": "^0.46.1",
-    "@pandacss/eslint-plugin": "^0.1.12",
+    "@pandacss/eslint-plugin": "^0.1.13",
     "@pandacss/preset-panda": "^0.46.1",
     "@react-types/shared": "^3.24.1",
     "@storybook/addon-a11y": "^8.3.3",

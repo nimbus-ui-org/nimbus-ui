@@ -55,7 +55,7 @@ export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
     theme: {
       extend: theme
     },
-    themes: themes
+    themes
   })
 }
 

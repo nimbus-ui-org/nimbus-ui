@@ -12,8 +12,8 @@ importers:
         specifier: ^0.46.1
         version: 0.46.1(jsdom@25.0.1)(typescript@5.6.2)
       '@pandacss/eslint-plugin':
-        specifier: ^0.1.12
-        version: 0.1.12(eslint@8.57.1)(jsdom@25.0.1)(typescript@5.6.2)
+        specifier: ^0.1.13
+        version: 0.1.13(eslint@8.57.1)(jsdom@25.0.1)(typescript@5.6.2)
       '@pandacss/preset-panda':
         specifier: ^0.46.1
         version: 0.46.1
@@ -1008,8 +1008,8 @@ packages:
     resolution: {integrity: sha512-zZ72oNFXQcFhZ8bKO/e6gmbk4vI294pRIQwD0o/CCRK8zAcjbkkgfqZBMKykYKHNXoAwDnBQBIjuWqVvsWagyw==}
     hasBin: true
 
-  '@pandacss/eslint-plugin@0.1.12':
-    resolution: {integrity: sha512-LEtfPQT2tuPsW3XzGV5eeV3orbiyvkzRHCXn0fPUtd5EekXfXb+dIHuYgW5/j/HRTJOzK4K6ChMCe9OgXVfxNA==}
+  '@pandacss/eslint-plugin@0.1.13':
+    resolution: {integrity: sha512-lCGxhD2jIgbXgwN99zKDODwOrcss1TkgYeplG6eT5mQ8ChhrcvcDUbjK+rUcpk8/xNri3qTOFAslVymLL107Hg==}
     peerDependencies:
       eslint: '*'
 
@@ -5183,19 +5183,19 @@ snapshots:
 
   '@csstools/postcss-cascade-layers@4.0.6(postcss@8.4.38)':
     dependencies:
-      '@csstools/selector-specificity': 3.1.1(postcss-selector-parser@6.0.16)
+      '@csstools/selector-specificity': 3.1.1(postcss-selector-parser@6.1.1)
       postcss: 8.4.38
-      postcss-selector-parser: 6.0.16
+      postcss-selector-parser: 6.1.1
 
   '@csstools/postcss-cascade-layers@4.0.6(postcss@8.4.47)':
     dependencies:
-      '@csstools/selector-specificity': 3.1.1(postcss-selector-parser@6.0.16)
+      '@csstools/selector-specificity': 3.1.1(postcss-selector-parser@6.1.1)
       postcss: 8.4.47
-      postcss-selector-parser: 6.0.16
+      postcss-selector-parser: 6.1.1
 
-  '@csstools/selector-specificity@3.1.1(postcss-selector-parser@6.0.16)':
+  '@csstools/selector-specificity@3.1.1(postcss-selector-parser@6.1.1)':
     dependencies:
-      postcss-selector-parser: 6.0.16
+      postcss-selector-parser: 6.1.1
 
   '@esbuild/aix-ppc64@0.20.2':
     optional: true
@@ -5708,7 +5708,7 @@ snapshots:
       - jsdom
       - typescript
 
-  '@pandacss/eslint-plugin@0.1.12(eslint@8.57.1)(jsdom@25.0.1)(typescript@5.6.2)':
+  '@pandacss/eslint-plugin@0.1.13(eslint@8.57.1)(jsdom@25.0.1)(typescript@5.6.2)':
     dependencies:
       '@pandacss/config': 0.40.1
       '@pandacss/generator': 0.40.1
@@ -7735,7 +7735,7 @@ snapshots:
       '@vue/compiler-ssr': 3.4.19
       '@vue/shared': 3.4.19
       estree-walker: 2.0.2
-      magic-string: 0.30.10
+      magic-string: 0.30.11
       postcss: 8.4.47
       source-map-js: 1.2.1
 
@@ -7985,7 +7985,7 @@ snapshots:
 
   caniuse-api@3.0.0:
     dependencies:
-      browserslist: 4.23.0
+      browserslist: 4.23.3
       caniuse-lite: 1.0.30001663
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
@@ -9670,12 +9670,12 @@ snapshots:
   postcss-nested@6.0.1(postcss@8.4.38):
     dependencies:
       postcss: 8.4.38
-      postcss-selector-parser: 6.0.16
+      postcss-selector-parser: 6.1.1
 
   postcss-nested@6.0.1(postcss@8.4.47):
     dependencies:
       postcss: 8.4.47
-      postcss-selector-parser: 6.0.16
+      postcss-selector-parser: 6.1.1
 
   postcss-normalize-whitespace@7.0.0(postcss@8.4.38):
     dependencies:

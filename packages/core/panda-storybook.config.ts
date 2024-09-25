@@ -16,9 +16,8 @@ export default defineConfig({
       },
       otherThemes: {
         pink: {
-          primary: '#F38375',
-          base: '#2E5CA9',
-          error: NimbusColors.Error.Pink
+          primary: '#A35B52',
+          base: '#2A5093'
         },
         dark: {
           primary: NimbusColors.Primary.Dark,

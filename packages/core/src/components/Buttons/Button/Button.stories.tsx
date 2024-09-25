@@ -25,14 +25,15 @@ type Story = StoryObj<Omit<typeof meta, 'decorators'>>
 
 export const Primary: Story = {
   args: {
-    children: 'Start Now',
+    children: 'Contact Us',
     variant: 'solid',
     size: 'md',
-    // startSection: <FaEnvelope />,
+    colorPalette: 'primary',
+    startSection: <FaEnvelope />,
     endSection: <FaArrowRightLong />,
     isLoading: false,
     isDisabled: false,
-    // customLoader: 'Loading...',
+    customLoader: 'Loading...',
     loaderProps: { variant: 'spinner' },
     'aria-label': 'Nimbus Button'
   }

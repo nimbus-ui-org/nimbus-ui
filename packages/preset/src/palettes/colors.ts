@@ -1,34 +1,33 @@
 enum Primary {
   Dark = '#000000',
-  Blue = '#3B82F6',
-  Sky = '#2D9ED2',
-  Pink = '#C748A5',
-  Purple = '#A855F7',
-  Violet = '#8b5cf6',
-  Indigo = '#6366F1',
-  Teal = '#10988D',
-  Emerald = '#059669',
-  Lime = '#65A30D',
-  Yellow = '#FDE047',
-  Amber = '#FBBF24',
-  Orange = '#C24E0F'
+  Blue = '#3674D9',
+  Sky = '#287DA4',
+  Pink = '#B05496',
+  Purple = '#9950DC',
+  Violet = '#845DDF',
+  Indigo = '#6567E2',
+  Teal = '#0E8178',
+  Emerald = '#05855C',
+  Lime = '#587138',
+  Yellow = '#736A0D',
+  Amber = '#7D5A03',
+  Orange = '#A2400B'
 }
 
 enum Base {
-  Gray = '#9CA3AF',
+  Gray = '#656972',
   Neutral = '#737373',
   Stone = '#78716c',
   Slate = '#64748b',
-  Mauve = '#8E8C99',
+  Mauve = '#777584',
   Sage = '#63706B',
-  Olive = '#898E87',
-  Sand = '#8D8D86'
+  Olive = '#71766F',
+  Sand = '#76766F'
 }
 
 enum Error {
-  Red = '#dc2626',
-  Rose = '#f43f5e',
-  Pink = '#be185d'
+  Red = '#CE2222',
+  Rose = '#be185d'
 }
 
 export const NimbusColors = { Primary, Base, Error }
