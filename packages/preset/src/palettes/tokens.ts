@@ -15,17 +15,17 @@ interface GeneratedColors {
   }
 }
 
-const getCoreColors = (flattenedPalettes: FlattenedPalettes) => {
+const getCoreColors = (primary: string, base: string) => {
   const coreLightColors = generateColors({
     appearance: 'light',
-    accent: flattenedPalettes.primary,
-    gray: flattenedPalettes.base,
+    accent: primary,
+    gray: base,
     background: '#FFF'
   })
   const coreDarkColors = generateColors({
     appearance: 'dark',
-    accent: flattenedPalettes.primary,
-    gray: flattenedPalettes.base,
+    accent: primary,
+    gray: base,
     background: '#020202'
   })
 
@@ -49,8 +49,8 @@ const getCoreColors = (flattenedPalettes: FlattenedPalettes) => {
       contrast: '#FFF'
     },
     dark: {
-      scale: coreDarkColors.accentScale,
-      alphaScale: coreDarkColors.accentScaleAlpha,
+      scale: coreDarkColors.grayScale,
+      alphaScale: coreDarkColors.grayScaleAlpha,
       contrast: '#FFF'
     }
   }
@@ -98,26 +98,29 @@ const convertColorsToTokens = (colors: GeneratedColors) => {
 }
 
 export const getPalettesTokens = (flattenedPalettes: FlattenedPalettes): Tokens => {
-  const { primaryColors, baseColors } = getCoreColors(flattenedPalettes)
+  const { primary, base, ...remainingPalettes } = flattenedPalettes
+
+  const { primaryColors, baseColors } = getCoreColors(primary, base)
 
   const palettes = defineTokens.colors({
     primary: convertColorsToTokens(primaryColors),
     base: convertColorsToTokens(baseColors)
   })
+
   return {
-    colors: Object.keys(flattenedPalettes).reduce((prevPalettes, palette) => {
+    colors: Object.keys(remainingPalettes).reduce((prevPalettes, palette) => {
       const colorValue = flattenedPalettes[palette]
 
       const lightColors = generateColors({
         appearance: 'light',
         accent: colorValue,
-        gray: flattenedPalettes.base,
+        gray: base,
         background: '#FFF'
       })
       const darkColors = generateColors({
         appearance: 'dark',
         accent: colorValue,
-        gray: flattenedPalettes.base,
+        gray: base,
         background: '#020202'
       })
 
