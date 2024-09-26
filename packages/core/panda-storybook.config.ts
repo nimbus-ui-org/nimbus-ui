@@ -46,7 +46,22 @@ export default defineConfig({
     extend: patterns
   },
 
-  staticCss: { themes: ['pink', 'dark'], recipes: '*' },
+  staticCss: {
+    themes: ['pink', 'dark'],
+    recipes: '*',
+    css: [
+      {
+        properties: {
+          backgroundColor: ['*'],
+          borderColor: ['*'],
+          color: ['*'],
+          colorPalette: ['*'],
+          fontWeight: ['*'],
+          textStyle: ['*']
+        }
+      }
+    ]
+  },
 
   // no random css properties
   strictPropertyValues: false,

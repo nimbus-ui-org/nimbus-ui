@@ -1,4 +1,4 @@
-import type { Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { Box, Flex, SBGrid } from '@nimbus-ui/styled-system/jsx'
 import { Loader } from './Loader'
 import { loader } from '@nimbus-ui/styled-system/recipes'
@@ -6,9 +6,10 @@ import { Fragment } from 'react'
 
 const meta = {
   title: 'Feedback/Loader',
+  component: Loader,
   decorators: [
     (Story) => (
-      <Box p="10">
+      <Box p="14">
         <Story />
       </Box>
     )
@@ -16,6 +17,25 @@ const meta = {
 } satisfies Meta
 
 export default meta
+
+type Story = StoryObj<Omit<typeof meta, 'decorators'>>
+
+export const Playground: Story = {
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: loader.variantMap.variant
+    },
+    size: {
+      control: 'select',
+      options: loader.variantMap.size
+    }
+  },
+  args: {
+    color: 'primary'
+  },
+  render: (args) => <Loader {...args} />
+}
 
 export const Variants = () => {
   return (

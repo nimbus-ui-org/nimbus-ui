@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
 import { Button } from './Button'
 import { Box, Flex, SBGrid } from '@nimbus-ui/styled-system/jsx'
 import { FaEnvelope } from 'react-icons/fa'
@@ -16,31 +15,60 @@ const meta = {
         <Story />
       </Box>
     )
-  ],
-  args: { onPress: fn(() => console.log('pressed')) }
-} satisfies Meta<typeof Button>
+  ]
+} satisfies Meta
 
 export default meta
+
 type Story = StoryObj<Omit<typeof meta, 'decorators'>>
 
-export const Primary: Story = {
+export const Playground: Story = {
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: button.variantMap.variant
+    },
+    size: {
+      control: 'select',
+      options: button.variantMap.size
+    },
+    colorPalette: {
+      control: 'select',
+      options: ['primary', 'base', 'error']
+    },
+    loaderProps: {
+      control: 'select',
+      options: loader.variantMap.variant,
+      mapping: {
+        spinner: { variant: 'spinner' },
+        dots: { variant: 'dots' },
+        bars: { variant: 'bars' }
+      }
+    },
+    startSection: {
+      control: 'radio',
+      options: ['Icon', 'Empty'],
+      mapping: {
+        Icon: <FaEnvelope />,
+        Empty: undefined
+      }
+    },
+    endSection: {
+      control: 'radio',
+      options: ['Icon', 'Empty'],
+      mapping: {
+        Icon: <FaArrowRightLong />,
+        Empty: undefined
+      }
+    }
+  },
   args: {
     children: 'Contact Us',
-    variant: 'solid',
-    size: 'md',
-    colorPalette: 'primary',
-    startSection: <FaEnvelope />,
-    endSection: <FaArrowRightLong />,
     isLoading: false,
     isDisabled: false,
-    customLoader: 'Loading...',
-    loaderProps: { variant: 'spinner' },
-    'aria-label': 'Nimbus Button'
-  }
-}
-
-export const Basic = () => {
-  return <Button>Button</Button>
+    customLoader: ''
+  },
+  render: (args) => <Button aria-label="Nimbus Button" {...args} />
 }
 
 export const Variants = () => {

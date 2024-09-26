@@ -13,13 +13,13 @@ const meta = {
       </Box>
     )
   ],
-  args: { onPress: fn(() => console.log('pressed')) }
+  args: { onPress: fn() }
 } satisfies Meta<typeof ButtonBase>
 
 export default meta
 type Story = StoryObj<Omit<typeof meta, 'decorators'>>
 
-export const Basic: Story = {
+export const Playground: Story = {
   args: {
     children: 'Unstyled Button'
   }

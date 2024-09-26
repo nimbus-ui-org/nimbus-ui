@@ -29,8 +29,6 @@ module.exports = {
   rules: {
     '@pandacss/file-not-included': 'off',
     '@pandacss/no-hardcoded-color': 'off',
-    // disable for now since it's bugged
-    '@pandacss/no-dynamic-styling': 'off',
     'prettier/prettier': [
       1,
       {
