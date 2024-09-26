@@ -51,7 +51,7 @@ const getCoreColors = (primary: string, base: string) => {
     dark: {
       scale: coreDarkColors.grayScale,
       alphaScale: coreDarkColors.grayScaleAlpha,
-      contrast: '#FFF'
+      contrast: coreDarkColors.grayScale[0]
     }
   }
 

@@ -12,7 +12,7 @@ export default defineConfig({
       palettes: {
         primary: NimbusColors.Primary.Blue,
         base: NimbusColors.Base.Gray,
-        other: { warning: NimbusColors.Primary.Yellow }
+        other: { warning: NimbusColors.Primary.Amber }
       },
       otherThemes: {
         pink: {

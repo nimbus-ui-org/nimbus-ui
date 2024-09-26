@@ -29,6 +29,8 @@ type ColorShade =
   | 'contrastText'
 
 const convertPaletteToSemanticTokens = (palette: string) => {
+  const isBase = palette === 'base'
+
   const getColor = (shade: ColorShade) => ({
     _light: `{colors.${palette}.${shade}.light}`,
     _dark: `{colors.${palette}.${shade}.dark}`
@@ -37,9 +39,9 @@ const convertPaletteToSemanticTokens = (palette: string) => {
   return defineSemanticTokens.colors({
     DEFAULT: { value: getColor('9') },
     solid: {
-      DEFAULT: { value: getColor('9') },
-      hover: { value: getColor('10') },
-      active: { value: getColor('9') },
+      DEFAULT: { value: isBase ? getColor('12') : getColor('9') },
+      hover: { value: isBase ? getColor('11') : getColor('10') },
+      active: { value: isBase ? getColor('12') : getColor('9') },
       text: { value: getColor('contrastText') }
     },
     ghost: {
@@ -70,7 +72,7 @@ const convertPaletteToSemanticTokens = (palette: string) => {
     },
 
     // base palette specific semantic tokens
-    ...(palette === 'base' && {
+    ...(isBase && {
       bg: {
         '1': {
           value: getColor('1'),

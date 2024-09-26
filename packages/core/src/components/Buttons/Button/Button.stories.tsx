@@ -116,6 +116,7 @@ export const Loading = () => {
             size={buttonSize}
             isLoading
             loaderProps={{ variant: loaderVariant }}
+            aria-label="Loading Button"
           >
             Button
           </Button>
