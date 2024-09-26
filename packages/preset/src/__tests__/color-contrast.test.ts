@@ -59,8 +59,6 @@ describe('NimbusColors', () => {
       background: '#020202'
     })
 
-    console.log(lightColors.grayScale[8])
-
     test(`if colors generated from base color ${color} have enough contrast to meet WCAG guidlines`, () => {
       // test solid colors and their corresponding contrast text
       expect(getContrast('#FFFFFF', lightColors.grayScale[11])).toBeGreaterThanOrEqual(
@@ -94,8 +92,6 @@ describe('NimbusColors', () => {
       gray: NimbusColors.Base.Gray,
       background: '#020202'
     })
-
-    console.log(lightColors.grayScale[8])
 
     test(`if colors generated from base color ${color} have enough contrast to meet WCAG guidlines`, () => {
       // test solid colors and their corresponding contrast text

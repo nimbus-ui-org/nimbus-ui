@@ -4,13 +4,15 @@ type NimbusRadius =
   | keyof typeof pandaPreset.theme.tokens.radii
   | (string & NonNullable<unknown>)
 
+export type NimbusPalette = { light: string; dark: string }
+
 export interface NimbusPalettes {
   /**
    * Your brand color palette - `Hex | RGB | HSL`.
    *
    * Defaults to `NimbusColors.Primary.Blue`.
    */
-  primary?: string
+  primary?: string | NimbusPalette
 
   /**
    * Base color palette. Used for backgrounds, typographies and contrast - `Hex | RGB | HSL`.
@@ -20,14 +22,14 @@ export interface NimbusPalettes {
    * **Note:** You can use also use any bright color value.
    * Nimbus will convert it to a **Base** palette based on the value provided.
    */
-  base?: string
+  base?: string | NimbusPalette
 
   /**
    * Error color palette - `Hex | RGB | HSL`.
    *
    * Defaults to `NimbusColors.Error.Red`.
    */
-  error?: string
+  error?: string | NimbusPalette
 
   /**
    * Other palettes you wish to include.
@@ -42,7 +44,7 @@ export interface NimbusPalettes {
    * }
    * ```
    */
-  other?: { [colorName: string]: string }
+  other?: { [colorName: string]: string | NimbusPalette }
 }
 
 export interface NimbusPresetConfig {
@@ -55,6 +57,17 @@ export interface NimbusPresetConfig {
    * ```ts
    * palettes: {
    *  primary: NimbusColors.Primary.Dark,
+   * }
+   * ```
+   *
+   * You can also specify light and dark versions:
+   *
+   * ```ts
+   * palettes: {
+   *  primary: {
+   *    light: NimbusColors.Primary.Yellow,
+   *    dark: "#FFDD33"
+   *  },
    * }
    * ```
    */
@@ -110,10 +123,10 @@ export interface NimbusPresetConfig {
 }
 
 export interface FlattenedPalettes {
-  primary: string
-  base: string
-  error: string
-  [colorName: string]: string
+  primary: string | NimbusPalette
+  base: string | NimbusPalette
+  error: string | NimbusPalette
+  [colorName: string]: string | NimbusPalette
 }
 
 export interface OtherThemes {

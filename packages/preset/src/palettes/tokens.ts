@@ -1,5 +1,5 @@
 import { defineTokens, type Tokens } from '@pandacss/dev'
-import type { FlattenedPalettes } from '@preset'
+import type { FlattenedPalettes, NimbusPalette } from '@preset'
 import { generateColors, type ArrayOf12 } from '@utils'
 
 interface GeneratedColors {
@@ -15,17 +15,34 @@ interface GeneratedColors {
   }
 }
 
-const getCoreColors = (primary: string, base: string) => {
+const getPaletteColor = (
+  paletteColor: string | NimbusPalette,
+  mode: 'light' | 'dark'
+) => {
+  if (typeof paletteColor === 'string') {
+    return paletteColor
+  } else {
+    return paletteColor[mode]
+  }
+}
+
+const getCoreColors = (primary: string | NimbusPalette, base: string | NimbusPalette) => {
+  const primaryLight = getPaletteColor(primary, 'light')
+  const primaryDark = getPaletteColor(primary, 'dark')
+
+  const baseLight = getPaletteColor(base, 'light')
+  const baseDark = getPaletteColor(base, 'dark')
+
   const coreLightColors = generateColors({
     appearance: 'light',
-    accent: primary,
-    gray: base,
+    accent: primaryLight,
+    gray: baseLight,
     background: '#FFF'
   })
   const coreDarkColors = generateColors({
     appearance: 'dark',
-    accent: primary,
-    gray: base,
+    accent: primaryDark,
+    gray: baseDark,
     background: '#020202'
   })
 
@@ -113,14 +130,14 @@ export const getPalettesTokens = (flattenedPalettes: FlattenedPalettes): Tokens 
 
       const lightColors = generateColors({
         appearance: 'light',
-        accent: colorValue,
-        gray: base,
+        accent: getPaletteColor(colorValue, 'light'),
+        gray: getPaletteColor(base, 'light'),
         background: '#FFF'
       })
       const darkColors = generateColors({
         appearance: 'dark',
-        accent: colorValue,
-        gray: base,
+        accent: getPaletteColor(colorValue, 'dark'),
+        gray: getPaletteColor(base, 'dark'),
         background: '#020202'
       })
 
