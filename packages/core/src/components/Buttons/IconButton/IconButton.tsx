@@ -14,7 +14,8 @@ export const IconButton = forwardRef(
     { children, className, size, variant, isDisabled, ...props }: IconButtonProps,
     ref: React.Ref<HTMLAnchorElement | HTMLButtonElement>
   ) => {
-    // recipe variants take precedence over slot recipe variants
+    // recipe variants are more specific than slot recipe variants
+    // so we can override with icon button styles
     const buttonClasses = button({ variant })
     const iconButtonStyles = iconButton({ size })
 

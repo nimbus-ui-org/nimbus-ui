@@ -5,6 +5,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
     'plugin:@typescript-eslint/recommended-type-checked',
+    'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'plugin:@pandacss/recommended',
     'plugin:storybook/recommended'
