@@ -29,6 +29,7 @@ const SBGrid = definePattern({
       gap,
       columnGap,
       rowGap,
+      minW: 'max',
       ...rest
     } as SystemStyleObject
   }
