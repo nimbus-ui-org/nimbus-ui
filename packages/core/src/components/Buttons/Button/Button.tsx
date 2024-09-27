@@ -7,6 +7,7 @@ import {
   type ButtonVariantProps
 } from '@nimbus-ui/styled-system/recipes'
 import { useStyles, type SlotsClasses } from '@utils'
+import { ButtonContext, useContextProps } from 'react-aria-components'
 
 interface Props {
   /**
@@ -47,8 +48,14 @@ interface Props {
 export type ButtonProps = ButtonBaseProps & ButtonVariantProps & Props
 
 export const Button = forwardRef(
-  (
-    {
+  (props: ButtonProps, ref: React.Ref<HTMLAnchorElement | HTMLButtonElement>) => {
+    ;[props, ref] = useContextProps(
+      props,
+      ref as React.Ref<HTMLButtonElement>,
+      ButtonContext
+    )
+
+    const {
       children,
       className,
       classNames,
@@ -58,13 +65,16 @@ export const Button = forwardRef(
       isDisabled,
       customLoader,
       loaderProps = {},
-      ...props
-    }: ButtonProps,
-    ref: React.Ref<HTMLAnchorElement | HTMLButtonElement>
-  ) => {
-    const { styles, rest } = useStyles<typeof props, ButtonVariantProps, ButtonRecipe>({
+      ...otherProps
+    } = props
+
+    const { styles, rest } = useStyles<
+      typeof otherProps,
+      ButtonVariantProps,
+      ButtonRecipe
+    >({
       recipe: button,
-      props,
+      props: otherProps,
       className,
       classNames
     })

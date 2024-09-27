@@ -6,14 +6,20 @@ import {
   type ButtonVariantProps
 } from '@nimbus-ui/styled-system/recipes'
 import { cx } from '@nimbus-ui/styled-system/css'
+import { ButtonContext, useContextProps } from 'react-aria-components'
 
 export type IconButtonProps = ButtonBaseProps & ButtonVariantProps
 
 export const IconButton = forwardRef(
-  (
-    { children, className, size, variant, isDisabled, ...props }: IconButtonProps,
-    ref: React.Ref<HTMLAnchorElement | HTMLButtonElement>
-  ) => {
+  (props: IconButtonProps, ref: React.Ref<HTMLAnchorElement | HTMLButtonElement>) => {
+    ;[props, ref] = useContextProps(
+      props,
+      ref as React.Ref<HTMLButtonElement>,
+      ButtonContext
+    )
+
+    const { children, className, size, variant, isDisabled, ...otherProps } = props
+
     // recipe variants are more specific than slot recipe variants
     // so we can override with icon button styles
     const buttonClasses = button({ variant })
@@ -25,7 +31,7 @@ export const IconButton = forwardRef(
         data-appearance-disabled={isDisabled || undefined}
         isDisabled={isDisabled || undefined}
         ref={ref}
-        {...props}
+        {...otherProps}
       >
         {children as React.ReactNode}
       </ButtonBase>

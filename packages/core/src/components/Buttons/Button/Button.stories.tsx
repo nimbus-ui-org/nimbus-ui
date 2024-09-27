@@ -5,6 +5,8 @@ import { FaEnvelope } from 'react-icons/fa'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { button, loader } from '@nimbus-ui/styled-system/recipes'
 import { Fragment } from 'react'
+import { ButtonContext } from './ButtonContext'
+import { IconButton } from '../IconButton'
 
 const meta = {
   title: 'Buttons/Button',
@@ -175,5 +177,27 @@ export const Disabled = () => {
         </GridItem>
       ))}
     </SBGrid>
+  )
+}
+
+export const AsLink = () => {
+  return (
+    <Button href="#" aria-label="Link Button">
+      Link Button
+    </Button>
+  )
+}
+
+export const Context = () => {
+  return (
+    <ButtonContext variant="outline">
+      <SBGrid columns={3}>
+        <Button>Button 1</Button>
+        <Button>Button 2</Button>
+        <IconButton>
+          <FaEnvelope />
+        </IconButton>
+      </SBGrid>
+    </ButtonContext>
   )
 }
