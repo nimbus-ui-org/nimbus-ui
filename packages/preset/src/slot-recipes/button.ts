@@ -3,7 +3,7 @@ import { defineSlotRecipe } from '@pandacss/dev'
 export const button = defineSlotRecipe({
   className: 'nimbus-button',
   slots: ['root', 'section', 'loader', 'label'],
-  jsx: ['Button'],
+  jsx: ['Button', 'IconButton'],
   base: {
     root: {
       display: 'inline-flex',
@@ -124,6 +124,9 @@ export const button = defineSlotRecipe({
       },
       link: {
         root: {
+          px: '0!',
+          height: 'auto!',
+          minWidth: 'auto!',
           color: 'colorPalette.text.2',
           _dataHovered: {
             textDecoration: 'underline'

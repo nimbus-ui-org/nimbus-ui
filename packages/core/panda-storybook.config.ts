@@ -64,7 +64,7 @@ export default defineConfig({
   },
 
   // no random css properties
-  strictPropertyValues: false,
+  strictPropertyValues: true,
 
   // strict tokens
   strictTokens: true,

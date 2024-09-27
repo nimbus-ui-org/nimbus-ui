@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './Button'
-import { Box, Flex, SBGrid } from '@nimbus-ui/styled-system/jsx'
+import { Box, GridItem, SBGrid } from '@nimbus-ui/styled-system/jsx'
 import { FaEnvelope } from 'react-icons/fa'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { button, loader } from '@nimbus-ui/styled-system/recipes'
@@ -73,13 +73,13 @@ export const Playground: Story = {
 
 export const Variants = () => {
   return (
-    <Flex gap="20">
+    <SBGrid gap="20" columns={4}>
       {button.variantMap.variant.map((variant) => (
         <Button key={variant} variant={variant}>
           Button
         </Button>
       ))}
-    </Flex>
+    </SBGrid>
   )
 }
 
@@ -102,15 +102,25 @@ export const Colors = () => {
     <SBGrid columns={3}>
       {button.variantMap.variant.map((variant) => (
         <Fragment key={variant}>
-          <Button startSection={<FaEnvelope />} variant={variant} colorPalette="primary">
-            Button
-          </Button>
-          <Button startSection={<FaEnvelope />} variant={variant} colorPalette="base">
-            Button
-          </Button>
-          <Button startSection={<FaEnvelope />} variant={variant} colorPalette="error">
-            Button
-          </Button>
+          <GridItem>
+            <Button
+              startSection={<FaEnvelope />}
+              variant={variant}
+              colorPalette="primary"
+            >
+              Button
+            </Button>
+          </GridItem>
+          <GridItem>
+            <Button startSection={<FaEnvelope />} variant={variant} colorPalette="base">
+              Button
+            </Button>
+          </GridItem>
+          <GridItem>
+            <Button startSection={<FaEnvelope />} variant={variant} colorPalette="error">
+              Button
+            </Button>
+          </GridItem>
         </Fragment>
       ))}
     </SBGrid>
@@ -150,6 +160,20 @@ export const Loading = () => {
           </Button>
         ))
       )}
+    </SBGrid>
+  )
+}
+
+export const Disabled = () => {
+  return (
+    <SBGrid columns={5}>
+      {button.variantMap.variant.map((variant) => (
+        <GridItem key={variant}>
+          <Button variant={variant} isDisabled aria-label="Disabled Button">
+            Button
+          </Button>
+        </GridItem>
+      ))}
     </SBGrid>
   )
 }
