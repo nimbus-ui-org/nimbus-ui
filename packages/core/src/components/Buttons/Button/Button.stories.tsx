@@ -4,9 +4,10 @@ import { Box, GridItem, SBGrid } from '@nimbus-ui/styled-system/jsx'
 import { FaEnvelope } from 'react-icons/fa'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { button, loader } from '@nimbus-ui/styled-system/recipes'
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import { ButtonProvider } from './ButtonProvider'
 import { IconButton } from '../IconButton'
+import { FileTrigger } from 'react-aria-components'
 
 const meta = {
   title: 'Buttons/Button',
@@ -185,6 +186,25 @@ export const AsLink = () => {
     <Button href="#" aria-label="Link Button">
       Link Button
     </Button>
+  )
+}
+
+export const File = () => {
+  const [file, setFile] = useState<string[] | null>(null)
+
+  return (
+    <>
+      <FileTrigger
+        onSelect={(e) => {
+          const files = Array.from(e as FileList)
+          const filenames = files.map((file) => file.name)
+          setFile(filenames)
+        }}
+      >
+        <Button>Select a file</Button>
+      </FileTrigger>
+      {file && file}
+    </>
   )
 }
 
