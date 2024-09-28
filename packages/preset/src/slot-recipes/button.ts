@@ -91,7 +91,7 @@ export const button = defineSlotRecipe({
           bg: 'colorPalette.outline',
           color: 'colorPalette.outline.text',
           borderWidth: 'xs',
-          borderColor: 'colorPalette.border',
+          borderColor: 'colorPalette.outline.border',
           _dataHovered: {
             bg: 'colorPalette.outline.hover',
             borderColor: 'colorPalette.border.hover'
