@@ -6,9 +6,9 @@ type AnyProp = {
   [prop: string]: unknown
 }
 
-type ButtonContextProps = PropsWithChildren<Omit<ButtonProps, 'children'>> & AnyProp
+type ButtonProviderProps = PropsWithChildren<Omit<ButtonProps, 'children'>> & AnyProp
 
-export const ButtonContext = ({ children, ref, ...props }: ButtonContextProps) => {
+export const ButtonProvider = ({ children, ref, ...props }: ButtonProviderProps) => {
   return (
     <AriaButtonContext.Provider
       value={{ ref: ref as React.Ref<HTMLButtonElement>, ...props }}
