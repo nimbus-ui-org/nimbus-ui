@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Box, Flex } from '@nimbus-ui/styled-system/jsx'
 import { buttonGroup } from '@nimbus-ui/styled-system/recipes'
 import { ButtonGroup } from './ButtonGroup'
-import { Button } from '../Button'
+import { Button, ButtonProvider } from '../Button'
 
 const meta = {
   title: 'Buttons/ButtonGroup',
@@ -25,25 +25,31 @@ export const Playground: Story = {
     orientation: {
       control: 'radio',
       options: buttonGroup.variantMap.orientation
+    },
+    colorPalette: {
+      control: 'select',
+      options: ['primary', 'base', 'error']
     }
   },
-  render: (args) => (
+  render: ({ colorPalette, ...args }) => (
     <Flex gap="10">
-      <ButtonGroup {...args}>
-        <Button variant="ghost">Save</Button>
-        <Button variant="ghost">Discard</Button>
-        <Button variant="ghost">Cancel</Button>
-      </ButtonGroup>
-      <ButtonGroup {...args}>
-        <Button variant="outline">Save</Button>
-        <Button variant="outline">Discard</Button>
-        <Button variant="outline">Cancel</Button>
-      </ButtonGroup>
-      <ButtonGroup {...args}>
-        <Button variant="solid">Save</Button>
-        <Button variant="solid">Discard</Button>
-        <Button variant="solid">Cancel</Button>
-      </ButtonGroup>
+      <ButtonProvider colorPalette={colorPalette}>
+        <ButtonGroup {...args}>
+          <Button variant="ghost">Save</Button>
+          <Button variant="ghost">Discard</Button>
+          <Button variant="ghost">Cancel</Button>
+        </ButtonGroup>
+        <ButtonGroup {...args}>
+          <Button variant="outline">Save</Button>
+          <Button variant="outline">Discard</Button>
+          <Button variant="outline">Cancel</Button>
+        </ButtonGroup>
+        <ButtonGroup {...args}>
+          <Button variant="solid">Save</Button>
+          <Button variant="solid">Discard</Button>
+          <Button variant="solid">Cancel</Button>
+        </ButtonGroup>
+      </ButtonProvider>
     </Flex>
   )
 }

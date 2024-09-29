@@ -6,8 +6,12 @@ import {
   type ButtonRecipe,
   type ButtonVariantProps
 } from '@nimbus-ui/styled-system/recipes'
-import { useStyles, type SlotsClasses } from '@utils'
-import { ButtonContext, useContextProps } from 'react-aria-components'
+import { renderChildren, useStyles, type SlotsClasses } from '@utils'
+import {
+  ButtonContext,
+  useContextProps,
+  type LinkProps as AriaLinkProps
+} from 'react-aria-components'
 
 interface Props {
   /**
@@ -21,12 +25,12 @@ interface Props {
   /**
    * Element rendered before the children.
    */
-  startSection?: React.ReactNode
+  startSection?: AriaLinkProps['children']
 
   /**
    * Element rendered after the children.
    */
-  endSection?: React.ReactNode
+  endSection?: AriaLinkProps['children']
 
   /**
    * If `true`, switches to a loading state and renders a `Loader`.
@@ -37,7 +41,7 @@ interface Props {
    * Element rendered instead of the `Loader` component when `isLoading` is `true`.
    * If this prop is used, `loaderProps` will be ignored.
    */
-  customLoader?: React.ReactNode
+  customLoader?: AriaLinkProps['children']
 
   /**
    * `Loader` element props.
@@ -88,27 +92,31 @@ export const Button = forwardRef(
         ref={ref}
         {...rest}
       >
-        {startSection && (
-          <span className={styles.section} data-section="start">
-            {startSection}
-          </span>
-        )}
+        {(renderProps) => (
+          <>
+            {startSection && (
+              <span className={styles.section} data-section="start">
+                {renderChildren(startSection, renderProps)}
+              </span>
+            )}
 
-        {isLoading &&
-          (customLoader ? (
-            <span data-loading className={styles.loader}>
-              {customLoader}
-            </span>
-          ) : (
-            <Loader data-loading className={styles.loader} {...loaderProps} />
-          ))}
+            {isLoading &&
+              (customLoader ? (
+                <span data-loading className={styles.loader}>
+                  {renderChildren(customLoader, renderProps)}
+                </span>
+              ) : (
+                <Loader data-loading className={styles.loader} {...loaderProps} />
+              ))}
 
-        <span className={styles.label}>{children as React.ReactNode}</span>
+            <span className={styles.label}>{renderChildren(children, renderProps)}</span>
 
-        {endSection && (
-          <span className={styles.section} data-section="end">
-            {endSection}
-          </span>
+            {endSection && (
+              <span className={styles.section} data-section="end">
+                {renderChildren(endSection, renderProps)}
+              </span>
+            )}
+          </>
         )}
       </ButtonBase>
     )

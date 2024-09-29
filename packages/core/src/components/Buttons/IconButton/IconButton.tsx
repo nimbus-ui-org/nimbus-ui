@@ -33,7 +33,7 @@ export const IconButton = forwardRef(
         ref={ref}
         {...otherProps}
       >
-        {children as React.ReactNode}
+        {children}
       </ButtonBase>
     )
   }

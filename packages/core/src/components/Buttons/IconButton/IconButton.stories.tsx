@@ -125,3 +125,11 @@ export const Disabled = () => {
     </SBGrid>
   )
 }
+
+export const RenderProps = () => {
+  return (
+    <IconButton>
+      {({ isPressed }) => (isPressed ? <FaEnvelope /> : <FaPhoneAlt />)}
+    </IconButton>
+  )
+}

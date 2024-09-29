@@ -8,7 +8,12 @@ import { styled } from '@nimbus-ui/styled-system/jsx'
 import type { ComponentProps } from '@nimbus-ui/styled-system/types'
 import type { AriaProps } from '@utils'
 
-type UnstyledButtonBaseProps = AriaProps<AriaLinkProps & AriaButtonProps>
+type ButtonChildrenProps = AriaLinkProps['children']
+
+type UnstyledButtonBaseProps = Omit<
+  AriaProps<AriaLinkProps & AriaButtonProps>,
+  'children'
+> & { children?: ButtonChildrenProps }
 
 const UnstyledButtonBase = forwardRef(
   (

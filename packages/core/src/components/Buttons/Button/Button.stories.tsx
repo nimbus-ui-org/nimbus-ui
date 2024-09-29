@@ -189,6 +189,19 @@ export const AsLink = () => {
   )
 }
 
+export const RenderProps = () => {
+  return (
+    <Button
+      startSection={({ isPressed }) =>
+        isPressed ? <FaEnvelope /> : <FaArrowRightLong />
+      }
+      endSection={({ isPressed }) => (isPressed ? <FaEnvelope /> : <FaArrowRightLong />)}
+    >
+      {({ isPressed }) => (isPressed ? 'Pressed' : 'Button')}
+    </Button>
+  )
+}
+
 export const File = () => {
   const [file, setFile] = useState<string[] | null>(null)
 
