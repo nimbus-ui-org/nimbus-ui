@@ -9,6 +9,7 @@
     "type": "git",
     "url": "https://github.com/nimbus-ui-org/nimbus-ui.git"
   },
+  "type": "module",
   "scripts": {
     "storybook": "pnpm panda:storybook && turbo dev dev:storybook",
     "dev:docs": "turbo dev dev:docs",

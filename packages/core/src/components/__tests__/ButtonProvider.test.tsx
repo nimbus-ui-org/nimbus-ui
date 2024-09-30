@@ -1,15 +1,12 @@
 import { Button, ButtonProvider, IconButton } from '@components/Buttons'
 import { render } from '@testing-library/react'
-import { FaEnvelope } from 'react-icons/fa'
 
 describe('ButtonProvider', () => {
   it('should pass down props to Button or IconButton components', () => {
     const { getByTestId } = render(
       <ButtonProvider isDisabled>
-        <Button data-testid="button">Button</Button>
-        <IconButton data-testid="icon-button">
-          <FaEnvelope />
-        </IconButton>
+        <Button data-testid="button" />
+        <IconButton data-testid="icon-button" />
       </ButtonProvider>
     )
 
