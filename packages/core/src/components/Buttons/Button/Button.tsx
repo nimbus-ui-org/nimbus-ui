@@ -94,14 +94,14 @@ export const Button = forwardRef(
       >
         {(renderProps) => (
           <>
-            {startSection && (
+            {renderChildren(startSection, renderProps) && (
               <span className={styles.section} data-section="start">
                 {renderChildren(startSection, renderProps)}
               </span>
             )}
 
             {isLoading &&
-              (customLoader ? (
+              (renderChildren(customLoader, renderProps) ? (
                 <span data-loading className={styles.loader}>
                   {renderChildren(customLoader, renderProps)}
                 </span>
@@ -111,7 +111,7 @@ export const Button = forwardRef(
 
             <span className={styles.label}>{renderChildren(children, renderProps)}</span>
 
-            {endSection && (
+            {renderChildren(endSection, renderProps) && (
               <span className={styles.section} data-section="end">
                 {renderChildren(endSection, renderProps)}
               </span>

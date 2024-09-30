@@ -1,7 +1,7 @@
 import { styled } from '@nimbus-ui/styled-system/jsx'
 import { loader } from '@nimbus-ui/styled-system/recipes'
 import type { ComponentProps } from '@nimbus-ui/styled-system/types'
-import React, { forwardRef } from 'react'
+import { forwardRef } from 'react'
 
 const StyledLoader = styled('span', loader)
 export type LoaderProps = ComponentProps<typeof StyledLoader>

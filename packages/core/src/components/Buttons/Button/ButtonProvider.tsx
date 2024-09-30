@@ -6,7 +6,8 @@ type AnyProp = {
   [prop: string]: unknown
 }
 
-type ButtonProviderProps = PropsWithChildren<Omit<ButtonProps, 'children'>> & AnyProp
+export type ButtonProviderProps = PropsWithChildren<Omit<ButtonProps, 'children'>> &
+  AnyProp
 
 export const ButtonProvider = ({ children, ref, ...props }: ButtonProviderProps) => {
   return (
