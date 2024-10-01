@@ -7,7 +7,8 @@ const commonOptions: Options = {
     'src/preset/index.ts',
     '!src/**/__tests__'
   ],
-  banner: { js: '"use client";' }, // add this on top of every UI component since they are customizable with props
+  // banner: { js: '"use client";' }, // add this on top of every UI component since they are customizable with props
+  treeshake: true, // use rollup treeshake instead of esbuild. but cannot use with banner property
   sourcemap: true, // generate .map files
   clean: true,
   external: ['@nimbus-ui/styled-system'],

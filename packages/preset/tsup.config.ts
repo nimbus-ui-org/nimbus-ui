@@ -3,6 +3,7 @@ import { defineConfig, type Options } from 'tsup'
 const commonOptions: Options = {
   entry: ['src/index.ts', '!src/**/__tests__'],
   sourcemap: true, // generate .map files
+  treeshake: true, // use rollup treeshake instead of esbuild. but cannot use with banner property
   clean: true,
   /* minify set to true removes pure annotations so use these options instead */
   minifyIdentifiers: true,
