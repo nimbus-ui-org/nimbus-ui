@@ -1,4 +1,5 @@
-import { Button, ButtonProvider, IconButton } from '@components/Buttons'
+import { Button, ButtonProvider } from '@components/Button'
+import { IconButton } from '@components/IconButton'
 import { render } from '@testing-library/react'
 
 describe('ButtonProvider', () => {

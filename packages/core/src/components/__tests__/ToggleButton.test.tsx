@@ -1,4 +1,5 @@
-import { ToggleButton, ToggleIconButton } from '@components/Buttons'
+import { ToggleButton } from '@components/ToggleButton'
+import { ToggleIconButton } from '@components/ToggleIconButton'
 import { testAccessibility } from './utils'
 import { render } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'

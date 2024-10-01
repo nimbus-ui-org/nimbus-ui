@@ -1,4 +1,5 @@
-import { Button, IconButton } from '@components/Buttons'
+import { Button } from '@components/Button'
+import { IconButton } from '@components/IconButton'
 import { testAccessibility } from './utils'
 import { render } from '@testing-library/react'
 

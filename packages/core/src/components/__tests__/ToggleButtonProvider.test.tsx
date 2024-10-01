@@ -1,4 +1,5 @@
-import { ToggleButton, ToggleButtonProvider, ToggleIconButton } from '@components/Buttons'
+import { ToggleButton, ToggleButtonProvider } from '@components/ToggleButton'
+import { ToggleIconButton } from '@components/ToggleIconButton'
 import { render } from '@testing-library/react'
 
 describe('ToggleButtonProvider', () => {
