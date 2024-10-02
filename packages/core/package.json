@@ -42,6 +42,17 @@
         "types": "./lib/components/**/*/index.d.ts",
         "default": "./cjs/components/**/*/index.js"
       }
+    },
+    "./provider": {
+      "source": "./src/provider/index.ts",
+      "import": {
+        "types": "./lib/provider/index.d.ts",
+        "default": "./esm/provider/index.mjs"
+      },
+      "require": {
+        "types": "./lib/provider/index.d.ts",
+        "default": "./cjs/provider/index.js"
+      }
     }
   },
   "main": "./cjs/index.js",

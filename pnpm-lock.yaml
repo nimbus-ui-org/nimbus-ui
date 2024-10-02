@@ -134,9 +134,6 @@ importers:
       storybook-addon-data-theme-switcher:
         specifier: ^0.4.2
         version: 0.4.2(@storybook/components@8.3.4(storybook@8.3.4))(@storybook/manager-api@8.3.4(storybook@8.3.4))(@storybook/preview-api@8.3.4(storybook@8.3.4))(@storybook/theming@8.3.4(storybook@8.3.4))(@storybook/types@8.3.0(storybook@8.3.4))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      storybook-addon-rtl:
-        specifier: ^1.0.1
-        version: 1.0.1(storybook@8.3.4)
       storybook-dark-mode:
         specifier: ^4.0.2
         version: 4.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.4)
@@ -4508,9 +4505,6 @@ packages:
         optional: true
       react-dom:
         optional: true
-
-  storybook-addon-rtl@1.0.1:
-    resolution: {integrity: sha512-Yl9Oi7zpLICHaoQdpIiTfZWNDyGJv3gC+mqAfhFyDybJDol7E6FWqIZImlTrLpr8Mth7mffReAlih+JZNasc+Q==}
 
   storybook-dark-mode@4.0.2:
     resolution: {integrity: sha512-zjcwwQ01R5t1VsakA6alc2JDIRVtavryW8J3E3eKLDIlAMcvsgtpxlelWkZs2cuNspk6Z10XzhQVrUWtYc3F0w==}
@@ -10307,12 +10301,6 @@ snapshots:
     optionalDependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-
-  storybook-addon-rtl@1.0.1(storybook@8.3.4):
-    dependencies:
-      '@storybook/test': 8.3.4(storybook@8.3.4)
-    transitivePeerDependencies:
-      - storybook
 
   storybook-dark-mode@4.0.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.3.4):
     dependencies:
