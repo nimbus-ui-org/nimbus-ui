@@ -4,9 +4,8 @@ import { FaAlignLeft, FaAlignCenter, FaAlignRight } from 'react-icons/fa'
 import { toggleButton } from '@nimbus-ui/styled-system/recipes'
 import { ToggleIconButton } from './ToggleIconButton'
 import { fn } from '@storybook/test'
-import { ButtonGroup } from '../ButtonGroup'
 import { Fragment, useState } from 'react'
-import { ToggleButtonProvider } from '../ToggleButton'
+import { ToggleButtonGroup } from '../ToggleButton'
 
 const meta = {
   title: 'Buttons/ToggleIconButton',
@@ -130,26 +129,24 @@ export const Provider = () => {
   const [value, setValue] = useState<string | null>(null)
 
   return (
-    <ToggleButtonProvider
+    <ToggleButtonGroup
       selectedValue={value}
       onChange={(isSelected, value) => {
         if (isSelected) {
           setValue(value as string)
         } else setValue(null)
       }}
-      variant="outline"
+      isAttached
     >
-      <ButtonGroup>
-        <ToggleIconButton value="left">
-          <FaAlignLeft />
-        </ToggleIconButton>
-        <ToggleIconButton value="center">
-          <FaAlignCenter />
-        </ToggleIconButton>
-        <ToggleIconButton value="right">
-          <FaAlignRight />
-        </ToggleIconButton>
-      </ButtonGroup>
-    </ToggleButtonProvider>
+      <ToggleIconButton value="left">
+        <FaAlignLeft />
+      </ToggleIconButton>
+      <ToggleIconButton value="center">
+        <FaAlignCenter />
+      </ToggleIconButton>
+      <ToggleIconButton value="right">
+        <FaAlignRight />
+      </ToggleIconButton>
+    </ToggleButtonGroup>
   )
 }

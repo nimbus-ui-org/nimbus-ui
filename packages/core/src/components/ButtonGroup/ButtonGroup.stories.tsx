@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Box, Flex } from '@nimbus-ui/styled-system/jsx'
 import { buttonGroup } from '@nimbus-ui/styled-system/recipes'
 import { ButtonGroup } from './ButtonGroup'
-import { Button, ButtonProvider } from '../Button'
+import { Button } from '../Button'
 
 const meta = {
   title: 'Buttons/ButtonGroup',
@@ -25,15 +25,12 @@ export const Playground: Story = {
     orientation: {
       control: 'radio',
       options: buttonGroup.variantMap.orientation
-    },
-    colorPalette: {
-      control: 'select',
-      options: ['primary', 'base', 'error']
     }
   },
-  render: ({ colorPalette, ...args }) => (
-    <Flex gap="10">
-      <ButtonProvider colorPalette={colorPalette}>
+  args: { isAttached: true },
+  render: ({ ...args }) => {
+    return (
+      <Flex gap="10">
         <ButtonGroup {...args}>
           <Button variant="ghost">Save</Button>
           <Button variant="ghost">Discard</Button>
@@ -49,7 +46,7 @@ export const Playground: Story = {
           <Button variant="solid">Discard</Button>
           <Button variant="solid">Cancel</Button>
         </ButtonGroup>
-      </ButtonProvider>
-    </Flex>
-  )
+      </Flex>
+    )
+  }
 }

@@ -5,6 +5,7 @@ export const conditions = {
   dataFocusRing: '&:is([data-focus-visible])',
   dataDisabled: '&:is([data-disabled])',
   dataAppearanceDisabled: '&:is([data-appearance-disabled])',
+  dataAttached: '&:is([data-attached])',
   sectionStart: '&:is([data-section=start])',
   sectionEnd: '&:is([data-section=end])'
 }

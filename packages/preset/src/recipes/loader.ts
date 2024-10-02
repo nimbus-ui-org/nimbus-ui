@@ -27,35 +27,35 @@ export const loader = defineRecipe({
           animation: 'loading.spinner'
         },
         '& span:nth-child(1)': {
-          transform: 'rotate(0deg)',
+          rotate: 0,
           animationDelay: 'calc(-8/8 * 0.8s)'
         },
         '& span:nth-child(2)': {
-          transform: 'rotate(45deg)',
+          rotate: '45deg',
           animationDelay: 'calc(-7/8 * 0.8s)'
         },
         '& span:nth-child(3)': {
-          transform: 'rotate(90deg)',
+          rotate: '90deg',
           animationDelay: 'calc(-6/8 * 0.8s)'
         },
         '& span:nth-child(4)': {
-          transform: 'rotate(135deg)',
+          rotate: '135deg',
           animationDelay: 'calc(-5/8 * 0.8s)'
         },
         '& span:nth-child(5)': {
-          transform: 'rotate(180deg)',
+          rotate: '180deg',
           animationDelay: 'calc(-4/8 * 0.8s)'
         },
         '& span:nth-child(6)': {
-          transform: 'rotate(225deg)',
+          rotate: '225deg',
           animationDelay: 'calc(-3/8 * 0.8s)'
         },
         '& span:nth-child(7)': {
-          transform: 'rotate(270deg)',
+          rotate: '270deg',
           animationDelay: 'calc(-2/8 * 0.8s)'
         },
         '& span:nth-child(8)': {
-          transform: 'rotate(315deg)',
+          rotate: '315deg',
           animationDelay: 'calc(-1/8 * 0.8s)'
         }
       },

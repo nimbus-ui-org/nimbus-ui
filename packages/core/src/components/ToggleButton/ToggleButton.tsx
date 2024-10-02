@@ -35,7 +35,7 @@ interface Props {
 
   /**
    * Value of the toggle button.
-   * Also used to determine the selected value among other `ToggleButton`s under a `ToggleButtonProvider`.
+   * Also used to determine the selected value among other `ToggleButton` components under a `ToggleButtonProvider`.
    */
   value?: string
 

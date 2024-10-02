@@ -5,9 +5,8 @@ import { FaEnvelope } from 'react-icons/fa'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { button, loader } from '@nimbus-ui/styled-system/recipes'
 import { Fragment, useState } from 'react'
-import { ButtonProvider } from './ButtonProvider'
 import { IconButton } from '../IconButton'
-import { FileTrigger } from 'react-aria-components'
+import { ButtonContext, FileTrigger } from 'react-aria-components'
 
 const meta = {
   title: 'Buttons/Button',
@@ -223,14 +222,14 @@ export const File = () => {
 
 export const Provider = () => {
   return (
-    <ButtonProvider variant="outline">
+    <ButtonContext.Provider value={{ isDisabled: true }}>
       <SBGrid columns={3}>
         <Button>Button 1</Button>
         <Button>Button 2</Button>
-        <IconButton>
+        <IconButton aria-label="Mail Button">
           <FaEnvelope />
         </IconButton>
       </SBGrid>
-    </ButtonProvider>
+    </ButtonContext.Provider>
   )
 }

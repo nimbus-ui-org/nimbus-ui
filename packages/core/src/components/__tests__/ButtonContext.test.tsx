@@ -1,14 +1,14 @@
-import { Button, ButtonProvider } from '@components/Button'
+import { Button, ButtonContext } from '@components/Button'
 import { IconButton } from '@components/IconButton'
 import { render } from '@testing-library/react'
 
-describe('ButtonProvider', () => {
+describe('ButtonContext', () => {
   it('should pass down props to Button or IconButton components', () => {
     const { getByTestId } = render(
-      <ButtonProvider isDisabled>
+      <ButtonContext.Provider value={{ isDisabled: true }}>
         <Button data-testid="button" />
         <IconButton data-testid="icon-button" />
-      </ButtonProvider>
+      </ButtonContext.Provider>
     )
 
     const button = getByTestId('button')

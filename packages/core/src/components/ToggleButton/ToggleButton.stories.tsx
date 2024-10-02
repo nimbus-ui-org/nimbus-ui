@@ -5,8 +5,7 @@ import { FaArrowRightLong } from 'react-icons/fa6'
 import { toggleButton } from '@nimbus-ui/styled-system/recipes'
 import { ToggleButton } from './ToggleButton'
 import { fn } from '@storybook/test'
-import { ToggleButtonProvider } from './ToggleButtonProvider'
-import { ButtonGroup } from '../ButtonGroup'
+import { ToggleButtonGroup } from './ToggleButtonGroup'
 import { Fragment, useState } from 'react'
 
 const meta = {
@@ -163,7 +162,8 @@ export const Provider = () => {
   const [value, setValue] = useState<string | null>(null)
 
   return (
-    <ToggleButtonProvider
+    <ToggleButtonGroup
+      isAttached
       selectedValue={value}
       onChange={(isSelected, value) => {
         if (isSelected) {
@@ -171,11 +171,9 @@ export const Provider = () => {
         } else setValue(null)
       }}
     >
-      <ButtonGroup>
-        <ToggleButton value="pistachio">Pistachio</ToggleButton>
-        <ToggleButton value="black">Matte Black</ToggleButton>
-        <ToggleButton value="blue">Midnight Blue</ToggleButton>
-      </ButtonGroup>
-    </ToggleButtonProvider>
+      <ToggleButton value="pistachio">Pistachio</ToggleButton>
+      <ToggleButton value="black">Matte Black</ToggleButton>
+      <ToggleButton value="blue">Midnight Blue</ToggleButton>
+    </ToggleButtonGroup>
   )
 }
