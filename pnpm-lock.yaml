@@ -200,6 +200,16 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
 
+  packages/hooks:
+    dependencies:
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+
   packages/preset:
     dependencies:
       '@radix-ui/colors':

@@ -17,6 +17,7 @@
     "dev": "turbo dev",
     "build": "turbo build --filter=!docs",
     "build:preset": "turbo build --filter=@nimbus-ui/preset",
+    "build:hooks": "turbo build --filter=@nimbus-ui/hooks",
     "build:storybook": "storybook build",
     "lint": "eslint -c .eslintrc.cjs --ext .js,.ts,.jsx,.tsx . --max-warnings=0",
     "prettier:check": "prettier --check .",
@@ -87,5 +88,5 @@
     "node": ">=20.x",
     "pnpm": ">=9.x"
   },
-  "packageManager": "pnpm@9.11.0"
+  "packageManager": "pnpm@9.12.0"
 }

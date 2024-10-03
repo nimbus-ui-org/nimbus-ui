@@ -1,0 +1,56 @@
+{
+  "name": "@nimbus-ui/hooks",
+  "version": "1.0.0",
+  "description": "Performant and flexible hooks library by Nimbus UI.",
+  "author": "moja",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nimbus-ui-org/nimbus-ui.git",
+    "directory": "/packages/hooks"
+  },
+  "keywords": [
+    "hooks",
+    "react",
+    "react-hooks",
+    "utils",
+    "library"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/index.d.ts",
+        "default": "./cjs/index.js"
+      }
+    }
+  },
+  "main": "./cjs/index.js",
+  "module": "./esm/index.mjs",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "esm",
+    "cjs",
+    "lib"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup && pnpm build:declarations",
+    "build:declarations": "tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
+    "clean": "rm -rf .turbo && rm -rf node_modules",
+    "pack:local": "pnpm pack",
+    "pack:clean": "rm *.tgz"
+  },
+  "devDependencies": {
+    "react": "^18.3.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
