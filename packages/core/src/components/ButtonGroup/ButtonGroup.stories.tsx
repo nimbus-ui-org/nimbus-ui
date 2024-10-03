@@ -3,6 +3,8 @@ import { Box, Flex } from '@nimbus-ui/styled-system/jsx'
 import { buttonGroup } from '@nimbus-ui/styled-system/recipes'
 import { ButtonGroup } from './ButtonGroup'
 import { Button } from '../Button'
+import { IconButton } from '@components/IconButton'
+import { FaSave } from 'react-icons/fa'
 
 const meta = {
   title: 'Buttons/ButtonGroup',
@@ -34,17 +36,23 @@ export const Playground: Story = {
         <ButtonGroup {...args}>
           <Button variant="ghost">Save</Button>
           <Button variant="ghost">Discard</Button>
-          <Button variant="ghost">Cancel</Button>
+          <IconButton variant="ghost" aria-label="Icon Button">
+            <FaSave />
+          </IconButton>
         </ButtonGroup>
         <ButtonGroup {...args}>
           <Button variant="outline">Save</Button>
           <Button variant="outline">Discard</Button>
-          <Button variant="outline">Cancel</Button>
+          <IconButton variant="outline" aria-label="Icon Button">
+            <FaSave />
+          </IconButton>
         </ButtonGroup>
         <ButtonGroup {...args}>
           <Button variant="solid">Save</Button>
           <Button variant="solid">Discard</Button>
-          <Button variant="solid">Cancel</Button>
+          <IconButton variant="solid" aria-label="Icon Button">
+            <FaSave />
+          </IconButton>
         </ButtonGroup>
       </Flex>
     )

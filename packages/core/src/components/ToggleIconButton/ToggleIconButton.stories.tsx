@@ -1,11 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Box, GridItem, SBGrid } from '@nimbus-ui/styled-system/jsx'
-import { FaAlignLeft, FaAlignCenter, FaAlignRight } from 'react-icons/fa'
+import { FaAlignLeft } from 'react-icons/fa'
 import { toggleButton } from '@nimbus-ui/styled-system/recipes'
 import { ToggleIconButton } from './ToggleIconButton'
 import { fn } from '@storybook/test'
-import { Fragment, useState } from 'react'
-import { ToggleButtonGroup } from '../ToggleButton'
+import { Fragment } from 'react'
 
 const meta = {
   title: 'Buttons/ToggleIconButton',
@@ -122,31 +121,5 @@ export const Disabled = () => {
         </Fragment>
       ))}
     </SBGrid>
-  )
-}
-
-export const Provider = () => {
-  const [value, setValue] = useState<string | null>(null)
-
-  return (
-    <ToggleButtonGroup
-      selectedValue={value}
-      onChange={(isSelected, value) => {
-        if (isSelected) {
-          setValue(value as string)
-        } else setValue(null)
-      }}
-      isAttached
-    >
-      <ToggleIconButton value="left">
-        <FaAlignLeft />
-      </ToggleIconButton>
-      <ToggleIconButton value="center">
-        <FaAlignCenter />
-      </ToggleIconButton>
-      <ToggleIconButton value="right">
-        <FaAlignRight />
-      </ToggleIconButton>
-    </ToggleButtonGroup>
   )
 }

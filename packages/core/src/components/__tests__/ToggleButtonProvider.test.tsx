@@ -1,4 +1,5 @@
-import { ToggleButton, ToggleButtonGroup } from '@components/ToggleButton'
+import { ToggleButton } from '@components/ToggleButton'
+import { ToggleButtonGroup } from '@components/ToggleButtonGroup'
 import { ToggleIconButton } from '@components/ToggleIconButton'
 import { render } from '@testing-library/react'
 

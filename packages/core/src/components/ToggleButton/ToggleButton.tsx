@@ -42,7 +42,7 @@ interface Props {
   /**
    * Handler that is called when the element's selection state changes.
    */
-  onChange?: ((isSelected: boolean, value?: string) => void) | undefined
+  onChange?: ((isSelected: boolean, value?: string | null) => void) | undefined
 }
 
 const StyledToggleButton = styled(AriaToggleButton, toggleButton)

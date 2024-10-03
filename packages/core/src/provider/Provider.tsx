@@ -23,7 +23,7 @@ export const NimbusProvider = ({
 const ProviderWrapper = ({
   locale,
   children
-}: PropsWithChildren<{ locale: NimbusProviderProps['locale'] }>) => {
+}: PropsWithChildren<NimbusProviderProps>) => {
   const { locale: currentLocale, direction } = useLocale()
 
   const initialRender = useRef(true)

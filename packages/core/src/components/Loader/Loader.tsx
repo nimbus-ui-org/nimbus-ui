@@ -7,7 +7,7 @@ const StyledLoader = styled('span', loader)
 export type LoaderProps = ComponentProps<typeof StyledLoader>
 
 export const Loader = forwardRef(
-  ({ variant, ...props }: LoaderProps, ref: React.Ref<HTMLSpanElement>) => {
+  ({ variant, children, ...props }: LoaderProps, ref: React.Ref<HTMLSpanElement>) => {
     return (
       <StyledLoader variant={variant} {...props} ref={ref}>
         <span />
@@ -22,6 +22,7 @@ export const Loader = forwardRef(
             <span />
           </>
         )}
+        {children}
       </StyledLoader>
     )
   }

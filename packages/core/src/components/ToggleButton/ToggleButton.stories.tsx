@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Box, GridItem, SBGrid } from '@nimbus-ui/styled-system/jsx'
-import { FaCheck } from 'react-icons/fa'
+import { FaCheck, FaPaintBrush } from 'react-icons/fa'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { toggleButton } from '@nimbus-ui/styled-system/recipes'
 import { ToggleButton } from './ToggleButton'
 import { fn } from '@storybook/test'
-import { ToggleButtonGroup } from './ToggleButtonGroup'
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
+import { ToggleButtonContext } from 'react-aria-components'
+import { ToggleIconButton } from '@components/ToggleIconButton'
 
 const meta = {
   title: 'Buttons/ToggleButton',
@@ -159,21 +160,15 @@ export const Disabled = () => {
 }
 
 export const Provider = () => {
-  const [value, setValue] = useState<string | null>(null)
-
   return (
-    <ToggleButtonGroup
-      isAttached
-      selectedValue={value}
-      onChange={(isSelected, value) => {
-        if (isSelected) {
-          setValue(value as string)
-        } else setValue(null)
-      }}
-    >
-      <ToggleButton value="pistachio">Pistachio</ToggleButton>
-      <ToggleButton value="black">Matte Black</ToggleButton>
-      <ToggleButton value="blue">Midnight Blue</ToggleButton>
-    </ToggleButtonGroup>
+    <ToggleButtonContext.Provider value={{ isDisabled: true }}>
+      <SBGrid columns={3}>
+        <ToggleButton>Pistachio</ToggleButton>
+        <ToggleButton>Matte Black</ToggleButton>
+        <ToggleIconButton aria-label="brush">
+          <FaPaintBrush />
+        </ToggleIconButton>
+      </SBGrid>
+    </ToggleButtonContext.Provider>
   )
 }
