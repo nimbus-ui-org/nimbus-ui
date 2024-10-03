@@ -188,7 +188,7 @@ export const button = defineSlotRecipe({
           px: '8'
         },
         loader: {
-          height: '8'
+          height: '9'
         }
       }
     }

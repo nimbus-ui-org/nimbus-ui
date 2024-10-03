@@ -65,7 +65,7 @@ export const Playground: Story = {
     }
   },
   args: {
-    children: 'Contact Us',
+    children: 'Start Now',
     isLoading: false,
     isDisabled: false,
     customLoader: ''

@@ -4,8 +4,8 @@ import pandaPreset from '@pandacss/preset-panda'
 export const keyframes = defineKeyframes({
   ...pandaPreset.theme.keyframes,
   'loading-spinner': {
-    '0%': { opacity: 1 },
-    '100%': { opacity: 0.25 }
+    '0%': { opacity: 1, scale: 1 },
+    '100%': { opacity: 0.25, scale: 1 }
   },
   'loading-bars': {
     '0%': { opacity: 1, scale: 1 },
