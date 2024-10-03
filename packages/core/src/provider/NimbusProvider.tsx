@@ -31,17 +31,13 @@ const ProviderWrapper = ({
   useEffect(() => {
     const html = document.documentElement
     const htmlLang = html.getAttribute('lang')
-    if (!htmlLang) {
-      console.warn(`You have no lang set to your html element.`)
+    if (initialRender.current && htmlLang && locale && htmlLang !== locale) {
+      console.warn(
+        `The lang on your html element (${htmlLang}) does not match the locale you provided to NimbusProvider (${locale}).`
+      )
     } else {
-      if (initialRender.current && locale && htmlLang !== locale) {
-        console.warn(
-          `The lang on your html element (${htmlLang}) does not match the locale you provided to NimbusProvider (${locale}).`
-        )
-      } else {
-        html.setAttribute('lang', currentLocale)
-        html.setAttribute('dir', direction)
-      }
+      html.setAttribute('lang', currentLocale)
+      html.setAttribute('dir', direction)
     }
 
     initialRender.current = false
