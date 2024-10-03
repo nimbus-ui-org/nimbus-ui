@@ -53,6 +53,28 @@
         "types": "./lib/provider/index.d.ts",
         "default": "./cjs/provider/index.js"
       }
+    },
+    "./utils": {
+      "source": "./src/utilities/index.ts",
+      "import": {
+        "types": "./lib/utilities/index.d.ts",
+        "default": "./esm/utilities/index.mjs"
+      },
+      "require": {
+        "types": "./lib/utilities/index.d.ts",
+        "default": "./cjs/utilities/index.js"
+      }
+    },
+    "./locale": {
+      "source": "./src/locale/index.ts",
+      "import": {
+        "types": "./lib/locale/index.d.ts",
+        "default": "./esm/locale/index.mjs"
+      },
+      "require": {
+        "types": "./lib/locale/index.d.ts",
+        "default": "./cjs/locale/index.js"
+      }
     }
   },
   "main": "./cjs/index.js",

@@ -30,7 +30,7 @@ export const Playground: Story = {
     }
   },
   args: { isAttached: true },
-  render: ({ ...args }) => {
+  render: (args) => {
     return (
       <Flex gap="10">
         <ButtonGroup {...args}>

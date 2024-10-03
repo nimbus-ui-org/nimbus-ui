@@ -1,3 +1,4 @@
 export * from './components'
-export { breakpoints } from './utils'
 export * from './provider'
+export * from './locale'
+export * from './utilities'

@@ -31,7 +31,7 @@ export const Playground: Story = {
     }
   },
   args: { isAttached: true },
-  render: ({ ...args }) => {
+  render: (args) => {
     const [value, setValue] = useState<string | null | undefined>(null)
 
     const onChange = (isSelected: boolean, newValue?: string | null) => {
