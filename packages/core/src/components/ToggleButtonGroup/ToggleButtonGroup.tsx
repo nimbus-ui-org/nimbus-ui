@@ -36,12 +36,7 @@ export const ToggleButtonGroup = forwardRef(
   ) => {
     return (
       <AriaToggleButtonContext.Provider
-        value={
-          {
-            selectedValue,
-            onChange: onChange as (isSelected: boolean) => void
-          } as AriaToggleButtonProps
-        }
+        value={{ selectedValue, onChange } as AriaToggleButtonProps}
       >
         <StyledToggleButtonGroup
           data-attached={isAttached || undefined}

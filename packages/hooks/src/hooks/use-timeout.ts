@@ -46,5 +46,5 @@ export const useTimeout = <T extends (...args: any) => any>(
     return clear
   }, [clear, start, autoInvoke])
 
-  return [start as unknown as T, clear] as const
+  return [start as T, clear] as const
 }
