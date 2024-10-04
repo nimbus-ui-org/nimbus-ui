@@ -7,6 +7,7 @@ export const loader = defineRecipe({
     display: 'flex',
     position: 'relative',
     height: '9',
+    maxHeight: 'full',
     aspectRatio: 'square',
     '& span': {
       bg: 'current'
@@ -110,9 +111,6 @@ export const loader = defineRecipe({
       },
       xl: {
         height: '14'
-      },
-      full: {
-        height: 'full'
       }
     }
   },

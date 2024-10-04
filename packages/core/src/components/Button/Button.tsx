@@ -96,7 +96,7 @@ export const Button = forwardRef(
 
             {isLoading && (
               <span data-loading className={styles.loader}>
-                {renderChildren(customLoader, renderProps) ?? <Loader size="full" />}
+                {renderChildren(customLoader, renderProps) ?? <Loader />}
               </span>
             )}
 
