@@ -7,6 +7,7 @@ import { button, loader } from '@nimbus-ui/styled-system/recipes'
 import { Fragment, useState } from 'react'
 import { IconButton } from '../IconButton'
 import { ButtonContext, FileTrigger } from 'react-aria-components'
+import { Loader } from '@components/Loader'
 
 const meta = {
   title: 'Buttons/Button',
@@ -38,13 +39,12 @@ export const Playground: Story = {
       control: 'select',
       options: ['primary', 'base', 'error']
     },
-    loaderProps: {
-      control: 'select',
-      options: loader.variantMap.variant,
+    customLoader: {
+      control: 'radio',
+      options: ['Default', 'Custom'],
       mapping: {
-        spinner: { variant: 'spinner' },
-        dots: { variant: 'dots' },
-        bars: { variant: 'bars' }
+        Default: undefined,
+        Custom: 'Loading...'
       }
     },
     startSection: {
@@ -67,8 +67,7 @@ export const Playground: Story = {
   args: {
     children: 'Start Now',
     isLoading: false,
-    isDisabled: false,
-    customLoader: ''
+    isDisabled: false
   },
   render: (args) => <Button aria-label="Nimbus Button" {...args} />
 }
@@ -155,7 +154,7 @@ export const Loading = () => {
             key={`${buttonSize}_${loaderVariant}`}
             size={buttonSize}
             isLoading
-            loaderProps={{ variant: loaderVariant }}
+            customLoader={<Loader size="full" variant={loaderVariant} />}
             aria-label="Loading Button"
           >
             Button

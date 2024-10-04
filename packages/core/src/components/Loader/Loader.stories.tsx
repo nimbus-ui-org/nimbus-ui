@@ -49,7 +49,7 @@ export const Variants = () => {
 
 export const Sizes = () => {
   return (
-    <SBGrid columns={5} gap="20">
+    <SBGrid columns={6} gap="20">
       {loader.variantMap.variant.map((variant) =>
         loader.variantMap.size.map((size) => (
           <Loader key={`${variant}_${size}`} variant={variant} size={size} />

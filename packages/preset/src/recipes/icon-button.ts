@@ -5,7 +5,7 @@ import { defineRecipe } from '@pandacss/dev'
 
 export const iconButton = defineRecipe({
   className: 'nimbus-icon-button',
-  jsx: ['IconButton'],
+  jsx: ['IconButton', 'ToggleIconButton'],
   variants: {
     size: {
       xs: {

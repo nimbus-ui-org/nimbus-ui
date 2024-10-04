@@ -2,11 +2,10 @@ import { defineRecipe } from '@pandacss/dev'
 
 export const loader = defineRecipe({
   className: 'nimbus-loader',
-  jsx: ['Loader', 'Button'],
+  jsx: ['Loader'],
   base: {
     display: 'flex',
     position: 'relative',
-    color: 'primary',
     height: '9',
     aspectRatio: 'square',
     '& span': {
@@ -111,6 +110,9 @@ export const loader = defineRecipe({
       },
       xl: {
         height: '14'
+      },
+      full: {
+        height: 'full'
       }
     }
   },

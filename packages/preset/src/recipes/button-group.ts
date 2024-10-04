@@ -2,7 +2,7 @@ import { defineRecipe } from '@pandacss/dev'
 
 export const buttonGroup = defineRecipe({
   className: 'nimbus-button-group',
-  jsx: ['ButtonGroup'],
+  jsx: ['ButtonGroup', 'ToggleButtonGroup'],
   base: {
     display: 'flex'
   },

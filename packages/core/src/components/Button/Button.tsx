@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { ButtonBase, type ButtonBaseProps } from '../ButtonBase'
-import { Loader, type LoaderProps } from '@components/Loader'
+import { Loader } from '@components/Loader'
 import {
   button,
   type ButtonRecipe,
@@ -42,11 +42,6 @@ interface Props {
    * If this prop is used, `loaderProps` will be ignored.
    */
   customLoader?: AriaLinkProps['children']
-
-  /**
-   * `Loader` element props.
-   */
-  loaderProps?: LoaderProps
 }
 
 export type ButtonProps = ButtonBaseProps & ButtonVariantProps & Props
@@ -68,7 +63,6 @@ export const Button = forwardRef(
       isLoading,
       isDisabled,
       customLoader,
-      loaderProps = {},
       ...otherProps
     } = props
 
@@ -100,14 +94,11 @@ export const Button = forwardRef(
               </span>
             )}
 
-            {isLoading &&
-              (renderChildren(customLoader, renderProps) ? (
-                <span data-loading className={styles.loader}>
-                  {renderChildren(customLoader, renderProps)}
-                </span>
-              ) : (
-                <Loader data-loading className={styles.loader} {...loaderProps} />
-              ))}
+            {isLoading && (
+              <span data-loading className={styles.loader}>
+                {renderChildren(customLoader, renderProps) ?? <Loader size="full" />}
+              </span>
+            )}
 
             <span className={styles.label}>{renderChildren(children, renderProps)}</span>
 
