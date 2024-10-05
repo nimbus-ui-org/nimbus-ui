@@ -64,7 +64,7 @@ export const button = defineSlotRecipe({
       position: 'absolute',
       insetBlockStart: '50%',
       insetInlineStart: '50%',
-      transform: 'translate(-50%, -50%)'
+      translate: '-50% -50%'
     }
   },
   variants: {
