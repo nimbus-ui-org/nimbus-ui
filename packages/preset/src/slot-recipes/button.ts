@@ -79,7 +79,7 @@ export const button = defineSlotRecipe({
           _dataPressed: {
             bg: 'colorPalette.solid.active'
           },
-          _dataAppearanceDisabled: {
+          _appearanceDisabled: {
             bg: 'base.disabled',
             color: 'base.disabled.text'
           }
@@ -99,7 +99,7 @@ export const button = defineSlotRecipe({
             bg: 'colorPalette.outline.active',
             borderColor: 'colorPalette.border.active'
           },
-          _dataAppearanceDisabled: {
+          _appearanceDisabled: {
             color: 'base.disabled.text',
             borderColor: 'base.disabled.border'
           }
@@ -115,7 +115,7 @@ export const button = defineSlotRecipe({
           _dataPressed: {
             bg: 'colorPalette.ghost.active'
           },
-          _dataAppearanceDisabled: {
+          _appearanceDisabled: {
             bg: 'base.disabled',
             color: 'base.disabled.text'
           }
@@ -133,7 +133,7 @@ export const button = defineSlotRecipe({
           _dataPressed: {
             color: 'colorPalette.text.1'
           },
-          _dataAppearanceDisabled: {
+          _appearanceDisabled: {
             color: 'base.disabled.text'
           }
         }

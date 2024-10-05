@@ -75,7 +75,7 @@ export const toggleButton = defineSlotRecipe({
               bg: 'colorPalette.solid.active'
             }
           },
-          _dataAppearanceDisabled: {
+          _appearanceDisabled: {
             color: 'base.disabled.text',
             borderColor: 'base.disabled.border',
             _selected: {
@@ -105,7 +105,7 @@ export const toggleButton = defineSlotRecipe({
               bg: 'colorPalette.solid.active'
             }
           },
-          _dataAppearanceDisabled: {
+          _appearanceDisabled: {
             bg: 'transparent',
             color: 'base.disabled.text',
             _selected: {

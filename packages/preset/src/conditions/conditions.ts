@@ -4,8 +4,11 @@ export const conditions = {
   dataPressed: '&:is([data-pressed])',
   dataFocusRing: '&:is([data-focus-visible])',
   dataDisabled: '&:is([data-disabled])',
-  dataAppearanceDisabled: '&:is([data-appearance-disabled])',
-  dataAttached: '&:is([data-attached])',
+  appearanceDisabled: '&:is([data-appearance-disabled])',
+  attached: '&:is([data-attached])',
   sectionStart: '&:is([data-section=start])',
-  sectionEnd: '&:is([data-section=end])'
+  sectionEnd: '&:is([data-section=end])',
+  entering: '&:is([data-entering])',
+  exiting: '&:is([data-exiting])',
+  pressed: '&:is([data-pressed])'
 }

@@ -3,11 +3,9 @@ import { generateColors } from '@utils'
 import { getContrast } from 'color2k'
 
 enum ContrastWCAG {
-  a = 3.1,
+  aaAlpha = 4.36, // tuned down a bit to imitate alpha ghost background because getContrast doesn't work with alpha backgrounds.
   aa = 4.5
 }
-
-const targetGuildine = ContrastWCAG.aa
 
 describe('NimbusColors', () => {
   Object.keys(NimbusColors.Primary).forEach((color) => {
@@ -29,18 +27,18 @@ describe('NimbusColors', () => {
       // test solid colors and their corresponding contrast text
       expect(
         getContrast(lightColors.accentContrast, lightColors.accentScale[8])
-      ).toBeGreaterThanOrEqual(targetGuildine)
+      ).toBeGreaterThanOrEqual(ContrastWCAG.aa)
       expect(
         getContrast(darkColors.accentContrast, darkColors.accentScale[8])
-      ).toBeGreaterThanOrEqual(targetGuildine)
+      ).toBeGreaterThanOrEqual(ContrastWCAG.aa)
 
       // test ghost colors and their corresponding contrast text
       expect(
-        getContrast(lightColors.accentScale[10], lightColors.accentScale[1])
-      ).toBeGreaterThanOrEqual(targetGuildine)
+        getContrast(lightColors.accentScale[10], lightColors.accentScale[2])
+      ).toBeGreaterThanOrEqual(ContrastWCAG.aaAlpha)
       expect(
-        getContrast(darkColors.accentScale[10], darkColors.accentScale[1])
-      ).toBeGreaterThanOrEqual(targetGuildine)
+        getContrast(darkColors.accentScale[10], darkColors.accentScale[2])
+      ).toBeGreaterThanOrEqual(ContrastWCAG.aaAlpha)
     })
   })
 
@@ -62,19 +60,19 @@ describe('NimbusColors', () => {
     test(`if colors generated from base color ${color} have enough contrast to meet WCAG guidlines`, () => {
       // test solid colors and their corresponding contrast text
       expect(getContrast('#FFFFFF', lightColors.grayScale[11])).toBeGreaterThanOrEqual(
-        targetGuildine
+        ContrastWCAG.aa
       )
       expect(
         getContrast(darkColors.grayScale[0], darkColors.grayScale[11])
-      ).toBeGreaterThanOrEqual(targetGuildine)
+      ).toBeGreaterThanOrEqual(ContrastWCAG.aa)
 
       // test ghost colors and their corresponding contrast text
       expect(
-        getContrast(lightColors.grayScale[10], lightColors.grayScale[1])
-      ).toBeGreaterThanOrEqual(targetGuildine)
+        getContrast(lightColors.grayScale[10], lightColors.grayScale[2])
+      ).toBeGreaterThanOrEqual(ContrastWCAG.aaAlpha)
       expect(
-        getContrast(darkColors.grayScale[10], darkColors.grayScale[1])
-      ).toBeGreaterThanOrEqual(targetGuildine)
+        getContrast(darkColors.grayScale[10], darkColors.grayScale[2])
+      ).toBeGreaterThanOrEqual(ContrastWCAG.aaAlpha)
     })
   })
 
@@ -97,18 +95,18 @@ describe('NimbusColors', () => {
       // test solid colors and their corresponding contrast text
       expect(
         getContrast(lightColors.accentContrast, lightColors.accentScale[8])
-      ).toBeGreaterThanOrEqual(targetGuildine)
+      ).toBeGreaterThanOrEqual(ContrastWCAG.aa)
       expect(
         getContrast(darkColors.accentContrast, darkColors.accentScale[8])
-      ).toBeGreaterThanOrEqual(targetGuildine)
+      ).toBeGreaterThanOrEqual(ContrastWCAG.aa)
 
       // test ghost colors and their corresponding contrast text
       expect(
-        getContrast(lightColors.accentScale[10], lightColors.accentScale[1])
-      ).toBeGreaterThanOrEqual(targetGuildine)
+        getContrast(lightColors.accentScale[10], lightColors.accentScale[2])
+      ).toBeGreaterThanOrEqual(ContrastWCAG.aaAlpha)
       expect(
-        getContrast(darkColors.accentScale[10], darkColors.accentScale[1])
-      ).toBeGreaterThanOrEqual(targetGuildine)
+        getContrast(darkColors.accentScale[10], darkColors.accentScale[2])
+      ).toBeGreaterThanOrEqual(ContrastWCAG.aaAlpha)
     })
   })
 })

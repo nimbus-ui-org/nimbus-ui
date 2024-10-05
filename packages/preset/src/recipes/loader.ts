@@ -27,7 +27,7 @@ export const loader = defineRecipe({
           animation: 'loading.spinner'
         },
         '& span:nth-child(1)': {
-          rotate: 0,
+          rotate: '0deg',
           animationDelay: 'calc(-8/8 * 0.8s)'
         },
         '& span:nth-child(2)': {

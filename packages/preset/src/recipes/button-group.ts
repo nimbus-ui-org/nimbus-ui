@@ -10,7 +10,7 @@ export const buttonGroup = defineRecipe({
     orientation: {
       horizontal: {
         flexDirection: 'row',
-        _dataAttached: {
+        _attached: {
           '& > button:not(:first-of-type, :last-of-type)': {
             borderRadius: '0px',
             marginInlineEnd: '-1px'
@@ -28,7 +28,7 @@ export const buttonGroup = defineRecipe({
       },
       vertical: {
         flexDirection: 'column',
-        _dataAttached: {
+        _attached: {
           '& > button:not(:first-of-type, :last-of-type)': {
             borderRadius: '0px',
             marginBlockEnd: '-1px'

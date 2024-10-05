@@ -154,7 +154,7 @@ export const Loading = () => {
             key={`${buttonSize}_${loaderVariant}`}
             size={buttonSize}
             isLoading
-            customLoader={<Loader size="full" variant={loaderVariant} />}
+            customLoader={<Loader variant={loaderVariant} />}
             aria-label="Loading Button"
           >
             Button
