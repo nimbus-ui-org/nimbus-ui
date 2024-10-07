@@ -40,6 +40,13 @@ export const Playground: Story = {
     onExitComplete: fn(() => console.log('exiting complete'))
   },
   render: (args) => (
-    <Transition css={{ height: '72', width: '72', background: 'primary' }} {...args} />
+    <Transition
+      css={{
+        height: '72',
+        width: '72',
+        background: 'primary'
+      }}
+      {...args}
+    />
   )
 }
