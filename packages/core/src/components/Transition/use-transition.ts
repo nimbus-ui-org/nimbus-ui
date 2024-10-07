@@ -32,13 +32,6 @@ export const useTransition = ({
   enterDelay,
   exitDelay
 }: UseTransition) => {
-  const [transitionStatus, setStatus] = useState<TransitionStatus>(
-    mounted ? TransitionStatus.EnterComplete : TransitionStatus.ExitComplete
-  )
-  const transitionTimeoutRef = useRef<number>(-1)
-  const delayTimeoutRef = useRef<number>(-1)
-  const rafRef = useRef(-1)
-
   const isFirstRender = useFirstRenderState()
 
   const isSSR = useIsSSR()
@@ -47,58 +40,72 @@ export const useTransition = ({
     [isSSR]
   )
 
-  const handleStateChange = useCallback(
-    (shouldMount: boolean) => {
-      const preHandler = shouldMount ? onEnter : onExit
-      const handler = shouldMount ? onEnterComplete : onExitComplete
-
-      window.clearTimeout(transitionTimeoutRef.current)
-
-      const newTransitionDuration = shouldMount ? duration : exitDuration
-
-      if (newTransitionDuration === 0) {
-        if (preHandler) preHandler()
-        if (handler) handler()
-        setStatus(
-          shouldMount ? TransitionStatus.EnterComplete : TransitionStatus.ExitComplete
-        )
-      } else {
-        // setting status within same frame disrupts animation if transition property is being set dynamically
-        rafRef.current = requestAnimationFrame(() => {
-          if (preHandler) preHandler()
-          setStatus(shouldMount ? TransitionStatus.Entering : TransitionStatus.Exiting)
-
-          transitionTimeoutRef.current = window.setTimeout(() => {
-            if (handler) handler()
-            setStatus(
-              shouldMount ? TransitionStatus.EnterComplete : TransitionStatus.ExitComplete
-            )
-          }, newTransitionDuration)
-        })
-      }
-    },
-    [duration, exitDuration, onEnter, onEnterComplete, onExit, onExitComplete]
+  const [transitionStatus, setStatus] = useState<TransitionStatus>(
+    mounted ? TransitionStatus.EnterComplete : TransitionStatus.ExitComplete
   )
 
-  const handleTransitionWithDelay = useCallback(
-    (shouldMount: boolean) => {
-      window.clearTimeout(delayTimeoutRef.current)
-      const delay = shouldMount ? enterDelay : exitDelay
-
-      if (typeof delay !== 'number') {
-        handleStateChange(shouldMount)
-        return
-      }
-
-      delayTimeoutRef.current = window.setTimeout(() => {
-        handleStateChange(shouldMount)
-      }, delay)
-    },
-    [enterDelay, exitDelay, handleStateChange]
+  const onStartHandler = useMemo(
+    () => (mounted ? onEnter : onExit),
+    [mounted, onEnter, onExit]
   )
+
+  const onCompleteHandler = useMemo(
+    () => (mounted ? onEnterComplete : onExitComplete),
+    [mounted, onEnterComplete, onExitComplete]
+  )
+
+  const newTransitionDuration = useMemo(
+    () => (mounted ? duration : exitDuration),
+    [duration, exitDuration, mounted]
+  )
+
+  const delay = useMemo(
+    () => (mounted ? enterDelay : exitDelay),
+    [enterDelay, exitDelay, mounted]
+  )
+
+  const transitionTimeoutRef = useRef<number>(-1)
+  const delayTimeoutRef = useRef<number>(-1)
+  const rafRef = useRef(-1)
+
+  const handleStateChange = useCallback(() => {
+    window.clearTimeout(transitionTimeoutRef.current)
+
+    if (newTransitionDuration === 0) {
+      if (onStartHandler) onStartHandler()
+      if (onCompleteHandler) onCompleteHandler()
+      setStatus(mounted ? TransitionStatus.EnterComplete : TransitionStatus.ExitComplete)
+    } else {
+      // setting status within same frame disrupts animation if transition property is being set dynamically
+      rafRef.current = requestAnimationFrame(() => {
+        if (onStartHandler) onStartHandler()
+        setStatus(mounted ? TransitionStatus.Entering : TransitionStatus.Exiting)
+
+        transitionTimeoutRef.current = window.setTimeout(() => {
+          if (onCompleteHandler) onCompleteHandler()
+          setStatus(
+            mounted ? TransitionStatus.EnterComplete : TransitionStatus.ExitComplete
+          )
+        }, newTransitionDuration)
+      })
+    }
+  }, [mounted, newTransitionDuration, onCompleteHandler, onStartHandler])
+
+  const handleTransitionWithDelay = useCallback(() => {
+    window.clearTimeout(delayTimeoutRef.current)
+
+    if (typeof delay !== 'number') {
+      handleStateChange()
+      return
+    }
+
+    delayTimeoutRef.current = window.setTimeout(() => {
+      handleStateChange()
+    }, delay)
+  }, [delay, handleStateChange])
 
   useIsomorphicLayoutEffect(() => {
-    if (!isFirstRender) handleTransitionWithDelay(mounted)
+    if (!isFirstRender) handleTransitionWithDelay()
   }, [mounted])
 
   useEffect(
@@ -110,19 +117,15 @@ export const useTransition = ({
   )
 
   const transitionDuration = useMemo(() => {
-    if (transitionStatus === TransitionStatus.Entering) {
-      return `${duration}ms`
-    }
-
-    if (transitionStatus === TransitionStatus.Exiting) {
-      return `${exitDuration}ms`
+    if (
+      transitionStatus === TransitionStatus.Entering ||
+      transitionStatus === TransitionStatus.Exiting
+    ) {
+      return `${newTransitionDuration}ms`
     }
 
     return undefined
-  }, [transitionStatus, duration, exitDuration])
+  }, [newTransitionDuration, transitionStatus])
 
-  return {
-    transitionDuration,
-    transitionStatus
-  }
+  return { transitionDuration, transitionStatus }
 }
