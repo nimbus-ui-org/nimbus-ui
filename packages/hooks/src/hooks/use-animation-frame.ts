@@ -24,7 +24,7 @@ export const useAnimationFrame = (
     () => {
       cancel()
       let startTime: number
-      let onCompleteCallback: () => void
+      let onCompleteCallback: (() => void) | undefined
 
       const runAnimation = (timestamp: number) => {
         let complete = false
@@ -44,7 +44,7 @@ export const useAnimationFrame = (
           })
         } else {
           requestAnimationFrameRef.current = null
-          onCompleteCallback()
+          if (onCompleteCallback) onCompleteCallback()
         }
       }
 
