@@ -29,7 +29,8 @@ export const Playground: Story = {
   },
   args: {
     in: true,
-    keepMounted: true,
+    keepMounted: false,
+    variant: 'fade-to-right',
     duration: 300,
     exitDuration: 300,
     enterDelay: 0,

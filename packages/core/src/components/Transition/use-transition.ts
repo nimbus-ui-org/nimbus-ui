@@ -1,6 +1,5 @@
-import { useFirstRenderState } from '@nimbus-ui/hooks'
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
-import { useIsSSR } from 'react-aria'
+import { useAnimationFrame, useTimeout, useUpdateEffect } from '@nimbus-ui/hooks'
+import { useCallback, useMemo, useState } from 'react'
 
 export enum TransitionStatus {
   Entering = 'ENTERING',
@@ -32,14 +31,6 @@ export const useTransition = ({
   enterDelay,
   exitDelay
 }: UseTransition) => {
-  const isFirstRender = useFirstRenderState()
-
-  const isSSR = useIsSSR()
-  const useIsomorphicLayoutEffect = useMemo(
-    () => (isSSR ? useEffect : useLayoutEffect),
-    [isSSR]
-  )
-
   const [transitionStatus, setStatus] = useState<TransitionStatus>(
     mounted ? TransitionStatus.EnterComplete : TransitionStatus.ExitComplete
   )
@@ -64,57 +55,61 @@ export const useTransition = ({
     [enterDelay, exitDelay, mounted]
   )
 
-  const transitionTimeoutRef = useRef<number>(-1)
-  const delayTimeoutRef = useRef<number>(-1)
-  const rafRef = useRef(-1)
+  const [startTransitionTimeout] = useTimeout(
+    () => {
+      if (onCompleteHandler) onCompleteHandler()
+      setStatus(mounted ? TransitionStatus.EnterComplete : TransitionStatus.ExitComplete)
+    },
+    newTransitionDuration,
+    false,
+    [mounted, newTransitionDuration, onCompleteHandler]
+  )
+
+  const [startTransition] = useAnimationFrame(
+    ({ complete }) => {
+      if (onStartHandler) onStartHandler()
+      setStatus(mounted ? TransitionStatus.Entering : TransitionStatus.Exiting)
+
+      startTransitionTimeout()
+
+      complete()
+    },
+    false,
+    [onStartHandler, mounted, startTransitionTimeout]
+  )
 
   const handleStateChange = useCallback(() => {
-    window.clearTimeout(transitionTimeoutRef.current)
-
     if (newTransitionDuration === 0) {
       if (onStartHandler) onStartHandler()
       if (onCompleteHandler) onCompleteHandler()
       setStatus(mounted ? TransitionStatus.EnterComplete : TransitionStatus.ExitComplete)
     } else {
-      // setting status within same frame disrupts animation if transition property is being set dynamically
-      rafRef.current = requestAnimationFrame(() => {
-        if (onStartHandler) onStartHandler()
-        setStatus(mounted ? TransitionStatus.Entering : TransitionStatus.Exiting)
-
-        transitionTimeoutRef.current = window.setTimeout(() => {
-          if (onCompleteHandler) onCompleteHandler()
-          setStatus(
-            mounted ? TransitionStatus.EnterComplete : TransitionStatus.ExitComplete
-          )
-        }, newTransitionDuration)
-      })
+      // setting the state in the same frame disrupts animation
+      startTransition()
     }
-  }, [mounted, newTransitionDuration, onCompleteHandler, onStartHandler])
+  }, [mounted, newTransitionDuration, onCompleteHandler, onStartHandler, startTransition])
+
+  const [startDelayTimeout] = useTimeout(
+    () => {
+      handleStateChange()
+    },
+    delay as number,
+    false,
+    [delay, handleStateChange]
+  )
 
   const handleTransitionWithDelay = useCallback(() => {
-    window.clearTimeout(delayTimeoutRef.current)
-
     if (typeof delay !== 'number') {
       handleStateChange()
       return
     }
 
-    delayTimeoutRef.current = window.setTimeout(() => {
-      handleStateChange()
-    }, delay)
-  }, [delay, handleStateChange])
+    startDelayTimeout()
+  }, [delay, handleStateChange, startDelayTimeout])
 
-  useIsomorphicLayoutEffect(() => {
-    if (!isFirstRender) handleTransitionWithDelay()
+  useUpdateEffect(() => {
+    handleTransitionWithDelay()
   }, [mounted])
-
-  useEffect(
-    () => () => {
-      window.clearTimeout(transitionTimeoutRef.current)
-      cancelAnimationFrame(rafRef.current)
-    },
-    []
-  )
 
   const transitionDuration = useMemo(() => {
     if (
