@@ -28,7 +28,7 @@ export const keyframes = defineKeyframes({
   },
   'fade-to-right': {
     from: {
-      translate: '-100% 0',
+      translate: '-10% 0',
       opacity: 0
     },
     to: {
@@ -38,7 +38,7 @@ export const keyframes = defineKeyframes({
   },
   'fade-to-left': {
     from: {
-      translate: '100% 0',
+      translate: '10% 0',
       opacity: 0
     },
     to: {
@@ -48,7 +48,7 @@ export const keyframes = defineKeyframes({
   },
   'fade-to-top': {
     from: {
-      translate: '0 100%',
+      translate: '0 10%',
       opacity: 0
     },
     to: {
@@ -58,7 +58,7 @@ export const keyframes = defineKeyframes({
   },
   'fade-to-bottom': {
     from: {
-      translate: '0 -100%',
+      translate: '0 -10%',
       opacity: 0
     },
     to: {

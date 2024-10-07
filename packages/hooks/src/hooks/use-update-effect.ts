@@ -6,12 +6,15 @@ import { useFirstRenderState } from './use-first-render-state'
  * @param {React.EffectCallback} effect Imperative function that can return a cleanup function.
  * @param {React.DependencyList} deps If present, effect will only activate if the values in the list change.
  */
-const useUpdateEffect = (effect: React.EffectCallback, deps: React.DependencyList) => {
-  const isFirstMount = useFirstRenderState()
+export const useUpdateEffect = (
+  effect: React.EffectCallback,
+  deps: React.DependencyList
+) => {
+  const isFirstRender = useFirstRenderState()
 
   useEffect(
     () => {
-      if (!isFirstMount) {
+      if (!isFirstRender) {
         return effect()
       }
     },
@@ -19,5 +22,3 @@ const useUpdateEffect = (effect: React.EffectCallback, deps: React.DependencyLis
     deps
   )
 }
-
-export default useUpdateEffect

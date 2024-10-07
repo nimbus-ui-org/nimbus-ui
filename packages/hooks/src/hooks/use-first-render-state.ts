@@ -4,7 +4,7 @@ import { useRef } from 'react'
  * Checks if the current render is the first render.
  * @returns `true` if it's the first render, and `false` otherwise.
  */
-export function useFirstRenderState(): boolean {
+export const useFirstRenderState = (): boolean => {
   const isFirst = useRef(true)
 
   if (isFirst.current) {

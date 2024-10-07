@@ -2,16 +2,17 @@ import { defineUtility } from '@pandacss/dev'
 import type { NimbusPresetConfig } from '@preset'
 
 export const getUtilities = (config: NimbusPresetConfig) => {
-  const { respectMotionPreference } = config
+  const { respectMotionPreference, cursor } = config
 
   const reducedMotion = defineUtility({
-    className: 'reduced_motion',
+    className: 'reduced-motion',
     values: ['preference'],
     transform(value) {
       if (value === 'preference' && respectMotionPreference) {
         return {
           '@media (prefers-reduced-motion: reduce)': {
-            transitionProperty: 'none'
+            transitionProperty: 'none',
+            animationName: 'none'
           }
         }
       }
@@ -19,12 +20,12 @@ export const getUtilities = (config: NimbusPresetConfig) => {
   })
 
   const cursorType = defineUtility({
-    className: 'cursor_type',
+    className: 'cursor-type',
     values: ['preference'],
     transform(value) {
-      if (value === 'preference') {
+      if (value === 'preference' && (cursor ?? 'pointer') === 'pointer') {
         return {
-          cursor: 'var(--cursor-type)'
+          cursor: 'pointer'
         }
       }
     }

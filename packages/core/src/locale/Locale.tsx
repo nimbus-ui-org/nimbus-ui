@@ -11,8 +11,8 @@ interface Props {
   locale: string
 }
 
-type StyledDiv = ComponentProps<StyledComponent<'div'>>
-export type LocaleProps = StyledDiv & Props
+type StyledDivProps = ComponentProps<StyledComponent<'div'>>
+export type LocaleProps = StyledDivProps & Props
 
 export const Locale = forwardRef(
   ({ children, locale, ...props }: LocaleProps, ref: React.Ref<HTMLDivElement>) => {
@@ -29,7 +29,7 @@ export const Locale = forwardRef(
 Locale.displayName = 'NimbusUI_Locale'
 
 const LocaleWrapper = forwardRef(
-  ({ children, ...props }: StyledDiv, ref: React.Ref<HTMLDivElement>) => {
+  ({ children, ...props }: StyledDivProps, ref: React.Ref<HTMLDivElement>) => {
     const { locale, direction } = useLocale()
 
     return (

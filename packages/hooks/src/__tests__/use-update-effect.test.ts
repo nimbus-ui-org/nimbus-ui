@@ -1,4 +1,4 @@
-import useUpdateEffect from '@hooks/use-update-effect'
+import { useUpdateEffect } from '@hooks'
 import { act, renderHook } from '@testing-library/react'
 
 describe('useUpdateEffect', () => {

@@ -4,7 +4,7 @@ import pandaPreset from '@pandacss/preset-panda'
 import { getTokens } from '@tokens'
 import { getSemanticTokens } from '@semantic-tokens'
 import { textStyles } from '@text-styles'
-import { getGlobalCss } from '@global-css'
+import { globalCss } from '@global-css'
 import { getUtilities } from '@utilities'
 import { getThemePalettes } from '@palettes'
 import { conditions } from '@conditions'
@@ -14,7 +14,6 @@ import { slotRecipes } from '@slot-recipes'
 
 /** Creates a Nimbus preset. */
 export const createNimbusPreset = (config: NimbusPresetConfig = {}): Preset => {
-  const globalCss = getGlobalCss(config)
   const tokens = getTokens(config)
   const semanticTokens = getSemanticTokens(config)
   const utilities = getUtilities(config)
