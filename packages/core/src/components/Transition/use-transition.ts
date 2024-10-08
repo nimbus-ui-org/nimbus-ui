@@ -99,7 +99,7 @@ export const useTransition = ({
   )
 
   const handleTransitionWithDelay = useCallback(() => {
-    if (typeof delay !== 'number') {
+    if (!delay) {
       handleStateChange()
       return
     }
