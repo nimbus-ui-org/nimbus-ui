@@ -14,11 +14,11 @@ export const toggleButton = defineSlotRecipe({
       lineHeight: 'none',
       fontWeight: 'semibold',
       borderRadius: 'default',
-      colorPalette: 'base',
       transition: 'colors',
       outline: 'none',
       cursorType: 'preference',
       reducedMotion: 'preference',
+      colorPalette: 'base',
 
       _dataDisabled: {
         cursor: 'not-allowed'

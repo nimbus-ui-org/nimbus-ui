@@ -2,6 +2,7 @@ import pandaPreset from '@pandacss/preset-panda'
 
 type NimbusRadius =
   | keyof typeof pandaPreset.theme.tokens.radii
+  | number
   | (string & NonNullable<unknown>)
 
 export type NimbusPalette = { light: string; dark: string }
@@ -75,6 +76,7 @@ export interface NimbusPresetConfig {
 
   /**
    * Alternative themes.
+   *
    * An object where each key represents the name of the theme, and the value is a `NimbusPalettes` object.
    */
   otherThemes?: OtherThemes
@@ -101,8 +103,8 @@ export interface NimbusPresetConfig {
 
   /**
    * Default border radius.
-   * Can accept `radii` token values.
-   * Defaults to `md`.
+   * Can accept `radii` token values or a number in **px** (which gets converted to **rem**).
+   * Defaults to `sm`.
    */
   radius?: NimbusRadius
 

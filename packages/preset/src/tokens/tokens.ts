@@ -4,6 +4,7 @@ import { getFonts } from './fonts'
 import pandaPreset from '@pandacss/preset-panda'
 import { borderWidths } from './border-widths'
 import { animations } from './animations'
+import { shadows } from './shadows'
 import { borders } from './borders'
 
 export const getTokens = (config: NimbusPresetConfig): Tokens => {
@@ -13,6 +14,7 @@ export const getTokens = (config: NimbusPresetConfig): Tokens => {
   const {
     colors: { white, black, current, transparent },
     animations: pandaAnimations,
+    shadows: pandaShadows,
     ...pandaTokens
   } = pandaPreset.theme.tokens
 
@@ -28,6 +30,10 @@ export const getTokens = (config: NimbusPresetConfig): Tokens => {
     animations: {
       ...pandaAnimations,
       ...animations
+    },
+    shadows: {
+      ...pandaShadows,
+      shadows
     },
     borderWidths,
     borders
