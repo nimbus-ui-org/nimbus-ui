@@ -51,8 +51,5 @@
     "@radix-ui/colors": "^3.0.0",
     "bezier-easing": "^2.1.0",
     "colorjs.io": "^0.5.2"
-  },
-  "devDependencies": {
-    "color2k": "^2.0.3"
   }
 }
