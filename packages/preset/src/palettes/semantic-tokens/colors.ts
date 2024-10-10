@@ -76,7 +76,7 @@ const convertPaletteToColorsSemanticTokens = (palette: string) => {
     ...(isBase && {
       bg: {
         '1': {
-          value: getColor('a1'),
+          value: getColor('1'),
           description: 'Low contrast background'
         },
         '2': {
