@@ -114,7 +114,7 @@ const convertColorsToTokens = (colors: GeneratedColors) => {
   return tokens
 }
 
-export const getPalettesTokens = (flattenedPalettes: FlattenedPalettes): Tokens => {
+export const getColors = (flattenedPalettes: FlattenedPalettes): Tokens['colors'] => {
   const { primary, base, ...remainingPalettes } = flattenedPalettes
 
   const { primaryColors, baseColors } = getCoreColors(primary, base)
@@ -124,40 +124,38 @@ export const getPalettesTokens = (flattenedPalettes: FlattenedPalettes): Tokens 
     base: convertColorsToTokens(baseColors)
   })
 
-  return {
-    colors: Object.keys(remainingPalettes).reduce((prevPalettes, palette) => {
-      const colorValue = flattenedPalettes[palette]
+  return Object.keys(remainingPalettes).reduce((prevPalettes, palette) => {
+    const colorValue = flattenedPalettes[palette]
 
-      const lightColors = generateColors({
-        appearance: 'light',
-        accent: getPaletteColor(colorValue, 'light'),
-        gray: getPaletteColor(base, 'light'),
-        background: '#FFF'
-      })
-      const darkColors = generateColors({
-        appearance: 'dark',
-        accent: getPaletteColor(colorValue, 'dark'),
-        gray: getPaletteColor(base, 'dark'),
-        background: '#020202'
-      })
+    const lightColors = generateColors({
+      appearance: 'light',
+      accent: getPaletteColor(colorValue, 'light'),
+      gray: getPaletteColor(base, 'light'),
+      background: '#FFF'
+    })
+    const darkColors = generateColors({
+      appearance: 'dark',
+      accent: getPaletteColor(colorValue, 'dark'),
+      gray: getPaletteColor(base, 'dark'),
+      background: '#020202'
+    })
 
-      const colors: GeneratedColors = {
-        light: {
-          scale: lightColors.accentScale,
-          alphaScale: lightColors.accentScaleAlpha,
-          contrast: lightColors.accentContrast
-        },
-        dark: {
-          scale: darkColors.accentScale,
-          alphaScale: darkColors.accentScaleAlpha,
-          contrast: darkColors.accentContrast
-        }
+    const colors: GeneratedColors = {
+      light: {
+        scale: lightColors.accentScale,
+        alphaScale: lightColors.accentScaleAlpha,
+        contrast: lightColors.accentContrast
+      },
+      dark: {
+        scale: darkColors.accentScale,
+        alphaScale: darkColors.accentScaleAlpha,
+        contrast: darkColors.accentContrast
       }
+    }
 
-      return defineTokens.colors({
-        ...prevPalettes,
-        [palette]: convertColorsToTokens(colors)
-      })
-    }, palettes)
-  }
+    return {
+      ...prevPalettes,
+      [palette]: convertColorsToTokens(colors)
+    }
+  }, palettes)
 }

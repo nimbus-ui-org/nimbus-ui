@@ -6,8 +6,8 @@ import type {
   OtherThemes
 } from '@preset'
 import { getPalettesTokens } from './tokens'
-import { NimbusColors } from './colors'
 import { getPalettesSemanticTokens } from './semantic-tokens'
+import { NimbusColors } from './colors'
 
 const getTokensAndSemanticTokensFromPalettes = (palettes: NimbusPalettes = {}) => {
   const { primary, base, error, other } = palettes

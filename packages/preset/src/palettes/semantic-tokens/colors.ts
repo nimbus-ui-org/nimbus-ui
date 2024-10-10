@@ -28,7 +28,7 @@ type ColorShade =
   | 'a12'
   | 'contrastText'
 
-const convertPaletteToSemanticTokens = (palette: string) => {
+const convertPaletteToColorsSemanticTokens = (palette: string) => {
   const isBase = palette === 'base'
 
   const getColor = (shade: ColorShade) => ({
@@ -76,27 +76,28 @@ const convertPaletteToSemanticTokens = (palette: string) => {
     ...(isBase && {
       bg: {
         '1': {
-          value: getColor('1'),
-          description: 'High contrast background'
+          value: getColor('a1'),
+          description: 'Low contrast background'
         },
         '2': {
           value: getColor('2'),
-          description: 'Low contrast background'
+          description: 'High contrast background'
         }
+      },
+      overlay: {
+        value: 'color-mix(in srgb, {colors.base.1.dark}, transparent 50%)'
       }
     })
   })
 }
 
-export const getPalettesSemanticTokens = (
+export const getColors = (
   flattenedPalettes: FlattenedPalettes
-): SemanticTokens => {
-  return {
-    colors: Object.keys(flattenedPalettes).reduce((prevPalettes, palette) => {
-      return defineSemanticTokens.colors({
-        ...prevPalettes,
-        [palette]: convertPaletteToSemanticTokens(palette)
-      })
-    }, {})
-  }
+): SemanticTokens['colors'] => {
+  return Object.keys(flattenedPalettes).reduce((prevPalettes, palette) => {
+    return {
+      ...prevPalettes,
+      [palette]: convertPaletteToColorsSemanticTokens(palette)
+    }
+  }, {})
 }
