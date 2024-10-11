@@ -25,13 +25,13 @@ export const Playground: Story = {
       options: [1, 2, 3, 4, 5, 6]
     }
   },
-  render: (args) => <Heading {...args}>This is level {args.level || 3} Heading</Heading>
+  render: (args) => <Heading {...args}>This is level {args.level || 3} heading</Heading>
 }
 
 export const Variants = () => {
   return [1, 2, 3, 4, 5, 6].map((level) => (
     <Heading key={`${level}`} level={level}>
-      This is level {level} Heading
+      This is level {level} heading
     </Heading>
   ))
 }

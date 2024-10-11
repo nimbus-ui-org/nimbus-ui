@@ -4,37 +4,43 @@ export const textStyles = defineTextStyles({
   h1: {
     value: {
       fontSize: '5xl',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontFamily: 'heading'
     }
   },
   h2: {
     value: {
       fontSize: '4xl',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontFamily: 'heading'
     }
   },
   h3: {
     value: {
       fontSize: '3xl',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontFamily: 'heading'
     }
   },
   h4: {
     value: {
       fontSize: 'xl',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontFamily: 'heading'
     }
   },
   h5: {
     value: {
       fontSize: 'md',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontFamily: 'heading'
     }
   },
   h6: {
     value: {
       fontSize: 'sm',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      fontFamily: 'heading'
     }
   }
 })

@@ -9,7 +9,7 @@ export const getFonts = (config: NimbusPresetConfig) => {
   const { sans, mono } = pandaPreset.theme.tokens.fonts!
 
   return defineTokens.fonts({
-    default: {
+    body: {
       value: fontFamilies?.default ?? (sans.value as string[]),
       description: 'Default font family used by your theme'
     },
@@ -20,6 +20,10 @@ export const getFonts = (config: NimbusPresetConfig) => {
     mono: {
       value: fontFamilies?.mono ?? (mono.value as string[]),
       description: 'Font family used in elements that have monospace font'
+    },
+    quote: {
+      value: fontFamilies?.quote ?? ['"Times New Roman"', '"Times"', 'serif'],
+      description: 'Font family used in Quote element'
     }
   })
 }

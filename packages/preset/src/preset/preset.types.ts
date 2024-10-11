@@ -99,6 +99,11 @@ export interface NimbusPresetConfig {
      * Font family used in elements that have monospace font.
      */
     mono?: string[]
+
+    /**
+     * Font family used in Quote element.
+     */
+    quote?: string[]
   }
 
   /**
