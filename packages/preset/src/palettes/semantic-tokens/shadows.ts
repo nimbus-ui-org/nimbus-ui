@@ -3,8 +3,16 @@ import type { FlattenedPalettes } from '@preset'
 import { switchCase } from '@utils'
 
 const convertPaletteToShadowsSemanticTokens = (palette: string) => {
-  const getColor = (alphaValue: number, mode: 'light' | 'dark') =>
-    `color-mix(in srgb, {colors.${palette}.9.${mode}}, transparent ${(1 - alphaValue) * 100}%)`
+  const getColor = (alphaValue: number, mode: 'light' | 'dark') => {
+    let shade = '9'
+    if (mode === 'dark') {
+      shade = '7'
+      if (palette === 'base') {
+        shade = '1'
+      }
+    }
+    return `color-mix(in srgb, {colors.${palette}.${shade}.${mode}}, transparent ${(1 - alphaValue) * 100}%)`
+  }
 
   const shadows = switchCase({
     cases: {

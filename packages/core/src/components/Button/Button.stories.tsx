@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './Button'
-import { Box, GridItem, SBGrid } from '@nimbus-ui/styled-system/jsx'
+import { Box, Flex, GridItem, SBGrid } from '@nimbus-ui/styled-system/jsx'
 import { FaEnvelope } from 'react-icons/fa'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { button, loader } from '@nimbus-ui/styled-system/recipes'
@@ -189,14 +189,19 @@ export const AsLink = () => {
 
 export const RenderProps = () => {
   return (
-    <Button
-      startSection={({ isPressed }) =>
-        isPressed ? <FaEnvelope /> : <FaArrowRightLong />
-      }
-      endSection={({ isPressed }) => (isPressed ? <FaEnvelope /> : <FaArrowRightLong />)}
-    >
-      {({ isPressed }) => (isPressed ? 'Pressed' : 'Button')}
-    </Button>
+    <Flex gap="20">
+      <Button
+        startSection={({ isPressed }) =>
+          isPressed ? <FaEnvelope /> : <FaArrowRightLong />
+        }
+        endSection={({ isPressed }) =>
+          isPressed ? <FaEnvelope /> : <FaArrowRightLong />
+        }
+      >
+        {({ isPressed }) => (isPressed ? 'Pressed' : 'Button')}
+      </Button>
+      <Button startSection={<Loader size="xs" variant="spinner" />}>Button</Button>
+    </Flex>
   )
 }
 

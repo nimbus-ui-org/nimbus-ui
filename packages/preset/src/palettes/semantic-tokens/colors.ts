@@ -58,14 +58,14 @@ const convertPaletteToColorsSemanticTokens = (palette: string) => {
       text: { value: isBase ? getColor('a12') : getColor('a11') }
     },
     border: {
-      DEFAULT: { value: getColor('a6') },
-      hover: { value: getColor('a7') },
-      active: { value: getColor('a8') }
+      DEFAULT: { value: getColor('6') },
+      hover: { value: getColor('7') },
+      active: { value: getColor('8') }
     },
     disabled: {
       DEFAULT: { value: getColor('a3') },
-      border: { value: getColor('a6') },
-      text: { value: getColor('a8') }
+      border: { value: getColor('a5') },
+      text: { value: getColor('a7') }
     },
     text: {
       '1': { value: getColor('a12') },
@@ -80,8 +80,20 @@ const convertPaletteToColorsSemanticTokens = (palette: string) => {
           description: 'Low contrast background'
         },
         '2': {
-          value: getColor('2'),
+          value: {
+            _light: `{colors.base.1.light}`,
+            _dark: `{colors.base.2.dark}`
+          },
           description: 'High contrast background'
+        },
+        a1: {
+          value: getColor('a1')
+        },
+        a2: {
+          value: {
+            _light: `{colors.base.a1.light}`,
+            _dark: `{colors.base.a2.dark}`
+          }
         }
       },
       overlay: {
