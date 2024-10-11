@@ -3,7 +3,7 @@ import { defineSlotRecipe } from '@pandacss/dev'
 export const toggleButton = defineSlotRecipe({
   className: 'nimbus-toggle-button',
   slots: ['root', 'section', 'label'],
-  jsx: ['ToggleButton'],
+  jsx: ['ToggleButton', 'ToggleIconButton'],
   base: {
     root: {
       display: 'inline-flex',
