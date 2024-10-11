@@ -68,8 +68,8 @@ const convertPaletteToColorsSemanticTokens = (palette: string) => {
       text: { value: getColor('a7') }
     },
     text: {
-      '1': { value: getColor('a12') },
-      '2': { value: getColor('a11') }
+      '1': { value: getColor('a12'), description: 'High contrast text.' },
+      '2': { value: getColor('a11'), description: 'Low contrast text.' }
     },
 
     // base palette specific semantic tokens
@@ -77,23 +77,25 @@ const convertPaletteToColorsSemanticTokens = (palette: string) => {
       bg: {
         '1': {
           value: getColor('1'),
-          description: 'Low contrast background'
+          description: 'App background.'
         },
         '2': {
           value: {
             _light: `{colors.base.1.light}`,
             _dark: `{colors.base.2.dark}`
           },
-          description: 'High contrast background'
+          description: 'Subtle background.'
         },
         a1: {
-          value: getColor('a1')
+          value: getColor('a1'),
+          description: 'Alpha version of app background.'
         },
         a2: {
           value: {
             _light: `{colors.base.a1.light}`,
             _dark: `{colors.base.a2.dark}`
-          }
+          },
+          description: 'Alpha version of Subtle background.'
         }
       },
       overlay: {
