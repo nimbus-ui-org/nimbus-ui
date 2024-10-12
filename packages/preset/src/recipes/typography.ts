@@ -1,8 +1,8 @@
 import { defineRecipe } from '@pandacss/dev'
 
-export const heading = defineRecipe({
-  className: 'nimbus-heading',
-  jsx: ['Heading'],
+export const typography = defineRecipe({
+  className: 'nimbus-typography',
+  jsx: ['Heading', 'Text', 'Quote'],
   base: {
     '&:is(h1)': {
       textStyle: 'h1'

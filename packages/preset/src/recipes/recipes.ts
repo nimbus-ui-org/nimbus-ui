@@ -4,7 +4,7 @@ import { buttonGroup } from './button-group'
 import { iconButton } from './icon-button'
 import { transition } from './transition'
 import { paper } from './paper'
-import { heading } from './heading'
+import { typography } from './typography'
 
 export const recipes: Record<string, RecipeConfig<RecipeVariantRecord>> = {
   loader,
@@ -12,5 +12,5 @@ export const recipes: Record<string, RecipeConfig<RecipeVariantRecord>> = {
   iconButton,
   transition,
   paper,
-  heading
+  typography
 }
