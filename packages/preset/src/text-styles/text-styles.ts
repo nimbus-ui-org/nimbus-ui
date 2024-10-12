@@ -42,5 +42,13 @@ export const textStyles = defineTextStyles({
       fontWeight: 'bold',
       fontFamily: 'heading'
     }
+  },
+  quote: {
+    value: {
+      fontFamily: 'quote',
+      fontSize: '1.18em',
+      fontStyle: 'italic',
+      letterSpacing: '-0.025em'
+    }
   }
 })

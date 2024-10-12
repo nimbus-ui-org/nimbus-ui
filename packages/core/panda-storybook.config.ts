@@ -58,7 +58,8 @@ export default defineConfig({
           color: ['*'],
           colorPalette: ['*'],
           fontWeight: ['*'],
-          textStyle: ['*']
+          textStyle: ['*'],
+          fontSize: ['*']
         }
       }
     ]
