@@ -68,34 +68,48 @@ const convertPaletteToColorsSemanticTokens = (palette: string) => {
       text: { value: getColor('a7') }
     },
     text: {
-      '1': { value: getColor('a12'), description: 'High contrast text.' },
-      '2': { value: getColor('a11'), description: 'Low contrast text.' }
+      highContrast: { value: getColor('a12'), description: 'High contrast text.' },
+      lowContrast: { value: getColor('a11'), description: 'Low contrast text.' }
     },
 
     // base palette specific semantic tokens
     ...(isBase && {
       bg: {
-        '1': {
-          value: getColor('1'),
-          description: 'App background.'
-        },
-        '2': {
-          value: {
-            _light: `{colors.base.1.light}`,
-            _dark: `{colors.base.2.dark}`
+        body: {
+          DEFAULT: {
+            value: getColor('1'),
+            description: 'App background.'
           },
-          description: 'Subtle background.'
+          alpha: {
+            value: getColor('a1'),
+            description: 'Alpha version of app background.'
+          }
         },
-        a1: {
-          value: getColor('a1'),
-          description: 'Alpha version of app background.'
-        },
-        a2: {
-          value: {
-            _light: `{colors.base.a1.light}`,
-            _dark: `{colors.base.a2.dark}`
+        paper: {
+          DEFAULT: {
+            value: {
+              _light: `{colors.base.1.light}`,
+              _dark: `{colors.base.2.dark}`
+            },
+            description: 'Paper background.'
           },
-          description: 'Alpha version of Subtle background.'
+          alpha: {
+            value: {
+              _light: `{colors.base.a1.light}`,
+              _dark: `{colors.base.a2.dark}`
+            },
+            description: 'Alpha version of paper background.'
+          }
+        },
+        subtle: {
+          DEFAULT: {
+            value: getColor('2'),
+            description: 'Subtle background.'
+          },
+          alpha: {
+            value: getColor('a2'),
+            description: 'Alpha version of subtle background.'
+          }
         }
       },
       overlay: {
