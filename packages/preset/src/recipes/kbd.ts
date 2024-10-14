@@ -7,6 +7,7 @@ export const kbd = defineRecipe({
     fontSize: '0.8em',
     fontFamily: 'mono',
     borderColor: 'base.border',
+    backgroundColor: 'base.bg.subtle',
     borderRadius: 'sm',
     borderWidth: '0.115em 0.115em 0.3em',
     paddingInline: '0.3em',
