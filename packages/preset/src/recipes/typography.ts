@@ -24,6 +24,9 @@ export const typography = defineRecipe({
     },
     '&:is(q)': {
       textStyle: 'quote'
+    },
+    '&:is(em)': {
+      textStyle: 'quote'
     }
   }
 })

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Box } from '@nimbus-ui/styled-system/jsx'
 import { Blockquote } from './Blockquote'
-import { css } from '@nimbus-ui/styled-system/css'
+import { Em } from '@components/Em'
 
 const meta = {
   title: 'Typography/Blockquote',
@@ -30,7 +30,7 @@ export const Playground: Story = {
       be a programmer.
       <br />
       <br />
-      <strong className={css({ textStyle: 'quote' })}>― Testy McTesterson</strong>
+      <Em fontWeight="bold">― Testy McTesterson</Em>
     </Blockquote>
   )
 }
