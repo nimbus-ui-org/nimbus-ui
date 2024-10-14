@@ -4,13 +4,20 @@ import { switchCase } from '@utils'
 
 const convertPaletteToShadowsSemanticTokens = (palette: string) => {
   const getColor = (alphaValue: number, mode: 'light' | 'dark') => {
-    let shade = '9'
+    let shade: string
     if (mode === 'dark') {
       shade = '7'
       if (palette === 'base') {
         shade = '1'
       }
+    } else {
+      shade = '9'
+      if (palette === 'base') {
+        shade = '11'
+        alphaValue -= 0.2
+      }
     }
+
     return `color-mix(in srgb, {colors.${palette}.${shade}.${mode}}, transparent ${(1 - alphaValue) * 100}%)`
   }
 
