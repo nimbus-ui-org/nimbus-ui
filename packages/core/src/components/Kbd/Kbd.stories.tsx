@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Box } from '@nimbus-ui/styled-system/jsx'
+import { Kbd } from './Kbd'
 import { Text } from '@components/Text'
-import { Quote } from '@components/Quote'
 
 const meta = {
-  title: 'Typography/Quote',
-  component: Quote,
+  title: 'Typography/Kbd',
+  component: Kbd,
   decorators: [
     (Story) => (
       <Box p="14">
@@ -21,16 +21,11 @@ type Story = StoryObj<Omit<typeof meta, 'decorators'>>
 
 export const Playground: Story = {
   args: {
-    fontSize: 'lg'
+    fontSize: 'md'
   },
-  render: (args) => (
-    <Text {...args}>
-      I once said,{' '}
-      <Quote cite="https://github.com/mhmdjaw">
-        If you’re always full of wonder whether things work out for you or not - you might
-        be a programmer.
-      </Quote>{' '}
-      - me.
+  render: ({ fontSize, ...args }) => (
+    <Text fontSize={fontSize}>
+      Press <Kbd {...args}>Shift</Kbd> + <Kbd {...args}>M</Kbd> to open the map
     </Text>
   )
 }

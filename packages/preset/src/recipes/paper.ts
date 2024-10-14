@@ -10,15 +10,15 @@ export const paper = defineRecipe({
   variants: {
     variant: {
       raised: {
-        bgColor: 'base.bg.2',
+        bgColor: 'base.bg.paper',
         shadow: 'base.md'
       },
       outline: {
-        bgColor: 'base.bg.1',
+        bgColor: 'base.bg.body',
         borderWidth: 'xs'
       },
       blurred: {
-        bgColor: 'base.bg.2',
+        bgColor: 'base.bg.paper.alpha',
         backdropFilter: 'auto',
         backdropBlur: 'lg',
         borderWidth: 'xs'

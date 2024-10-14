@@ -4,8 +4,8 @@ export const globalCss = defineGlobalStyles({
   body: {
     WebkitFontSmoothing: 'antialiased',
     MozOsxFontSmoothing: 'grayscale',
-    bgColor: 'base.bg.1',
-    color: 'base.text.1',
+    bgColor: 'base.bg.body',
+    color: 'base.text.highContrast',
     fontFamily: 'body'
   }
 })

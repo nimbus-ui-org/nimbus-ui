@@ -5,3 +5,5 @@ import { Text as AriaText } from 'react-aria-components'
 
 export const Text = styled(AriaText, typography)
 export type TextProps = ComponentProps<typeof Text>
+
+Text.displayName = 'NimbusUI_Text'

@@ -5,3 +5,5 @@ import { Heading as AriaHeading } from 'react-aria-components'
 
 export const Heading = styled(AriaHeading, typography)
 export type HeadingProps = ComponentProps<typeof Heading>
+
+Heading.displayName = 'NimbusUI_Heading'

@@ -5,6 +5,7 @@ import { iconButton } from './icon-button'
 import { transition } from './transition'
 import { paper } from './paper'
 import { typography } from './typography'
+import { kbd } from './kbd'
 
 export const recipes: Record<string, RecipeConfig<RecipeVariantRecord>> = {
   loader,
@@ -12,5 +13,6 @@ export const recipes: Record<string, RecipeConfig<RecipeVariantRecord>> = {
   iconButton,
   transition,
   paper,
-  typography
+  typography,
+  kbd
 }
