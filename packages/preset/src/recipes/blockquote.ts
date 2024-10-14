@@ -9,6 +9,7 @@ export const blockquote = defineRecipe({
     borderInlineStartWidth: '0.4rem',
     color: 'colorPalette.text.highContrast',
     bgColor: 'colorPalette.ghost/85',
+    borderColor: 'colorPalette.border.active',
     borderRadius: 'default',
     colorPalette: 'primary'
   }

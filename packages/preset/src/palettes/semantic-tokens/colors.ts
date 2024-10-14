@@ -77,25 +77,31 @@ const convertPaletteToColorsSemanticTokens = (palette: string) => {
       bg: {
         body: {
           DEFAULT: {
-            value: getColor('1'),
+            value: {
+              _light: `#FFF`,
+              _dark: `{colors.base.1.dark}`
+            },
             description: 'App background.'
           },
           alpha: {
-            value: getColor('a1'),
+            value: {
+              _light: `#ffffff67`,
+              _dark: `{colors.base.a1.dark}`
+            },
             description: 'Alpha version of app background.'
           }
         },
         paper: {
           DEFAULT: {
             value: {
-              _light: `{colors.base.1.light}`,
+              _light: `#FFF`,
               _dark: `{colors.base.2.dark}`
             },
             description: 'Paper background.'
           },
           alpha: {
             value: {
-              _light: `{colors.base.a1.light}`,
+              _light: `#ffffff67`,
               _dark: `{colors.base.a2.dark}`
             },
             description: 'Alpha version of paper background.'
