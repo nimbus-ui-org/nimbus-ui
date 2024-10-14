@@ -6,6 +6,7 @@ import { transition } from './transition'
 import { paper } from './paper'
 import { typography } from './typography'
 import { kbd } from './kbd'
+import { blockquote } from './blockquote'
 
 export const recipes: Record<string, RecipeConfig<RecipeVariantRecord>> = {
   loader,
@@ -14,5 +15,6 @@ export const recipes: Record<string, RecipeConfig<RecipeVariantRecord>> = {
   transition,
   paper,
   typography,
-  kbd
+  kbd,
+  blockquote
 }
