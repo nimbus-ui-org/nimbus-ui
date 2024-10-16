@@ -126,12 +126,12 @@ export const button = defineSlotRecipe({
           px: '0!',
           height: 'auto!',
           minWidth: 'auto!',
-          color: 'colorPalette.text.2',
+          color: 'colorPalette.text.lowContrast',
           _dataHovered: {
             textDecoration: 'underline'
           },
           _dataPressed: {
-            color: 'colorPalette.text.1'
+            color: 'colorPalette.text.highContrast'
           },
           _appearanceDisabled: {
             color: 'base.disabled.text'

@@ -1,5 +1,5 @@
 export const conditions = {
-  // hover: ['@media (hover: hover) and (pointer: fine)', '&:hover'],
+  hover: ['@media (hover: hover) and (pointer: fine)', '&:hover'],
   dataHovered: '&[data-hovered]',
   dataPressed: '&[data-pressed]',
   dataFocusRing: '&[data-focus-visible]',
