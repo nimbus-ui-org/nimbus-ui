@@ -25,7 +25,8 @@ export const Playground: Story = {
   },
   render: ({ fontSize, ...args }) => (
     <Text fontSize={fontSize}>
-      Press <Kbd {...args}>Shift</Kbd> + <Kbd {...args}>M</Kbd> to open the map
+      Press <Kbd {...args}>Ctrl</Kbd> + <Kbd {...args}>Shift</Kbd> +{' '}
+      <Kbd {...args}>M</Kbd> to open the map
     </Text>
   )
 }

@@ -121,6 +121,21 @@ export const button = defineSlotRecipe({
           }
         }
       },
+      subtle: {
+        root: {
+          color: 'colorPalette.text.lowContrast',
+          _dataHovered: {
+            color: 'colorPalette.text.highContrast',
+            bg: 'colorPalette.outline.hover'
+          },
+          _dataPressed: {
+            bg: 'colorPalette.outline.active'
+          },
+          _appearanceDisabled: {
+            color: 'base.disabled.text'
+          }
+        }
+      },
       link: {
         root: {
           px: '0!',
