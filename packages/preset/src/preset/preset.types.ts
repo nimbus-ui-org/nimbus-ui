@@ -10,25 +10,23 @@ export type NimbusPalette = { light: string; dark: string }
 export interface NimbusPalettes {
   /**
    * Your brand color palette - `Hex | RGB | HSL`.
-   *
-   * Defaults to `NimbusColors.Primary.Blue`.
+   * @default NimbusColors.Primary.Blue
    */
   primary?: string | NimbusPalette
 
   /**
    * Base color palette. Used for backgrounds, typographies and contrast - `Hex | RGB | HSL`.
    *
-   * Defaults to `NimbusColors.Base.Gray`.
-   *
    * **Note:** You can use also use any bright color value.
    * Nimbus will convert it to a **Base** palette based on the value provided.
+   *
+   * @default NimbusColors.Base.Gray
    */
   base?: string | NimbusPalette
 
   /**
    * Error color palette - `Hex | RGB | HSL`.
-   *
-   * Defaults to `NimbusColors.Error.Red`.
+   * @default NimbusColors.Error.Red
    */
   error?: string | NimbusPalette
 
@@ -109,22 +107,23 @@ export interface NimbusPresetConfig {
   /**
    * Default border radius.
    * Can accept `radii` token values or a number in **px** (which gets converted to **rem**).
-   * Defaults to `sm`.
+   * @default 'sm'
    */
   radius?: NimbusRadius
 
   /**
    * Whether or not to respect motion preference from system settings.
    * If set to `true`, transitions will be disabled when system has reduced motion enabled.
-   * Defaults to `false`.
+   * @default false
    */
   respectMotionPreference?: boolean
 
   /**
    * The cursor style of interactive elements that don't have cursor styles natively (ex: `Button`).
-   * Defaults to `pointer`.
    * - `default` – no additional cursor styles
    * - `pointer` – adds `pointer` cursor style
+   *
+   * @default 'pointer'
    */
   cursor?: 'default' | 'pointer'
 }

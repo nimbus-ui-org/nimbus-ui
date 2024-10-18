@@ -15,12 +15,14 @@ interface Props {
   in: boolean
 
   /**
-   * Transition duration **(ms)**. Defaults to 300.
+   * Transition duration **(ms)**.
+   * @default 300
    */
   duration?: number
 
   /**
-   * Exit transition duration **(ms)**. Defaults to 300.
+   * Exit transition duration **(ms)**.
+   * @default 300
    */
   exitDuration?: number
 
@@ -37,7 +39,7 @@ interface Props {
   /**
    * Keeps the element mounted to the DOM after exit transition ends,
    * and applies `data-hidden` attribute styles.
-   * Defaults to `false`.
+   * @default false
    */
   keepMounted?: boolean
 
