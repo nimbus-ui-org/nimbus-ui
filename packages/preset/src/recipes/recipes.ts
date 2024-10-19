@@ -8,6 +8,8 @@ import { typography } from './typography'
 import { kbd } from './kbd'
 import { blockquote } from './blockquote'
 import { code } from './code'
+import { overlayArrow } from './overlay-arrow'
+import { dialog } from './dialog'
 
 export const recipes: Record<string, RecipeConfig<RecipeVariantRecord>> = {
   loader,
@@ -18,5 +20,7 @@ export const recipes: Record<string, RecipeConfig<RecipeVariantRecord>> = {
   typography,
   kbd,
   blockquote,
-  code
+  code,
+  overlayArrow,
+  dialog
 }

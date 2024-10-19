@@ -74,7 +74,7 @@ export const Playground: Story = {
 
 export const Variants = () => {
   return (
-    <SBGrid gap="20" columns={4}>
+    <SBGrid gap="20" columns={5}>
       {button.variantMap.variant.map((variant) => (
         <Button key={variant} variant={variant}>
           Button

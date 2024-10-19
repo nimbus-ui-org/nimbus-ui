@@ -82,10 +82,13 @@ const convertPaletteToShadowsSemanticTokens = (palette: string) => {
 export const getShadows = (
   flattenedPalettes: FlattenedPalettes
 ): SemanticTokens['shadows'] => {
-  return Object.keys(flattenedPalettes).reduce((prevPalettes, palette) => {
-    return {
-      ...prevPalettes,
-      [palette]: convertPaletteToShadowsSemanticTokens(palette)
-    }
-  }, {})
+  return Object.keys(flattenedPalettes).reduce(
+    (prevPalettes, palette) => {
+      return {
+        ...prevPalettes,
+        [palette]: convertPaletteToShadowsSemanticTokens(palette)
+      }
+    },
+    { overlay: { value: '{shadows.base.2xl}' } }
+  )
 }
