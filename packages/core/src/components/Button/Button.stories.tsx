@@ -5,9 +5,9 @@ import { FaEnvelope } from 'react-icons/fa'
 import { FaArrowRightLong } from 'react-icons/fa6'
 import { button, loader } from '@nimbus-ui/styled-system/recipes'
 import { Fragment, useState } from 'react'
-import { IconButton } from '../IconButton'
 import { ButtonContext, FileTrigger } from 'react-aria-components'
 import { Loader } from '@components/Loader'
+import { IconButton } from '@components/IconButton'
 
 const meta = {
   title: 'Buttons/Button',

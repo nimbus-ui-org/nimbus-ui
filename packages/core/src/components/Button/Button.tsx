@@ -1,5 +1,4 @@
 import { forwardRef } from 'react'
-import { ButtonBase, type ButtonBaseProps } from '../ButtonBase'
 import { Loader } from '@components/Loader'
 import {
   button,
@@ -12,6 +11,7 @@ import {
   useContextProps,
   type LinkProps as AriaLinkProps
 } from 'react-aria-components'
+import { ButtonBase, type ButtonBaseProps } from '@components/ButtonBase'
 
 interface Props {
   /**

@@ -2,9 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Box, Flex } from '@nimbus-ui/styled-system/jsx'
 import { buttonGroup } from '@nimbus-ui/styled-system/recipes'
 import { ButtonGroup } from './ButtonGroup'
-import { Button } from '../Button'
 import { IconButton } from '@components/IconButton'
 import { FaSave } from 'react-icons/fa'
+import { Button } from '@components/Button'
 
 const meta = {
   title: 'Buttons/ButtonGroup',

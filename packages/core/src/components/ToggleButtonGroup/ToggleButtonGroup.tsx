@@ -6,7 +6,7 @@ import { forwardRef } from 'react'
 import { styled } from '@nimbus-ui/styled-system/jsx'
 import { buttonGroup } from '@nimbus-ui/styled-system/recipes'
 import type { ComponentProps } from '@nimbus-ui/styled-system/types'
-import type { ToggleButtonProps } from '../ToggleButton/ToggleButton'
+import type { ToggleButtonProps } from '@components/ToggleButton'
 
 type Props = {
   /**

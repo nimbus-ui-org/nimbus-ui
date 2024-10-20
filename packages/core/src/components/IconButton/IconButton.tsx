@@ -1,5 +1,4 @@
 import { forwardRef } from 'react'
-import { ButtonBase, type ButtonBaseProps } from '../ButtonBase'
 import {
   button,
   iconButton,
@@ -7,6 +6,7 @@ import {
 } from '@nimbus-ui/styled-system/recipes'
 import { cx } from '@nimbus-ui/styled-system/css'
 import { ButtonContext, useContextProps } from 'react-aria-components'
+import { ButtonBase, type ButtonBaseProps } from '@components/ButtonBase'
 
 export type IconButtonProps = ButtonBaseProps & ButtonVariantProps
 
