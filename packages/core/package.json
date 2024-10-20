@@ -99,7 +99,7 @@
   },
   "dependencies": {
     "@nimbus-ui/hooks": "workspace:*",
-    "react-aria-components": "1.4.0"
+    "react-aria-components": "1.4.1"
   },
   "devDependencies": {
     "@nimbus-ui/preset": "workspace:*",
