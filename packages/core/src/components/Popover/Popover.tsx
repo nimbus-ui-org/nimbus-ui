@@ -14,7 +14,6 @@ import {
   OverlayArrow,
   Dialog,
   type PopoverProps as AriaPopoverProps,
-  type OverlayArrowProps,
   type PopoverRenderProps,
   type DialogProps
 } from 'react-aria-components'
@@ -28,14 +27,6 @@ interface Props {
    * Do not use `className` and `classNames` together for specificity issues.
    */
   classNames?: SlotsClasses<PopoverRecipe>
-
-  children?:
-    | React.ReactNode
-    | ((
-        values: PopoverRenderProps & { close: () => void } & {
-          defaultChildren: React.ReactNode | undefined
-        }
-      ) => React.ReactNode)
 
   /**
    * Props passed to dialog element.
@@ -54,10 +45,13 @@ interface Props {
    */
   arrowSize?: number
 
-  /**
-   * Props passed to arrow element.
-   */
-  arrowProps?: AriaProps<OverlayArrowProps>
+  children?:
+    | React.ReactNode
+    | ((
+        values: PopoverRenderProps & { close: () => void } & {
+          defaultChildren: React.ReactNode | undefined
+        }
+      ) => React.ReactNode)
 }
 
 export type PopoverProps = AriaProps<Omit<AriaPopoverProps, 'children'>> &
@@ -72,7 +66,6 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
     className,
     classNames,
     withArrow = true,
-    arrowProps,
     dialogProps,
     arrowSize = 12,
     offset = 8,
@@ -106,10 +99,7 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
           {(dialogRenderProps) => (
             <>
               {withArrow && (
-                <OverlayArrow
-                  className={cx(overlayArrow(), styles.arrow)}
-                  {...arrowProps}
-                >
+                <OverlayArrow className={cx(overlayArrow(), styles.arrow)}>
                   <svg width={arrowSize} height={arrowSize} viewBox="0 0 12 12">
                     <path d="M0 0 L6 6 L12 0" />
                   </svg>

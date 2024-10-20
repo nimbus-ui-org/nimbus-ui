@@ -4,7 +4,7 @@ export const dialog = defineRecipe({
   className: 'nimbus-dialog',
   jsx: ['Dialog'],
   base: {
-    padding: '6',
+    padding: '4',
     outline: 'none',
     borderRadius: 'default',
     borderWidth: 'xs',

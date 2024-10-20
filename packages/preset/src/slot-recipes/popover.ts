@@ -11,6 +11,7 @@ export const popover = defineSlotRecipe({
         animationName: 'fade',
         animationDuration: 'fast',
 
+        // animating scale on popover affects offset so do it on the dialog
         '& > section': {
           animationName: 'popover-dialog',
           animationDuration: 'fast'
@@ -21,6 +22,7 @@ export const popover = defineSlotRecipe({
         animationDuration: 'fast',
         animationDirection: 'reverse',
 
+        // animating scale on popover affects offset so do it on the dialog
         '& > section': {
           animationName: 'popover-dialog',
           animationDuration: 'fast',
