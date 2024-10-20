@@ -3,6 +3,7 @@ import {
   dialog,
   overlayArrow,
   popover,
+  type DialogVariantProps,
   type PopoverRecipe,
   type PopoverVariantProps
 } from '@nimbus-ui/styled-system/recipes'
@@ -56,6 +57,7 @@ interface Props {
 
 export type PopoverProps = AriaProps<Omit<AriaPopoverProps, 'children'>> &
   PopoverVariantProps &
+  DialogVariantProps &
   Props
 
 export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLElement>) => {
@@ -70,6 +72,7 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
     arrowSize = 12,
     offset = 8,
     isNonModal = true,
+    size,
     ...otherProps
   } = props
 
@@ -95,7 +98,7 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
       {...rest}
     >
       {(popoverRenderProps) => (
-        <Dialog className={cx(dialog(), styles.dialog)} {...dialogProps}>
+        <Dialog className={cx(dialog({ size }), styles.dialog)} {...dialogProps}>
           {(dialogRenderProps) => (
             <>
               {withArrow && (

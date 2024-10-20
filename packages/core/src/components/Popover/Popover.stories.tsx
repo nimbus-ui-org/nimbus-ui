@@ -3,7 +3,7 @@ import { Box, Center } from '@nimbus-ui/styled-system/jsx'
 import { Popover } from './Popover'
 import { DialogTrigger } from 'react-aria-components'
 import { Button } from '@components/Button'
-import { popover } from '@nimbus-ui/styled-system/recipes'
+import { dialog, popover } from '@nimbus-ui/styled-system/recipes'
 
 const meta = {
   title: 'Overlays/Popover',
@@ -28,6 +28,10 @@ export const Playground: Story = {
     variant: {
       control: 'radio',
       options: popover.variantMap.variant
+    },
+    size: {
+      control: 'select',
+      options: dialog.variantMap.size
     }
   },
   args: {
