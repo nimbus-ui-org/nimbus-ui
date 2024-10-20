@@ -19,6 +19,7 @@ import {
   type DialogProps
 } from 'react-aria-components'
 import { cx } from '@nimbus-ui/styled-system/css'
+import { Arrow } from '@icons'
 
 interface Props {
   /**
@@ -103,9 +104,7 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
             <>
               {withArrow && (
                 <OverlayArrow className={cx(overlayArrow(), styles.arrow)}>
-                  <svg width={arrowSize} height={arrowSize} viewBox="0 0 12 12">
-                    <path d="M0 0 L6 6 L12 0" />
-                  </svg>
+                  <Arrow width={arrowSize} height={arrowSize} />
                 </OverlayArrow>
               )}
 
