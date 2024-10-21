@@ -1,5 +1,5 @@
 import {
-  ToggleButtonContext as AriaToggleButtonContext,
+  ToggleButtonContext,
   type ToggleButtonProps as AriaToggleButtonProps
 } from 'react-aria-components'
 import { forwardRef } from 'react'
@@ -10,14 +10,19 @@ import type { ToggleButtonProps } from '@components/ToggleButton'
 
 type Props = {
   /**
-   * If `true` `Button` and `IconButton` in the group components will be attached.
+   * If `true`, `ToggleButton` and `ToggleIconButton` components in the group will be attached.
    */
   isAttached?: boolean
 
   /**
-   * Determines which ToggleButton is currently selected
+   * Determines which `ToggleButton` or `ToggleIconButton` is currently selected
    */
   selectedValue?: string | null
+
+  /**
+   * If `true`, disables `ToggleButton` and `ToggleIconButton` components in the group.
+   */
+  isDisabled?: boolean
 
   onChange?: ToggleButtonProps['onChange']
 }
@@ -31,22 +36,32 @@ export type ToggleButtonGroupProps = Omit<
 
 export const ToggleButtonGroup = forwardRef(
   (
-    { children, isAttached, onChange, selectedValue, ...props }: ToggleButtonGroupProps,
+    {
+      children,
+      isAttached,
+      onChange,
+      selectedValue,
+      orientation = 'horizontal',
+      isDisabled,
+      ...props
+    }: ToggleButtonGroupProps,
     ref: React.Ref<HTMLDivElement>
   ) => {
     return (
-      <AriaToggleButtonContext.Provider
-        value={{ selectedValue, onChange } as AriaToggleButtonProps}
+      <ToggleButtonContext.Provider
+        value={{ selectedValue, onChange, isDisabled } as AriaToggleButtonProps}
       >
         <StyledToggleButtonGroup
           data-attached={isAttached || undefined}
+          data-orientation={orientation}
+          orientation={orientation}
           role="group"
           {...props}
           ref={ref}
         >
           {children}
         </StyledToggleButtonGroup>
-      </AriaToggleButtonContext.Provider>
+      </ToggleButtonContext.Provider>
     )
   }
 )

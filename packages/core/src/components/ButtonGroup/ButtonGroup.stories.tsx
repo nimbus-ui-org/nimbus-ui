@@ -29,7 +29,7 @@ export const Playground: Story = {
       options: buttonGroup.variantMap.orientation
     }
   },
-  args: { isAttached: true },
+  args: { isAttached: true, isDisabled: false, isLoading: false },
   render: (args) => {
     return (
       <Flex gap="10">

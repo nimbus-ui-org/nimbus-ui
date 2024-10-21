@@ -30,7 +30,7 @@ export const Playground: Story = {
       options: buttonGroup.variantMap.orientation
     }
   },
-  args: { isAttached: true },
+  args: { isAttached: true, isDisabled: false },
   render: (args) => {
     const [value, setValue] = useState<string | null | undefined>(null)
 

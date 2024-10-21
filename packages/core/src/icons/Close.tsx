@@ -1,14 +1,14 @@
 export const Close = ({
-  fill,
-  stroke,
-  strokeWidth,
+  fill = 'currentColor',
+  stroke = 'currentColor',
+  strokeWidth = '0',
   ...props
 }: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      stroke={stroke || 'currentColor'}
-      fill={fill || 'currentColor'}
-      strokeWidth={strokeWidth || '0'}
+      stroke={stroke}
+      fill={fill}
+      strokeWidth={strokeWidth}
       viewBox="0 0 384 512"
       xmlns="http://www.w3.org/2000/svg"
       {...props}

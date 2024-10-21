@@ -13,5 +13,8 @@ export const conditions = {
   in: '&[data-in]',
   out: '&[data-out]',
   hidden: '&:is([data-hidden], [aria-hidden=true])',
+  orientationVertical: '&:is([data-orientation=vertical], [aria-orientation=vertical])',
+  orientationHorizontal:
+    '&:is([data-orientation=horizontal], [aria-orientation=horizontal])',
   pressed: '&[data-pressed]'
 }
