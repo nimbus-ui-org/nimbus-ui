@@ -39,7 +39,6 @@ interface Props {
 
   /**
    * Element rendered instead of the `Loader` component when `isLoading` is `true`.
-   * If this prop is used, `loaderProps` will be ignored.
    */
   customLoader?: AriaLinkProps['children']
 }

@@ -9,43 +9,58 @@ export const iconButton = defineRecipe({
   variants: {
     size: {
       xs: {
-        root: {
-          fontSize: 'sm',
-          height: '6',
-          minWidth: '6',
-          px: '0'
+        fontSize: 'sm',
+        height: '6',
+        minWidth: '6',
+        px: '0',
+        _loading: {
+          '& > span': {
+            height: '3.5'
+          }
         }
       },
       sm: {
-        root: {
-          fontSize: 'lg',
-          height: '8',
-          minWidth: '8',
-          px: '0'
+        fontSize: 'lg',
+        height: '8',
+        minWidth: '8',
+        px: '0',
+        _loading: {
+          '& > span': {
+            height: '5'
+          }
         }
       },
       md: {
-        root: {
-          fontSize: 'xl',
-          height: '10',
-          minWidth: '10',
-          px: '0'
+        fontSize: 'xl',
+        height: '10',
+        minWidth: '10',
+        px: '0',
+        _loading: {
+          '& > span': {
+            height: '6'
+          }
         }
       },
       lg: {
-        root: {
-          fontSize: '2xl',
-          height: '12',
-          minWidth: '12',
-          px: '0'
+        fontSize: '2xl',
+        height: '12',
+        minWidth: '12',
+        px: '0',
+        _loading: {
+          '& > span': {
+            height: '7'
+          }
         }
       },
       xl: {
-        root: {
-          fontSize: '3xl',
-          height: '14',
-          minWidth: '14',
-          px: '0'
+        fontSize: '3xl',
+        height: '14',
+        minWidth: '14',
+        px: '0',
+        _loading: {
+          '& > span': {
+            height: '9'
+          }
         }
       }
     }

@@ -5,10 +5,24 @@ import {
   type ButtonVariantProps
 } from '@nimbus-ui/styled-system/recipes'
 import { cx } from '@nimbus-ui/styled-system/css'
-import { ButtonContext, useContextProps } from 'react-aria-components'
+import { ButtonContext, useContextProps, type LinkProps } from 'react-aria-components'
 import { ButtonBase, type ButtonBaseProps } from '@components/ButtonBase'
+import { Loader } from '@components/Loader'
+import { renderChildren } from '@utils'
 
-export type IconButtonProps = ButtonBaseProps & ButtonVariantProps
+interface Props {
+  /**
+   * If `true`, switches to a loading state and renders a `Loader`.
+   */
+  isLoading?: boolean
+
+  /**
+   * Element rendered instead of the `Loader` component when `isLoading` is `true`.
+   */
+  customLoader?: LinkProps['children']
+}
+
+export type IconButtonProps = ButtonBaseProps & ButtonVariantProps & Props
 
 export const IconButton = forwardRef(
   (props: IconButtonProps, ref: React.Ref<HTMLAnchorElement | HTMLButtonElement>) => {
@@ -18,7 +32,16 @@ export const IconButton = forwardRef(
       ButtonContext
     )
 
-    const { children, className, size, variant, isDisabled, ...otherProps } = props
+    const {
+      children,
+      className,
+      size,
+      variant,
+      isDisabled,
+      isLoading,
+      customLoader,
+      ...otherProps
+    } = props
 
     // recipe variants are more specific than slot recipe variants
     // so we can override with icon button styles
@@ -28,12 +51,23 @@ export const IconButton = forwardRef(
     return (
       <ButtonBase
         className={cx(buttonClasses.root, iconButtonStyles, className)}
+        data-loading={isLoading || undefined}
         data-appearance-disabled={isDisabled || undefined}
-        isDisabled={isDisabled || undefined}
+        isDisabled={isLoading || isDisabled || undefined}
         ref={ref}
         {...otherProps}
       >
-        {children}
+        {(renderProps) => (
+          <>
+            {isLoading ? (
+              <span data-loading>
+                {renderChildren(customLoader, renderProps) ?? <Loader />}
+              </span>
+            ) : (
+              renderChildren(children, renderProps)
+            )}
+          </>
+        )}
       </ButtonBase>
     )
   }

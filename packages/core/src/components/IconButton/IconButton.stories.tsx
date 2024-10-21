@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Box, Flex, GridItem, SBGrid } from '@nimbus-ui/styled-system/jsx'
-import { button } from '@nimbus-ui/styled-system/recipes'
+import { button, loader } from '@nimbus-ui/styled-system/recipes'
 import { IconButton } from './IconButton'
 import { FaBan, FaEnvelope, FaPhoneAlt } from 'react-icons/fa'
 import { TbAdjustments } from 'react-icons/tb'
 import { Fragment } from 'react'
+import { Loader } from '@components/Loader'
 
 const meta = {
   title: 'Buttons/IconButton',
@@ -57,7 +58,7 @@ export const Playground: Story = {
 
 export const Variants = () => {
   return (
-    <SBGrid columns={4}>
+    <SBGrid columns={5}>
       {button.variantMap.variant.map((variant) => (
         <IconButton key={variant} variant={variant} aria-label="Icon Button">
           <FaEnvelope />
@@ -122,6 +123,26 @@ export const Disabled = () => {
           </IconButton>
         </GridItem>
       ))}
+    </SBGrid>
+  )
+}
+
+export const Loading = () => {
+  return (
+    <SBGrid columns={5}>
+      {loader.variantMap.variant.map((loaderVariant) =>
+        button.variantMap.size.map((buttonSize) => (
+          <IconButton
+            key={`${buttonSize}_${loaderVariant}`}
+            size={buttonSize}
+            isLoading
+            customLoader={<Loader variant={loaderVariant} />}
+            aria-label="Loading Button"
+          >
+            <FaEnvelope />
+          </IconButton>
+        ))
+      )}
     </SBGrid>
   )
 }
