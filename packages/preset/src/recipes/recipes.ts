@@ -10,6 +10,7 @@ import { blockquote } from './blockquote'
 import { code } from './code'
 import { overlayArrow } from './overlay-arrow'
 import { dialog } from './dialog'
+import { separator } from './separator'
 
 export const recipes: Record<string, RecipeConfig<RecipeVariantRecord>> = {
   loader,
@@ -22,5 +23,6 @@ export const recipes: Record<string, RecipeConfig<RecipeVariantRecord>> = {
   blockquote,
   code,
   overlayArrow,
-  dialog
+  dialog,
+  separator
 }
