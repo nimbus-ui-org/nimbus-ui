@@ -19,6 +19,7 @@ export const dialog = defineRecipe({
       overflow: 'auto'
     },
     '& [data-section="footer"]': {
+      paddingBlockStart: '4',
       display: 'flex',
       justifyContent: 'flex-end',
       gap: '2'

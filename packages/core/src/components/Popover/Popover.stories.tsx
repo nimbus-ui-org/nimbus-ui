@@ -4,7 +4,7 @@ import { Popover } from './Popover'
 import { DialogTrigger } from 'react-aria-components'
 import { Button } from '@components/Button'
 import { dialog, popover } from '@nimbus-ui/styled-system/recipes'
-import { DialogContent, DialogHeader } from '@components/Dialog'
+import { DialogContent, DialogFooter, DialogHeader } from '@components/Dialog'
 import { css } from '@nimbus-ui/styled-system/css'
 import { FaExclamationTriangle } from 'react-icons/fa'
 
@@ -48,16 +48,26 @@ export const Playground: Story = {
     <DialogTrigger>
       <Button>Popover Trigger</Button>
       <Popover dialogProps={{ role: 'alertdialog' }} {...args}>
-        <DialogHeader
-          icon={<FaExclamationTriangle className={css({ color: 'error' })} />}
-        >
-          Dialog title on the
-        </DialogHeader>
-        <DialogContent>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus
-          non risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed
-          porttitor quam.
-        </DialogContent>
+        {({ close }) => (
+          <>
+            <DialogHeader
+              icon={<FaExclamationTriangle className={css({ color: 'error' })} />}
+            >
+              Dialog Title
+            </DialogHeader>
+            <DialogContent>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar
+              risus non risus hendrerit venenatis. Pellentesque sit amet hendrerit risus,
+              sed porttitor quam.
+            </DialogContent>
+            <DialogFooter>
+              <Button onPress={close} size="sm" variant="ghost" colorPalette="base">
+                Cancel
+              </Button>
+              <Button size="sm">Save</Button>
+            </DialogFooter>
+          </>
+        )}
       </Popover>
     </DialogTrigger>
   )
