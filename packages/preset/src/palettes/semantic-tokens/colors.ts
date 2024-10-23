@@ -116,10 +116,10 @@ const convertPaletteToColorsSemanticTokens = (palette: string) => {
             value: getColor('a2'),
             description: 'Alpha version of subtle background.'
           }
+        },
+        overlay: {
+          value: 'color-mix(in srgb, {colors.base.1.dark}, transparent 50%)'
         }
-      },
-      overlay: {
-        value: 'color-mix(in srgb, {colors.base.1.dark}, transparent 50%)'
       }
     })
   })
