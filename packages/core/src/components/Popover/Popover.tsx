@@ -99,7 +99,11 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
       {...rest}
     >
       {(popoverRenderProps) => (
-        <Dialog className={cx(dialog({ size }), styles.dialog)} {...dialogProps}>
+        <Dialog
+          data-dialog
+          className={cx(dialog({ size }), styles.inner)}
+          {...dialogProps}
+        >
           {(dialogRenderProps) => (
             <>
               {withArrow && (

@@ -4,6 +4,9 @@ import { Popover } from './Popover'
 import { DialogTrigger } from 'react-aria-components'
 import { Button } from '@components/Button'
 import { dialog, popover } from '@nimbus-ui/styled-system/recipes'
+import { DialogContent, DialogHeader } from '@components/Dialog'
+import { css } from '@nimbus-ui/styled-system/css'
+import { FaExclamationTriangle } from 'react-icons/fa'
 
 const meta = {
   title: 'Overlays/Popover',
@@ -38,12 +41,24 @@ export const Playground: Story = {
     withArrow: true,
     arrowSize: 12,
     placement: 'bottom',
+    size: 'xs',
     isNonModal: true
   },
   render: (args) => (
     <DialogTrigger>
       <Button>Popover Trigger</Button>
-      <Popover {...args}>Hello there idiotlkj lksjf laskjdf ;laskdjf</Popover>
+      <Popover dialogProps={{ role: 'alertdialog' }} {...args}>
+        <DialogHeader
+          icon={<FaExclamationTriangle className={css({ color: 'error' })} />}
+        >
+          Dialog title on the
+        </DialogHeader>
+        <DialogContent>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus
+          non risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed
+          porttitor quam.
+        </DialogContent>
+      </Popover>
     </DialogTrigger>
   )
 }

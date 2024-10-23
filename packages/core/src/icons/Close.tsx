@@ -1,6 +1,8 @@
 export const Close = ({
   fill = 'currentColor',
   stroke = 'currentColor',
+  width = '1em',
+  height = '1em',
   strokeWidth = '0',
   ...props
 }: React.SVGProps<SVGSVGElement>) => {
@@ -9,6 +11,8 @@ export const Close = ({
       stroke={stroke}
       fill={fill}
       strokeWidth={strokeWidth}
+      width={width}
+      height={height}
       viewBox="0 0 384 512"
       xmlns="http://www.w3.org/2000/svg"
       {...props}

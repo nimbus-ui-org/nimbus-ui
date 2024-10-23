@@ -10,24 +10,44 @@ export const separator = defineRecipe({
   variants: {
     size: {
       xs: {
-        borderTopWidth: 'xs',
-        borderInlineStartWidth: 'xs'
+        _orientationHorizontal: {
+          borderTopWidth: 'xs'
+        },
+        _orientationVertical: {
+          borderInlineStartWidth: 'xs'
+        }
       },
       sm: {
-        borderTopWidth: 'sm',
-        borderInlineStartWidth: 'sm'
+        _orientationHorizontal: {
+          borderTopWidth: 'sm'
+        },
+        _orientationVertical: {
+          borderInlineStartWidth: 'sm'
+        }
       },
       md: {
-        borderTopWidth: 'md',
-        borderInlineStartWidth: 'md'
+        _orientationHorizontal: {
+          borderTopWidth: 'md'
+        },
+        _orientationVertical: {
+          borderInlineStartWidth: 'md'
+        }
       },
       lg: {
-        borderTopWidth: 'lg',
-        borderInlineStartWidth: 'lg'
+        _orientationHorizontal: {
+          borderTopWidth: 'lg'
+        },
+        _orientationVertical: {
+          borderInlineStartWidth: 'lg'
+        }
       },
       xl: {
-        borderTopWidth: 'xl',
-        borderInlineStartWidth: 'xl'
+        _orientationHorizontal: {
+          borderTopWidth: 'xl'
+        },
+        _orientationVertical: {
+          borderInlineStartWidth: 'xl'
+        }
       }
     }
   },

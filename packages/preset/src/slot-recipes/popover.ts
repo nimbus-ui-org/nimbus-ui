@@ -2,17 +2,18 @@ import { defineSlotRecipe } from '@pandacss/dev'
 
 export const popover = defineSlotRecipe({
   className: 'nimbus-popover',
-  slots: ['root', 'arrow', 'dialog'],
+  slots: ['root', 'arrow', 'inner'],
   jsx: ['Popover'],
   base: {
     root: {
+      maxWidth: '90%',
       reducedMotion: 'preference!',
       _entering: {
         animationName: 'fade',
         animationDuration: 'fast',
 
         // animating scale on popover affects offset so do it on the dialog
-        '& > section': {
+        '& > [data-dialog]': {
           animationName: 'popover-dialog',
           animationDuration: 'fast'
         }
@@ -23,7 +24,7 @@ export const popover = defineSlotRecipe({
         animationDirection: 'reverse',
 
         // animating scale on popover affects offset so do it on the dialog
-        '& > section': {
+        '& > [data-dialog]': {
           animationName: 'popover-dialog',
           animationDuration: 'fast',
           animationDirection: 'reverse'
@@ -37,20 +38,21 @@ export const popover = defineSlotRecipe({
         vectorEffect: 'non-scaling-stroke'
       }
     },
-    dialog: {
+    inner: {
       position: 'relative',
+      maxHeight: 'inherit',
       reducedMotion: 'preference!'
     }
   },
   variants: {
     variant: {
       plain: {
-        dialog: {
+        inner: {
           bgColor: 'base.bg.paper'
         }
       },
       blurred: {
-        dialog: {
+        inner: {
           bgColor: 'base.bg.paper.alpha',
           backdropFilter: 'auto',
           backdropBlur: 'lg'

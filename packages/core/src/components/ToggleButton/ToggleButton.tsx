@@ -45,11 +45,12 @@ interface Props {
   onChange?: ((isSelected: boolean, value?: string | null) => void) | undefined
 }
 
-const StyledToggleButton = styled(AriaToggleButton, toggleButton)
+const StyledToggleButton = styled(AriaToggleButton)
 
 type StyledToggleButtonProps = ComponentProps<typeof StyledToggleButton>
 
 export type ToggleButtonProps = AriaProps<Omit<StyledToggleButtonProps, 'onChange'>> &
+  ToggleButtonVariantProps &
   Props
 
 export const ToggleButton = forwardRef(
