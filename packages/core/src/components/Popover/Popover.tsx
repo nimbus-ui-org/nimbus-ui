@@ -92,6 +92,7 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
 
   return (
     <AriaPopover
+      data-has-dialog
       isNonModal={isNonModal}
       offset={newOffset}
       className={styles.root}
@@ -99,11 +100,7 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
       {...rest}
     >
       {(popoverRenderProps) => (
-        <Dialog
-          data-dialog
-          className={cx(dialog({ size }), styles.inner)}
-          {...dialogProps}
-        >
+        <Dialog className={cx(dialog({ size }), styles.inner)} {...dialogProps}>
           {(dialogRenderProps) => (
             <>
               {withArrow && (
