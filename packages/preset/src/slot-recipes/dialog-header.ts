@@ -9,7 +9,7 @@ export const dialogHeader = defineSlotRecipe({
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      paddingBlockEnd: '4'
+      paddingBlockEnd: 'var(--dialog-padding)'
     },
     heading: {
       display: 'flex',
@@ -26,12 +26,12 @@ export const dialogHeader = defineSlotRecipe({
     },
     close: {
       alignSelf: 'start',
-      marginBlockStart: '-2.5',
-      marginInlineEnd: '-2.5',
+      marginBlockStart: 'calc(var(--dialog-padding) / 1.6 * -1)',
+      marginInlineEnd: 'calc(var(--dialog-padding) / 1.6 * -1)',
       colorPalette: 'base'
     },
     separator: {
-      paddingBlockEnd: '4'
+      paddingBlockEnd: 'var(--dialog-padding)'
     }
   }
 })

@@ -30,7 +30,7 @@ interface Props {
 
   /**
    * If `true`, adds a separator.
-   * If `scrollType` on parent modal is `'content'`, removes it.
+   * If `scrollType` on parent is `'content'`, removes it.
    * @default true
    */
   withSeparator?: boolean
@@ -106,7 +106,7 @@ export const DialogHeader = forwardRef(
               </IconButton>
             ))}
         </StyledDialogHeader>
-        {withSeparator && <Separator className={styles.separator} />}
+        {withSeparator && <Separator data-separator className={styles.separator} />}
       </>
     )
   }

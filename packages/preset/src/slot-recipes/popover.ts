@@ -50,6 +50,7 @@ export const popover = defineSlotRecipe({
     },
     inner: {
       maxHeight: 'inherit',
+      borderRadius: 'inherit',
       overflow: 'auto'
     }
   },
