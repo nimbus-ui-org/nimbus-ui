@@ -2,18 +2,18 @@ import { defineSlotRecipe } from '@pandacss/dev'
 
 export const popover = defineSlotRecipe({
   className: 'nimbus-popover',
-  slots: ['root', 'arrow', 'inner'],
+  slots: ['root', 'arrow', 'wrapper', 'inner'],
   jsx: ['Popover'],
   base: {
     root: {
-      maxWidth: '90%',
+      maxWidth: '90vw',
       reducedMotion: 'preference!',
       _entering: {
         animationName: 'fade',
         animationDuration: 'fast',
 
-        // animating scale on popover affects offset so do it on the dialog
-        '&[data-has-dialog] > section': {
+        // animating scale on popover affects offset so do it on wrapper element
+        '&[data-has-dialog] > [data-wrapper]': {
           animationName: 'popover-dialog',
           animationDuration: 'fast'
         }
@@ -23,8 +23,8 @@ export const popover = defineSlotRecipe({
         animationDuration: 'fast',
         animationDirection: 'reverse',
 
-        // animating scale on popover affects offset so do it on the dialog
-        '&[data-has-dialog] > section': {
+        // animating scale on popover affects offset so do it on wrapper element
+        '&[data-has-dialog] > [data-wrapper]': {
           animationName: 'popover-dialog',
           animationDuration: 'fast',
           animationDirection: 'reverse'
@@ -38,10 +38,19 @@ export const popover = defineSlotRecipe({
         vectorEffect: 'non-scaling-stroke'
       }
     },
-    inner: {
+    wrapper: {
       position: 'relative',
       maxHeight: 'inherit',
-      reducedMotion: 'preference!'
+      reducedMotion: 'preference!',
+      borderRadius: 'default',
+      borderWidth: 'xs',
+      borderColor: 'base.border',
+      boxShadow: 'overlay',
+      boxSizing: 'content-box'
+    },
+    inner: {
+      maxHeight: 'inherit',
+      overflow: 'auto'
     }
   },
   variants: {

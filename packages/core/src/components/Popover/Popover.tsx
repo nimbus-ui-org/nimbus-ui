@@ -74,6 +74,7 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
     offset = 8,
     isNonModal = true,
     size,
+    scrollType,
     ...otherProps
   } = props
 
@@ -100,22 +101,24 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
       {...rest}
     >
       {(popoverRenderProps) => (
-        <Dialog className={cx(dialog({ size }), styles.inner)} {...dialogProps}>
-          {(dialogRenderProps) => (
-            <>
-              {withArrow && (
-                <OverlayArrow className={cx(overlayArrow(), styles.arrow)}>
-                  <Arrow width={arrowSize} height={arrowSize} />
-                </OverlayArrow>
-              )}
-
-              {renderChildren(children, {
+        <div data-wrapper className={styles.wrapper}>
+          {withArrow && (
+            <OverlayArrow className={cx(overlayArrow(), styles.arrow)}>
+              <Arrow width={arrowSize} height={arrowSize} />
+            </OverlayArrow>
+          )}
+          <Dialog
+            className={cx(dialog({ size, scrollType }), styles.inner)}
+            {...dialogProps}
+          >
+            {(dialogRenderProps) =>
+              renderChildren(children, {
                 ...popoverRenderProps,
                 ...dialogRenderProps
-              })}
-            </>
-          )}
-        </Dialog>
+              })
+            }
+          </Dialog>
+        </div>
       )}
     </AriaPopover>
   )

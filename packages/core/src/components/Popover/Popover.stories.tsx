@@ -35,6 +35,10 @@ export const Playground: Story = {
     size: {
       control: 'select',
       options: dialog.variantMap.size
+    },
+    scrollType: {
+      control: 'radio',
+      options: dialog.variantMap.scrollType
     }
   },
   args: {
