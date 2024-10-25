@@ -11,6 +11,7 @@ export const dialog = defineRecipe({
     padding: 'var(--dialog-padding)',
     outline: 'none',
     maxWidth: '100%',
+    overflow: 'auto',
     '& [data-section="content"]': {
       flex: '1 1 0%'
     },
@@ -22,26 +23,6 @@ export const dialog = defineRecipe({
     }
   },
   variants: {
-    size: {
-      xs: {
-        width: '96'
-      },
-      sm: {
-        width: 'md'
-      },
-      md: {
-        width: 'lg'
-      },
-      lg: {
-        width: 'xl'
-      },
-      xl: {
-        width: '2xl'
-      },
-      auto: {
-        width: 'auto'
-      }
-    },
     scrollType: {
       inner: {
         padding: '0',
@@ -58,12 +39,6 @@ export const dialog = defineRecipe({
         '& [data-section="content"]': {
           padding: 'var(--dialog-padding)',
           overflowY: 'auto'
-          // '&:not(:first-child)': {
-          //   paddingBlockStart: 'var(--dialog-padding)'
-          // },
-          // '&:not(:last-child)': {
-          //   paddingBlockEnd: 'var(--dialog-padding)'
-          // }
         },
         '& [data-separator]': {
           display: 'none'

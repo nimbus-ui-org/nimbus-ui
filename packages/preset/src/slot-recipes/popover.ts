@@ -49,23 +49,53 @@ export const popover = defineSlotRecipe({
       boxSizing: 'content-box'
     },
     inner: {
-      maxHeight: 'inherit',
-      borderRadius: 'inherit',
-      overflow: 'auto'
+      maxHeight: 'inherit'
     }
   },
   variants: {
     variant: {
       plain: {
-        inner: {
-          bgColor: 'base.bg.paper'
+        wrapper: {
+          bg: 'base.bg.paper'
         }
       },
       blurred: {
-        inner: {
+        wrapper: {
           bgColor: 'base.bg.paper.alpha',
           backdropFilter: 'auto',
           backdropBlur: 'lg'
+        }
+      }
+    },
+    size: {
+      xs: {
+        inner: {
+          width: '96'
+        }
+      },
+      sm: {
+        inner: {
+          width: 'md'
+        }
+      },
+      md: {
+        inner: {
+          width: 'lg'
+        }
+      },
+      lg: {
+        inner: {
+          width: 'xl'
+        }
+      },
+      xl: {
+        inner: {
+          width: '2xl'
+        }
+      },
+      auto: {
+        inner: {
+          width: 'auto'
         }
       }
     }

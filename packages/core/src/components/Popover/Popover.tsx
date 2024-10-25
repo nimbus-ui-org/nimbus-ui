@@ -73,7 +73,6 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
     arrowSize = 12,
     offset = 8,
     isNonModal = true,
-    size,
     scrollType,
     ...otherProps
   } = props
@@ -107,10 +106,7 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
               <Arrow width={arrowSize} height={arrowSize} />
             </OverlayArrow>
           )}
-          <Dialog
-            className={cx(dialog({ size, scrollType }), styles.inner)}
-            {...dialogProps}
-          >
+          <Dialog className={cx(dialog({ scrollType }), styles.inner)} {...dialogProps}>
             {(dialogRenderProps) =>
               renderChildren(children, {
                 ...popoverRenderProps,
