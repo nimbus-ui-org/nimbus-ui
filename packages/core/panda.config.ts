@@ -15,7 +15,7 @@ export default defineConfig({
   exclude: ['./src/**/*.stories.tsx'],
 
   // no random css properties
-  strictPropertyValues: false,
+  strictPropertyValues: true,
 
   // strict tokens
   strictTokens: true,

@@ -4,11 +4,13 @@ import { toggleButton } from './toggle-button'
 import { popover } from './popover'
 import { dialogHeader } from './dialog-header'
 import { modal } from './modal'
+import { drawer } from './drawer'
 
 export const slotRecipes: Record<string, Partial<SlotRecipeConfig>> = {
   button,
   toggleButton,
   popover,
   dialogHeader,
-  modal
+  modal,
+  drawer
 }

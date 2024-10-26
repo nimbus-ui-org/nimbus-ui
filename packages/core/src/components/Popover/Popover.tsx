@@ -7,7 +7,7 @@ import {
   type PopoverRecipe,
   type PopoverVariantProps
 } from '@nimbus-ui/styled-system/recipes'
-import { renderChildren, useStyles, type AriaProps, type SlotsClasses } from '@utils'
+import { rem, renderChildren, useStyles, type AriaProps, type SlotsClasses } from '@utils'
 import {
   useContextProps,
   PopoverContext,
@@ -47,6 +47,12 @@ interface Props {
    */
   arrowSize?: number
 
+  /**
+   * Spacing between elements.
+   * @default 16.
+   */
+  gutter?: number
+
   children?:
     | React.ReactNode
     | ((
@@ -74,6 +80,7 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
     offset = 8,
     isNonModal = true,
     scrollType,
+    gutter,
     ...otherProps
   } = props
 
@@ -106,7 +113,11 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
               <Arrow width={arrowSize} height={arrowSize} />
             </OverlayArrow>
           )}
-          <Dialog className={cx(dialog({ scrollType }), styles.inner)} {...dialogProps}>
+          <Dialog
+            className={cx(dialog({ scrollType }), styles.inner)}
+            style={{ '--dialog-gutter': rem(gutter) } as React.CSSProperties}
+            {...dialogProps}
+          >
             {(dialogRenderProps) =>
               renderChildren(children, {
                 ...popoverRenderProps,

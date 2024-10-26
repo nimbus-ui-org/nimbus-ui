@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { Box, Center } from '@nimbus-ui/styled-system/jsx'
 import { DialogTrigger } from 'react-aria-components'
 import { Button } from '@components/Button'
-import { modal } from '@nimbus-ui/styled-system/recipes'
+import { drawer } from '@nimbus-ui/styled-system/recipes'
 import { DialogContent, DialogFooter, DialogHeader } from '@components/Dialog'
 import { css } from '@nimbus-ui/styled-system/css'
 import { FaExclamationTriangle } from 'react-icons/fa'
-import { Modal } from './Modal'
+import { Drawer } from './Drawer'
 
 const meta = {
-  title: 'Overlays/Modal',
-  component: Modal,
+  title: 'Overlays/Drawer',
+  component: Drawer,
   decorators: [
     (Story) => (
       <Box h="[150lvh]">
@@ -30,20 +30,26 @@ export const Playground: Story = {
   argTypes: {
     size: {
       control: 'select',
-      options: modal.variantMap.size
+      options: drawer.variantMap.size
     },
     scrollType: {
       control: 'radio',
-      options: modal.variantMap.scrollType
+      options: drawer.variantMap.scrollType
+    },
+    placement: {
+      control: 'select',
+      options: ['top', 'bottom', 'start', 'end', 'left', 'right']
     }
   },
   args: {
-    size: 'xs'
+    size: 'xs',
+    placement: 'start',
+    containerPadding: 0
   },
   render: (args) => (
     <DialogTrigger>
-      <Button>Modal Trigger</Button>
-      <Modal dialogProps={{ role: 'alertdialog' }} {...args}>
+      <Button>Drawer Trigger</Button>
+      <Drawer dialogProps={{ role: 'alertdialog' }} {...args}>
         {({ close }) => (
           <>
             <DialogHeader
@@ -64,7 +70,7 @@ export const Playground: Story = {
             </DialogFooter>
           </>
         )}
-      </Modal>
+      </Drawer>
     </DialogTrigger>
   )
 }
