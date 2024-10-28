@@ -1,3 +1,3 @@
-export const rem = (px?: number) => {
-  return typeof px === 'number' ? `${px / 16}rem` : undefined
+export const rem = (px: number) => {
+  return `${px / 16}rem`
 }

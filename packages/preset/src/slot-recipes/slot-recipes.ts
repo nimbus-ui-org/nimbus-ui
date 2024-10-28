@@ -5,6 +5,7 @@ import { popover } from './popover'
 import { dialogHeader } from './dialog-header'
 import { modal } from './modal'
 import { drawer } from './drawer'
+import { tooltip } from './tooltip'
 
 export const slotRecipes: Record<string, Partial<SlotRecipeConfig>> = {
   button,
@@ -12,5 +13,6 @@ export const slotRecipes: Record<string, Partial<SlotRecipeConfig>> = {
   popover,
   dialogHeader,
   modal,
-  drawer
+  drawer,
+  tooltip
 }

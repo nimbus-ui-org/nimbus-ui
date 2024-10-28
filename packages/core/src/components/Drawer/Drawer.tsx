@@ -122,7 +122,11 @@ export const Drawer = forwardRef((props: DrawerProps, ref: React.Ref<HTMLDivElem
         {(modalRenderProps) => (
           <Dialog
             className={cx(dialog({ scrollType: props.scrollType }), styles.inner)}
-            style={{ '--dialog-gutter': rem(gutter) } as React.CSSProperties}
+            style={
+              {
+                '--dialog-gutter': typeof gutter === 'number' && rem(gutter)
+              } as React.CSSProperties
+            }
             {...dialogProps}
           >
             {(dialogRenderProps) =>

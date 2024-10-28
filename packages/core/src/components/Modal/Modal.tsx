@@ -71,7 +71,11 @@ export const Modal = forwardRef((props: ModalProps, ref: React.Ref<HTMLDivElemen
         {(modalRenderProps) => (
           <Dialog
             className={cx(dialog({ scrollType: props.scrollType }), styles.inner)}
-            style={{ '--dialog-gutter': rem(gutter) } as React.CSSProperties}
+            style={
+              {
+                '--dialog-gutter': typeof gutter === 'number' && rem(gutter)
+              } as React.CSSProperties
+            }
             {...dialogProps}
           >
             {(dialogRenderProps) =>

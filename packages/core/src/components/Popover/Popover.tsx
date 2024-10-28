@@ -115,7 +115,11 @@ export const Popover = forwardRef((props: PopoverProps, ref: React.Ref<HTMLEleme
           )}
           <Dialog
             className={cx(dialog({ scrollType }), styles.inner)}
-            style={{ '--dialog-gutter': rem(gutter) } as React.CSSProperties}
+            style={
+              {
+                '--dialog-gutter': typeof gutter === 'number' && rem(gutter)
+              } as React.CSSProperties
+            }
             {...dialogProps}
           >
             {(dialogRenderProps) =>
