@@ -30,7 +30,7 @@ export const Playground: Story = {
   },
   render: (args) => (
     <TooltipTrigger delay={500}>
-      <Button>Popover Trigger</Button>
+      <Button>Hover to open tooltip</Button>
       <Tooltip {...args}>Tooltip Content</Tooltip>
     </TooltipTrigger>
   )
