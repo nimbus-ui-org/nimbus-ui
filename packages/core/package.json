@@ -99,6 +99,7 @@
   },
   "dependencies": {
     "@nimbus-ui/hooks": "workspace:*",
+    "@nimbus-ui/shared": "workspace:*",
     "react-aria-components": "1.4.1"
   },
   "devDependencies": {

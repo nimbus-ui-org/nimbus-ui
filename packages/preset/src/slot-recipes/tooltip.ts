@@ -1,5 +1,5 @@
+import { rem } from '@nimbus-ui/shared'
 import { defineSlotRecipe } from '@pandacss/dev'
-import { rem } from '@utils'
 
 export const tooltip = defineSlotRecipe({
   className: 'nimbus-tooltip',

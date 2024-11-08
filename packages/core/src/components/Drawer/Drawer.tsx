@@ -6,7 +6,7 @@ import {
   type DrawerRecipe,
   type DrawerVariantProps
 } from '@nimbus-ui/styled-system/recipes'
-import { rem, renderChildren, useStyles, type AriaProps, type SlotsClasses } from '@utils'
+import { renderChildren, useStyles, type AriaProps, type SlotsClasses } from '@utils'
 import {
   useContextProps,
   Dialog,
@@ -19,6 +19,7 @@ import {
   useLocale
 } from 'react-aria-components'
 import { cx } from '@nimbus-ui/styled-system/css'
+import { rem } from '@nimbus-ui/shared'
 
 interface Props {
   /**

@@ -1,6 +1,6 @@
 import { defineSemanticTokens, type SemanticTokens } from '@pandacss/dev'
 import type { FlattenedPalettes } from '@preset'
-import { switchCase } from '@utils'
+import { switchCase } from '@nimbus-ui/shared'
 
 const convertPaletteToShadowsSemanticTokens = (palette: string) => {
   const getColor = (alphaValue: number, mode: 'light' | 'dark') => {

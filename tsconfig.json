@@ -26,7 +26,8 @@
       "@docs/styled-system/*": ["./docs/styled-system/*"],
       "@nimbus/core/*": ["./packages/core/src/*"],
       "@nimbus/hooks/*": ["./packages/hooks/src/*"],
-      "@nimbus/preset/*": ["./packages/preset/src/*"]
+      "@nimbus/preset/*": ["./packages/preset/src/*"],
+      "@nimbus/shared/*": ["./packages/shared/src/*"]
     }
   },
   "include": ["packages", "docs", "@types", "vitest.config.ts", "vitest.setup.ts"]

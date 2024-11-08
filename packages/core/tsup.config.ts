@@ -11,7 +11,7 @@ const commonOptions: Options = {
   treeshake: true, // use rollup treeshake instead of esbuild. but cannot use with banner property
   sourcemap: true, // generate .map files
   clean: true,
-  external: ['@nimbus-ui/styled-system', '@nimbus-ui/hooks'],
+  external: ['@nimbus-ui/styled-system', '@nimbus-ui/hooks', '@nimbus-ui/shared'],
   /* minify set to true removes pure annotations so use these options instead */
   minifyIdentifiers: true,
   minifySyntax: true,

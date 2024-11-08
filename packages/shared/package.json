@@ -1,21 +1,14 @@
 {
-  "name": "@nimbus-ui/hooks",
+  "name": "@nimbus-ui/shared",
   "version": "1.0.0",
-  "description": "Performant and flexible hooks library by Nimbus UI.",
+  "description": "Internal package shared between Nimbus UI packages.",
   "author": "moja",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/nimbus-ui-org/nimbus-ui.git",
-    "directory": "/packages/hooks"
+    "directory": "/packages/shared"
   },
-  "keywords": [
-    "hooks",
-    "react",
-    "react-hooks",
-    "utils",
-    "library"
-  ],
   "sideEffects": false,
   "exports": {
     ".": {
@@ -45,15 +38,5 @@
     "clean": "rm -rf .turbo && rm -rf node_modules",
     "pack:local": "pnpm pack",
     "pack:clean": "rm *.tgz"
-  },
-  "dependencies": {
-    "@nimbus-ui/shared": "workspace:*"
-  },
-  "devDependencies": {
-    "react": "^18.3.1"
-  },
-  "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
   }
 }

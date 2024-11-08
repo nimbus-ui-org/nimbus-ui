@@ -1,6 +1,6 @@
+import { rem } from '@nimbus-ui/shared'
 import { defineSemanticTokens } from '@pandacss/dev'
 import type { NimbusPresetConfig } from '@preset'
-import { rem } from '@utils'
 
 export const getRadius = (config: NimbusPresetConfig) => {
   let radius = config.radius ?? 'sm'

@@ -1,5 +1,5 @@
+import { rem } from '@nimbus-ui/shared'
 import { defineTokens } from '@pandacss/dev'
-import { rem } from '@utils'
 
 export const borderWidths = defineTokens.borderWidths({
   none: { value: '0' },
