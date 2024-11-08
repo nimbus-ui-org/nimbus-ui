@@ -18,6 +18,7 @@
     "build": "turbo build --filter=!docs",
     "build:preset": "turbo build --filter=@nimbus-ui/preset",
     "build:hooks": "turbo build --filter=@nimbus-ui/hooks",
+    "build:shared": "turbo build --filter=@nimbus-ui/shared",
     "build:storybook": "storybook build",
     "lint": "eslint -c .eslintrc.cjs --ext .js,.ts,.jsx,.tsx . --max-warnings=0",
     "prettier:check": "prettier --check .",
