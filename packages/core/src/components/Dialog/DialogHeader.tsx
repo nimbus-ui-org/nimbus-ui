@@ -98,7 +98,7 @@ export const DialogHeader = forwardRef(
             ) : (
               <IconButton
                 className={styles.close}
-                onPress={() => state.close()}
+                onPress={() => state?.close()}
                 size="sm"
                 variant="subtle"
               >
