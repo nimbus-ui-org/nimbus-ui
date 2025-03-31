@@ -8,27 +8,13 @@ export const popover = defineSlotRecipe({
     root: {
       maxWidth: '90vw',
       reducedMotion: 'preference!',
+      transitionProperty: 'opacity',
+      transitionDuration: 'fast',
       _entering: {
-        animationName: 'fade',
-        animationDuration: 'fast',
-
-        // animating scale on popover affects offset so do it on wrapper element
-        '&[data-has-dialog] > [data-wrapper]': {
-          animationName: 'popover-dialog',
-          animationDuration: 'fast'
-        }
+        opacity: 0
       },
       _exiting: {
-        animationName: 'fade',
-        animationDuration: 'fast',
-        animationDirection: 'reverse',
-
-        // animating scale on popover affects offset so do it on wrapper element
-        '&[data-has-dialog] > [data-wrapper]': {
-          animationName: 'popover-dialog',
-          animationDuration: 'fast',
-          animationDirection: 'reverse'
-        }
+        opacity: 0
       }
     },
     arrow: {

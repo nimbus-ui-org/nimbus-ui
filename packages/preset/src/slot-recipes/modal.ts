@@ -16,15 +16,15 @@ export const modal = defineSlotRecipe({
       boxSizing: 'content-box',
       maxWidth: '100%',
       reducedMotion: 'preference!',
-      animationDuration: 'fast',
+      transitionProperty: 'opacity, translate',
+      transitionDuration: 'fast',
       _entering: {
-        animationName: 'fade-to-top',
-        animationDuration: 'fast'
+        translate: '0 10%',
+        opacity: 0
       },
       _exiting: {
-        animationName: 'fade-to-top',
-        animationDuration: 'fast',
-        animationDirection: 'reverse'
+        translate: '0 10%',
+        opacity: 0
       }
     },
     overlay: {
@@ -39,14 +39,13 @@ export const modal = defineSlotRecipe({
       justifyContent: 'center',
       paddingInline: '5vw',
       reducedMotion: 'preference!',
+      transitionProperty: 'opacity',
+      transitionDuration: 'fast',
       _entering: {
-        animationName: 'fade',
-        animationDuration: 'fast'
+        opacity: 0
       },
       _exiting: {
-        animationName: 'fade',
-        animationDuration: 'fast',
-        animationDirection: 'reverse'
+        opacity: 0
       }
     }
   },
@@ -126,7 +125,7 @@ export const modal = defineSlotRecipe({
         overlay: {
           padding: '0!',
           backgroundColor: 'transparent',
-          animationName: 'none'
+          transitionProperty: 'none'
         }
       }
     }

@@ -131,13 +131,5 @@ export const keyframes = defineKeyframes({
       opacity: 1,
       scale: 1
     }
-  },
-  'popover-dialog': {
-    from: {
-      scale: 0.9
-    },
-    to: {
-      scale: 1
-    }
   }
 })

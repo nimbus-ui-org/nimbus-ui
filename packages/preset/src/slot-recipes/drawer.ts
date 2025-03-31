@@ -18,53 +18,42 @@ export const drawer = defineSlotRecipe({
       flexShrink: '0',
       margin: 'var(--container-padding)',
       reducedMotion: 'preference!',
-      animationDuration: 'fast',
+      transitionProperty: 'translate',
+      transitionDuration: 'fast',
       '&[data-placement="left"]': {
         borderRightWidth: 'xs',
         _entering: {
-          animationName: 'slide-to-right',
-          animationDuration: 'fast'
+          translate: '-100% 0'
         },
         _exiting: {
-          animationName: 'slide-to-right',
-          animationDuration: 'fast',
-          animationDirection: 'reverse'
+          translate: '-100% 0'
         }
       },
       '&[data-placement="right"]': {
         borderLeftWidth: 'xs',
         _entering: {
-          animationName: 'slide-to-left',
-          animationDuration: 'fast'
+          translate: '100% 0'
         },
         _exiting: {
-          animationName: 'slide-to-left',
-          animationDuration: 'fast',
-          animationDirection: 'reverse'
+          translate: '100% 0'
         }
       },
       '&[data-placement="top"]': {
         borderBottomWidth: 'xs',
         _entering: {
-          animationName: 'slide-to-bottom',
-          animationDuration: 'fast'
+          translate: '0 -100%'
         },
         _exiting: {
-          animationName: 'slide-to-bottom',
-          animationDuration: 'fast',
-          animationDirection: 'reverse'
+          translate: '0 -100%'
         }
       },
       '&[data-placement="bottom"]': {
         borderToWidth: 'xs',
         _entering: {
-          animationName: 'slide-to-top',
-          animationDuration: 'fast'
+          translate: '0 100%'
         },
         _exiting: {
-          animationName: 'slide-to-top',
-          animationDuration: 'fast',
-          animationDirection: 'reverse'
+          translate: '0 100%'
         }
       }
     },
@@ -78,14 +67,13 @@ export const drawer = defineSlotRecipe({
       background: 'base.bg.overlay',
       display: 'flex',
       reducedMotion: 'preference!',
+      transitionProperty: 'opacity',
+      transitionDuration: 'fast',
       _entering: {
-        animationName: 'fade',
-        animationDuration: 'fast'
+        opacity: 0
       },
       _exiting: {
-        animationName: 'fade',
-        animationDuration: 'fast',
-        animationDirection: 'reverse'
+        opacity: 0
       },
       '&[data-placement="left"]': {
         justifyContent: 'left'

@@ -14,48 +14,46 @@ export const tooltip = defineSlotRecipe({
       fontSize: 'xs',
       reducedMotion: 'preference!',
       borderRadius: 'default',
+      transitionProperty: 'opacity, translate',
+      transitionDuration: 'fast',
       '&[data-placement="left"]': {
         _entering: {
-          animationName: 'fade-to-left',
-          animationDuration: 'fast'
+          translate: '10% 0',
+          opacity: 0
         },
         _exiting: {
-          animationName: 'fade-to-left',
-          animationDuration: 'fast',
-          animationDirection: 'reverse'
+          translate: '10% 0',
+          opacity: 0
         }
       },
       '&[data-placement="right"]': {
         _entering: {
-          animationName: 'fade-to-right',
-          animationDuration: 'fast'
+          translate: '-10% 0',
+          opacity: 0
         },
         _exiting: {
-          animationName: 'fade-to-right',
-          animationDuration: 'fast',
-          animationDirection: 'reverse'
+          translate: '-10% 0',
+          opacity: 0
         }
       },
       '&[data-placement="top"]': {
         _entering: {
-          animationName: 'fade-to-top',
-          animationDuration: 'fast'
+          translate: '0 10%',
+          opacity: 0
         },
         _exiting: {
-          animationName: 'fade-to-top',
-          animationDuration: 'fast',
-          animationDirection: 'reverse'
+          translate: '0 10%',
+          opacity: 0
         }
       },
       '&[data-placement="bottom"]': {
         _entering: {
-          animationName: 'fade-to-bottom',
-          animationDuration: 'fast'
+          translate: '0 -10%',
+          opacity: 0
         },
         _exiting: {
-          animationName: 'fade-to-bottom',
-          animationDuration: 'fast',
-          animationDirection: 'reverse'
+          translate: '0 -10%',
+          opacity: 0
         }
       }
     },

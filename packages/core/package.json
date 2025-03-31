@@ -102,7 +102,7 @@
     "@nimbus-ui/shared": "workspace:*",
     "@react-aria/toast": "3.0.0-beta.18",
     "@react-stately/toast": "3.0.0-beta.7",
-    "react-aria-components": "1.5.0"
+    "react-aria-components": "1.7.1"
   },
   "devDependencies": {
     "@nimbus-ui/preset": "workspace:*",
