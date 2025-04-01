@@ -58,7 +58,7 @@ export const globalTypes = {
       clearable: true,
       toolbar: {
         title: 'Change data-theme attribute',
-        icon: 'paintbrush'
+        icon: 'PaintBrushIcon'
       }
     } satisfies ThemeConfig
   },

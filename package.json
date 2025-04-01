@@ -51,11 +51,11 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/eslint": "^8.56.12",
     "@types/jest-axe": "^3.5.9",
-    "@types/node": "^22.13.14",
+    "@types/node": "^22.13.17",
     "@types/react": "^18.3.20",
     "@types/react-dom": "^18.3.5",
-    "@typescript-eslint/eslint-plugin": "^8.28.0",
-    "@typescript-eslint/parser": "^8.28.0",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.29.0",
     "autoprefixer": "^10.4.21",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
@@ -74,19 +74,19 @@
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
     "storybook": "^8.6.11",
-    "storybook-addon-data-theme-switcher": "^0.4.2",
+    "storybook-addon-data-theme-switcher": "^1.0.1",
     "storybook-dark-mode": "^4.0.2",
     "tsc-alias": "^1.8.13",
     "tsup": "^8.4.0",
     "turbo": "^2.4.4",
     "typescript": "^5.8.2",
-    "vite": "^6.2.3",
+    "vite": "^6.2.4",
     "vite-tsconfig-paths": "^5.1.4",
-    "vitest": "3.0.9"
+    "vitest": "3.1.1"
   },
   "engines": {
     "node": ">=20.x",
     "pnpm": ">=10.x"
   },
-  "packageManager": "pnpm@10.7.0"
+  "packageManager": "pnpm@10.7.1+sha256.dc514890ea719003cb7a57d6b21af24fdafadd9f171e7567eca1665d7cfcef76"
 }
